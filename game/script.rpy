@@ -24,14 +24,8 @@ label start:
 
     # These display lines of dialogue.
 
-    e "Did you change the name and save directory of the game in options.rpy?"
-
-    $ answer = renpy.input("Did you change the values at the top of options.rpy?").strip().lower()
-
-    if answer == "yes":
-        "Good job"
-    else:
-        e "If not, you should do so right away! Saves will not work properly until you do."
+    "Autumn" "HI BLAAKKEE!! (and misha if you see this)"
+    "Autumn" "Please poke around this template. It's very easy to customize the GUI!"
 
     $ renpy.notify("This is a notification")
 

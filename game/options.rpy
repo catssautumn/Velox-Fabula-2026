@@ -14,13 +14,13 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("")
+define config.name = _("Velox Fabula")
 
 ## A short name for the game used for executables and directories in the built
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = ""
+define build.name = "VF"
 
 ## Save directory ##############################################################
 ##
@@ -37,7 +37,7 @@ define build.name = ""
 ## literal string, not an expression.
 
 ## Note: a typical save_directory value looks like "FreshProject-1671818013"
-define config.save_directory = None
+define config.save_directory = "VF-saves"
 
 
 ## The version of the game.
