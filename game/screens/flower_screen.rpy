@@ -5,16 +5,18 @@ init -1 python:
             self.image = image
             self.correct = correct
 
-        def RightChoice(self):
-            global bloomed_flower
+        def RightChoice(self, newimage):
             self.correct = True
-            self.image = "bloomed_flower"
+            self.image = newimage
             return
 image default_flower:
     "gui/flower_bud.png"
     # replace with final image file
 image bloomed_flower: 
     "gui/bloomed_flower.png"
+    # replace with final image file
+image bloomed_flower_2: 
+    "images/profile images/icon momo.png"
     # replace with final image file
 
 default Flower1 = Flowers("default_flower", False)
@@ -51,10 +53,16 @@ screen flower_frame():
             for i in right_flowers:
                 add i.image zoom 0.25 # might remove the zoom depending on how big the final flowers are
 
-# show screen flower_frame()
-    # menu:
-    #     "Right Choice":
-    #         $ Flower1.RightChoice()
-    #     "Wrong Choice":
-    #         pass
-        # example of how to use this. we can add or remove flowers 
+#     show screen flower_frame()
+#     menu:
+#         "Right Choice":
+#             $ Flower1.RightChoice("bloomed_flower")
+#         "Wrong Choice":
+#             pass
+        
+#     menu:
+#         "Right Choice":
+#             $ Flower2.RightChoice("bloomed_flower_2")
+#         "Wrong Choice":
+#             pass
+        # example of how to use this. we can add or remove flowers. use different strings for different images
