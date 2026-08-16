@@ -24,17 +24,23 @@ label start:
 
     # These display lines of dialogue.
 
-    "Autumn" "HI BLAAKKEE!! (and misha if you see this)"
-    "Autumn" "Please poke around this template. It's very easy to customize the GUI!"
+    python:
+        povname = renpy.input("What is your name?", default = "Rowan", length=9,)
 
-    $ renpy.notify("This is a notification")
+        povname = povname.strip()
+
+        if not povname:
+            povname = "Rowan"
 
     menu:
-        "This is a sample choice menu"
-        "Choice 1":
-            pass
-        "Choice 2":
-            pass
-    # This ends the game.
+        "What are your pronouns?"
+        "They/them":
+            $ pronoun = "they/them"
+        "She/her":
+            $ pronoun = "she/her"
+        "He/him":
+            $ pronoun = "he/him"
+
+    "Autumn" "[povname] shined brightly in [their] last movie, {i}Indiana Bones{/i}. But compared to Valen, I wonder if [they_re] falling behind?"
 
     return
