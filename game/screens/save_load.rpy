@@ -58,7 +58,7 @@ screen file_slots(title):
                 value page_name_value
 
         ## The grid of file slots.
-        grid 3 2:
+        grid 2 3:
             style_prefix "slot"
 
             for i in range(3*2):
@@ -84,22 +84,25 @@ screen file_slots(title):
 
         ## Buttons to access other pages.
         vbox:
+
             style_prefix "page"
             hbox:
-                textbutton _("<") action FilePagePrevious()
+                textbutton _("{size=20}<") action FilePagePrevious()
 
                 if config.has_autosave:
-                    textbutton _("{#auto_page}A") action FilePage("auto")
+                    textbutton _("{size=20}{#auto_page}A") action FilePage("auto")
 
                 if config.has_quicksave:
-                    textbutton _("{#quick_page}Q") action FilePage("quick")
+                    textbutton _("{size=20}{#quick_page}Q") action FilePage("quick")
 
                 ## range(1, 10) gives the numbers from 1 to 9.
                 for page in range(1, 10):
-                    textbutton "[page]" action FilePage(page)
+                    textbutton "{size=20}[page]" action FilePage(page)
 
-                textbutton _(">") action FilePageNext()
-
+                textbutton _("{size=20}>") action FilePageNext()
+        frame:
+            background None
+            xalign 1.0 yalign 1.0
             if config.has_sync:
                 if CurrentScreenName() == "save":
                     textbutton _("Upload Sync"):
@@ -149,7 +152,7 @@ style page_hbox:
 
 style page_vbox:
     xalign 0.5
-    yalign 1.0
+    yanchor 0.5 ypos 0.95
     spacing 5
 
 style page_button:

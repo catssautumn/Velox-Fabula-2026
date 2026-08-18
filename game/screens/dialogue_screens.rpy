@@ -38,7 +38,7 @@ init python:
 # Style for the dialogue window
 style window:
     xalign 0.5
-    yalign 1.0
+    yanchor 1.0 ypos 0.95
     xysize (1231, 277)
     padding (40, 10, 40, 40)
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
@@ -46,7 +46,10 @@ style window:
 # Style for the dialogue
 style say_dialogue:
     adjust_spacing False
-    ypos 60
+    yalign 0.5
+    color '#000'
+    xalign 0.5
+    xysize (790, 150)
 
 # The style for dialogue said by the narrator
 style say_thought:
@@ -54,16 +57,16 @@ style say_thought:
 
 # Style for the box containing the speaker's name
 style namebox:
-    xpos 20
+    xalign 0.5
+    yalign 0.0
     xysize (None, None)
-    background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
-    padding (5, 5, 5, 5)
+    background Image("gui/namebox.png", xalign=0.5, ypos=-1.025)
 
 # Style for the text with the speaker's name
 style say_label:
-    color '#f93c3e'
+    color '#5D3232'
     xalign 0.0
-    yalign 0.5
+    ypos -0.5
     size gui.name_text_size
     font gui.name_text_font
 
@@ -81,14 +84,20 @@ screen quick_menu():
     if quick_menu:
 
         hbox:
-            style_prefix "quick"
-
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Prefs") action ShowMenu('preferences')
+            xalign 0.5 yanchor 0.5 ypos 0.95
+            spacing 56
+            imagebutton auto "gui/qmenu/save_%s.png" action ShowMenu('save')
+            imagebutton auto "gui/qmenu/skip_%s.png":
+                selected_idle "gui/qmenu/skip_hover.png"
+                action Skip() alternate Skip(fast=True, confirm=True)
+            imagebutton auto "gui/qmenu/auto_%s.png":
+                selected_idle "gui/qmenu/auto_hover.png"
+                action Preference("auto-forward", "toggle")
+            imagebutton auto "gui/qmenu/history_%s.png" action ShowMenu('history')
+            imagebutton auto "gui/qmenu/settings_%s.png" action ShowMenu('preferences')
+            imagebutton auto "gui/qmenu/home_%s.png" action MainMenu(confirm=True)
+ 
+            
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever

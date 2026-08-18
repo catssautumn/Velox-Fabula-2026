@@ -6,6 +6,7 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
+default hint_flowers_showing = True
 screen preferences():
 
     tag menu
@@ -53,6 +54,10 @@ screen preferences():
                 gui.SetPreference("interface_font", "gui/fonts/EBGaramond.ttf"), gui.SetPreference("name_font", "gui/fonts/Baronial.otf")]
                 textbutton _("Atkinson Hyperlegible") action [gui.SetPreference("font", "gui/fonts/Atkinson.ttf"),
                 gui.SetPreference("interface_font", "gui/fonts/Atkinson.ttf"), gui.SetPreference("name_font", "gui/fonts/Atkinson.ttf")]
+            
+            vbox:
+                textbutton _("Hint Flowers"):
+                        action ToggleVariable("hint_flowers_showing")
 
             ## Additional vboxes of type "radio_pref" or "check_pref" can be
             ## added here, to add additional creator-defined preferences.
