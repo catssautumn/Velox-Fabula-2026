@@ -5,7 +5,7 @@
 ## themselves.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
-
+default hint_flowers_showing = True
 screen preferences():
 
     tag menu
@@ -47,6 +47,8 @@ screen preferences():
                 textbutton _("Transitions"):
                     action InvertSelected(Preference("transitions", "toggle"))
 
+                textbutton _("Hint Flowers"):
+                    action InvertSelected(Preference("hint_flowers_showing", "toggle"))
             ## Additional vboxes of type "radio_pref" or "check_pref" can be
             ## added here, to add additional creator-defined preferences.
 
