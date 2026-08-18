@@ -47,6 +47,9 @@ screen preferences():
                     action Preference("after choices", "toggle")
                 textbutton _("Transitions"):
                     action InvertSelected(Preference("transitions", "toggle"))
+                textbutton _("Hint Flowers"):
+                    action ToggleVariable("hint_flowers_showing")
+                    
             vbox:
                 style_prefix "radio"
                 label _("Font")
@@ -55,9 +58,7 @@ screen preferences():
                 textbutton _("Atkinson Hyperlegible") action [gui.SetPreference("font", "gui/fonts/Atkinson.ttf"),
                 gui.SetPreference("interface_font", "gui/fonts/Atkinson.ttf"), gui.SetPreference("name_font", "gui/fonts/Atkinson.ttf")]
             
-            vbox:
-                textbutton _("Hint Flowers"):
-                        action ToggleVariable("hint_flowers_showing")
+        
 
             ## Additional vboxes of type "radio_pref" or "check_pref" can be
             ## added here, to add additional creator-defined preferences.
