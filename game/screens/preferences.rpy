@@ -48,7 +48,7 @@ screen preferences():
                 textbutton _("Transitions"):
                     action InvertSelected(Preference("transitions", "toggle"))
                 textbutton _("Hint Flowers"):
-                    action InvertSelected(Preference("hint_flowers_showing", "toggle"))
+                    action ToggleVariable("hint_flowers_showing")
 
             ## Additional vboxes of type "radio_pref" or "check_pref" can be
             ## added here, to add additional creator-defined preferences.
