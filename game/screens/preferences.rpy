@@ -50,7 +50,7 @@ screen preferences():
                 style_prefix "radio"
                 label _("Font")
                 textbutton _("Default") action [gui.SetPreference("font", "gui/fonts/EBGaramond.ttf"),
-                gui.SetPreference("interface_font", "gui/fonts/EBGaramond.ttf")]
+                gui.SetPreference("interface_font", "gui/fonts/EBGaramond.ttf"), gui.SetPreference("name_font", "gui/fonts/Baronial.otf")]
                 textbutton _("Atkinson Hyperlegible") action [gui.SetPreference("font", "gui/fonts/Atkinson.ttf"),
                 gui.SetPreference("interface_font", "gui/fonts/Atkinson.ttf"), gui.SetPreference("name_font", "gui/fonts/Atkinson.ttf")]
 
