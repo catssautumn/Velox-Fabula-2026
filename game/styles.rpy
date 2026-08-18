@@ -23,15 +23,15 @@ define config.check_conflicting_properties = True
 ## any instances where they are used directly with their value.
 
 # The text font for dialogue and choice menus
-define gui.text_font = gui.preference("font", "DejaVuSans.ttf")
+define gui.text_font = gui.preference("font", "gui/fonts/EBGaramond.ttf")
 # The text font for buttons
-define gui.interface_text_font = gui.preference("interface_font", "DejaVuSans.ttf")
+define gui.interface_text_font = gui.preference("interface_font", "gui/fonts/EBGaramond.ttf")
 # The default size of in-game text
 define gui.text_size = gui.preference("size", 33)
 # The font for character names
-define gui.name_text_font = gui.preference("name_font", "DejaVuSans.ttf")
+define gui.name_text_font = gui.preference("name_font", "gui/fonts/Baronial.otf")
 # The size for character names
-define gui.name_text_size = gui.preference("name_size", 45)
+define gui.name_text_size = gui.preference("name_size", 60)
 
 ## Localization ################################################################
 
