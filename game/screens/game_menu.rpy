@@ -17,6 +17,7 @@ screen game_menu(title):
         xpos 0.1 yalign 0.5
         spacing 6
 
+        textbutton _("Return") action Return()
         if main_menu:
 
             textbutton _("Start") action Start()
@@ -50,7 +51,6 @@ screen game_menu(title):
             ## The quit button is banned on iOS and
             ## unnecessary on Android and Web.
             textbutton _("Quit") action Quit(confirm=not main_menu)
-        textbutton _("Return") action Return()
 
 
     ## Remove this line if you don't want to show the screen
