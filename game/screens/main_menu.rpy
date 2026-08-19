@@ -6,10 +6,7 @@
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 ## Replace this with your background image, if you like
-image main_menu_background = HBox(
-    Solid("#292835", xsize=350),
-    Solid("#21212d")
-)
+image main_menu_background = "gui/main_menu/placeholder.png" # REPLACE WITH WHATEVER
 
 screen main_menu():
 
@@ -20,8 +17,8 @@ screen main_menu():
 
     vbox:
         xalign 0.5
-        yalign 0.5
-        spacing 6
+        yanchor 0.5 ypos 0.625
+        spacing 0
         frame:
             background None
             xalign 0.5
@@ -31,23 +28,23 @@ screen main_menu():
         frame:
             background None
             xalign 0.5
-            textbutton _("Load") action ShowMenu("load")
+            textbutton _("Load") action [ShowMenu("load"), SetVariable("menu_use", "load")]
 
         
         frame:
             background None
             xalign 0.5
-            textbutton _("Preferences") action ShowMenu("preferences")
+            textbutton _("Settings") action [ShowMenu("preferences"), SetVariable("menu_use", "settings")]
 
         
         frame:
             background None
             xalign 0.5
-            textbutton _("About") action ShowMenu("about")
+            textbutton _("Gallery") action ShowMenu("about") # REPLACE WITH GALLERY LATER
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## Help isn't necessary or relevant to mobile devices.
+            #Help isn't necessary or relevant to mobile devices.
                 
             frame:
                 background None
@@ -65,53 +62,10 @@ screen main_menu():
                 textbutton _("Quit") action Quit(confirm=not main_menu)
 # IF ITS STUPID AND IT WORKS ITS NOT STUPID #WORKDUMBERNOTHARDER
 
-style game_menu_label_text:
+style main_menu_label_text:
     size 45
     selected_color "#fff" 
     idle_color "#997F6E"
     hover_color "#D0B29E"
 
     text_align 0.5
-## Main Menu screen ############################################################
-##
-## Used to display the main menu when Ren'Py starts.
-##
-## https://www.renpy.org/doc/html/screen_special.html#main-menu
-
-## Replace this with your background image, if you like
-image main_menu_background = HBox(
-    Solid("#292835", xsize=350),
-    Solid("#21212d")
-)
-
-screen main_menu():
-
-    ## This ensures that any other menu screen is replaced.
-    tag menu
-
-    add "main_menu_background"
-
-    vbox:
-        xpos 60
-        yalign 0.5
-        spacing 6
-
-        textbutton _("Start") action Start()
-
-        textbutton _("Load") action ShowMenu("load")
-
-        textbutton _("Preferences") action ShowMenu("preferences")
-
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
-
-        if renpy.variant("pc"):
-
-            ## The quit button is banned on iOS and unnecessary on Android and
-            ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
-
