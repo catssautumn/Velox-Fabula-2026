@@ -31,6 +31,6 @@ style choice_button:
 style choice_button_text:
     is default # This means it doesn't use the usual button text styling
     xalign 0.5 yalign 0.5
-    idle_color "#ccc"
-    hover_color "#fff"
+    idle_color "#000"
+    hover_color "#F5D6C7"
     insensitive_color "#444"
