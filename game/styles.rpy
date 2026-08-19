@@ -29,7 +29,7 @@ define gui.interface_text_font = gui.preference("interface_font", "gui/fonts/EBG
 # The default size of in-game text
 define gui.text_size = gui.preference("size", 33)
 # The font for character names
-define gui.name_text_font = gui.preference("name_font", "gui/fonts/Baronial.otf")
+define gui.name_text_font = gui.preference("name_font", "gui/fonts/Morris.ttf")
 # The size for character names
 define gui.name_text_size = gui.preference("name_size", 60)
 

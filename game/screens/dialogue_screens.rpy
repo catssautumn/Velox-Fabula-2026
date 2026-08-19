@@ -58,7 +58,7 @@ style say_thought:
 # Style for the box containing the speaker's name
 style namebox:
     xalign 0.5
-    yalign 0.0
+    yalign -0.1
     xysize (None, None)
     background Image("gui/namebox.png", xalign=0.5, ypos=-1.025)
 
