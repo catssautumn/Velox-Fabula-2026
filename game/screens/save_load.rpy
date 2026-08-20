@@ -12,14 +12,17 @@
 define config.thumbnail_width = 384
 define config.thumbnail_height = 216
 
+default menu_use = "save"
 
 screen save():
 
     tag menu
+    
 
     add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use file_slots(_("Save"))
+    $ menu_use = "save"
 
 
 screen load():
@@ -30,15 +33,19 @@ screen load():
 
     use file_slots(_("Load"))
 
+    $ menu_use = "load"
 
 screen file_slots(title):
-
+    add "gui/game_menu/background.png"
     default page_name_value = FilePageNameInputValue(
         pattern=_("Page {}"), auto=_("Automatic saves"),
         quick=_("Quick saves"))
 
-    use game_menu(title)
-
+    use game_menu("")
+    if menu_use == "save":
+        add "gui/game_menu/label_save.png"
+    else:
+        add "gui/game_menu/label_load.png"
     fixed:
         xsize 1500 xalign 1.0
         ## This ensures the input will get the enter event before any of the
@@ -55,13 +62,14 @@ screen file_slots(title):
 
             input:
                 style "page_label_text"
+                idle_color "#5D3231"
                 value page_name_value
 
         ## The grid of file slots.
-        grid 2 3:
+        grid 2 2:
             style_prefix "slot"
-
-            for i in range(3*2):
+            yspacing  23  xspacing  128
+            for i in range(2*2):
                 $ slot = i + 1
 
                 button:
@@ -84,52 +92,61 @@ screen file_slots(title):
 
         ## Buttons to access other pages.
         vbox:
+            frame:
+                background None
+                xalign 0.5 
+                if config.has_sync:
+                    if CurrentScreenName() == "save":
+                        textbutton _("{size=36}{color=#000}Upload Sync"):
+                            action UploadSync()
+                    else:
+                        textbutton _("{size=36}{color=#000}Download Sync"):
+                            action DownloadSync()
+
 
             style_prefix "page"
             hbox:
-                textbutton _("{size=20}<") action FilePagePrevious()
+                textbutton _("{size=36}<") action FilePagePrevious()
 
                 if config.has_autosave:
-                    textbutton _("{size=20}{#auto_page}A") action FilePage("auto")
+                    textbutton _("{size=36}{#auto_page}A") action FilePage("auto")
 
                 if config.has_quicksave:
-                    textbutton _("{size=20}{#quick_page}Q") action FilePage("quick")
+                    textbutton _("{size=36}{#quick_page}Q") action FilePage("quick")
 
                 ## range(1, 10) gives the numbers from 1 to 9.
                 for page in range(1, 10):
-                    textbutton "{size=20}[page]" action FilePage(page)
+                    textbutton "{size=36}[page]" action FilePage(page)
 
-                textbutton _("{size=20}>") action FilePageNext()
-        frame:
-            background None
-            xalign 1.0 yalign 1.0
-            if config.has_sync:
-                if CurrentScreenName() == "save":
-                    textbutton _("Upload Sync"):
-                        action UploadSync()
-                else:
-                    textbutton _("Download Sync"):
-                        action DownloadSync()
-
+                textbutton _("{size=36}>") action FilePageNext()
 
 style page_label:
     xpadding 75
     ypadding 5
     xalign 0.5
+    yanchor 0.5 ypos 0.125
 
 style page_label_text:
     textalign 0.5
     layout "subtitle"
-    hover_color '#ff8335'
+    color "#5D3231"
+    hover_color '#000'
+    idle_color '#000'
+    outlines [(5, "#000", 0, 0)]
 
+style label_text:
+    color "#5D3231"
+    
 style slot_grid:
     xalign 0.5
     yalign 0.5
-    spacing 15
-
+    yspacing  30  xspacing  128
 style slot_time_text:
     size 25
     xalign 0.5
+    idle_color '#A27C6F'
+    hover_color '#D0633C'
+    selected_idle_color '#000'
 
 style slot_vbox:
     spacing 12
@@ -142,9 +159,9 @@ style slot_button:
 style slot_button_text:
     size 21
     xalign 0.5
-    idle_color '#aaaaaa'
-    hover_color '#ff8335'
-    selected_idle_color '#ffffff'
+    idle_color '#A27C6F'
+    hover_color '#FF4400'
+    selected_idle_color '#000'
 
 style page_hbox:
     xalign 0.5
@@ -152,10 +169,25 @@ style page_hbox:
 
 style page_vbox:
     xalign 0.5
-    yanchor 0.5 ypos 0.95
+    yanchor 0.5 ypos 0.85
     spacing 5
 
 style page_button:
     padding (15, 6, 15, 6)
     xalign 0.5
+    idle_color '#A27C6F'
+    hover_color '#D0633C'
+    selected_idle_color '#000'
 
+
+style page_button_text:
+    idle_color '#b9998c'
+    hover_color '#FF4400'
+    selected_idle_color '#000'
+
+
+style page_label_text:
+    textalign 0.5
+    hover_color '#ff4400'
+    idle_color '#ff4400'
+    outlines [(5, "#fff", 0, 0)]
