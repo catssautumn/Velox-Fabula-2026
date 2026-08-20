@@ -4,17 +4,30 @@
 # name of the character.
 
 define e = Character("Eileen")
-define at = Character("Atticus")
-
-
+define n = Character(kind=nvl)
+default mentality = 0
+default nvl_mode = False
+default helped_atticus = False
+default at_aff = 0
+default name_ypos = -0.5
+default mc = Character("[povname]")
+default at = Character("Atticus")
+default at_knows = False
 # The game starts here.
 
-label start:
-    show screen flower_frame()
-
+label testing:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
+    $ nvl_mode = True
+    n "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    n "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    n "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    n "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    n "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    n "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    n "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    $ nvl_mode = False
 
     scene forest day
     show atticus eneutral_c 
