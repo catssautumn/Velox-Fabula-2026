@@ -12,7 +12,21 @@ layeredimage atticus:
     group eyes auto:
         attribute eneutral_o default:
             "blink_eneutral_o"
-
+        attribute eangry:
+            "blink_eangry"
+        attribute econfused:
+            "blink_econfused"
+        attribute ehappy:
+            "blink_ehappy"
+        attribute eneutral_la:
+            "blink_eneutral_la"
+        attribute esad:
+            "blink_esad"
+        attribute esad_la:
+            "blink_esad_la"
+        attribute eshocked:
+            "blink_eshocked"
+        
     group mouth auto:
         attribute mhappy_c default
     
@@ -24,14 +38,114 @@ layeredimage atticus:
     
     group blush auto
 
+    group cry auto
+
     group acc auto:
         attribute glasses default
 
-## If you have a better way to do blink, please be my guest!
-## If not, you can just copy paste this... Like 6 more times
+## ~ Blinking ~ ##
 
 image blink_eneutral_o:
     "atticus_eyes_eneutral_o"
+    choice:
+        6.0
+    choice:
+        .3
+    choice:
+        3.0
+    choice:
+        4.5
+    "atticus_eyes_eneutral_c"
+    .2
+    repeat
+
+image blink_eangry:
+    
+    "atticus_eyes_eangry"
+    choice:
+        6.0
+    choice:
+        .3
+    choice:
+        3.0
+    choice:
+        4.5
+    "atticus_eyes_eneutral_c"
+    .2
+    repeat
+
+image blink_econfused:
+    "atticus_eyes_econfused"
+    choice:
+        6.0
+    choice:
+        .3
+    choice:
+        3.0
+    choice:
+        4.5
+    "atticus_eyes_eneutral_c"
+    .2
+    repeat
+
+image blink_ehappy:
+    "atticus_eyes_ehappy"
+    choice:
+        6.0
+    choice:
+        .3
+    choice:
+        3.0
+    choice:
+        4.5
+    "atticus_eyes_eneutral_c"
+    .2
+    repeat
+
+image blink_eneutral_la:
+    "atticus_eyes_eneutral_la"
+    choice:
+        6.0
+    choice:
+        .3
+    choice:
+        3.0
+    choice:
+        4.5
+    "atticus_eyes_eneutral_c"
+    .2
+    repeat
+
+image blink_esad:
+    "atticus_eyes_esad"
+    choice:
+        6.0
+    choice:
+        .3
+    choice:
+        3.0
+    choice:
+        4.5
+    "atticus_eyes_eneutral_c"
+    .2
+    repeat
+
+image blink_esad_la:
+    "atticus_eyes_esad_la"
+    choice:
+        6.0
+    choice:
+        .3
+    choice:
+        3.0
+    choice:
+        4.5
+    "atticus_eyes_eneutral_c"
+    .2
+    repeat
+
+image blink_eshocked:
+    "atticus_eyes_eshocked"
     choice:
         6.0
     choice:

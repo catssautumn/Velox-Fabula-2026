@@ -4,6 +4,7 @@
 # name of the character.
 
 define e = Character("Eileen")
+define at = Character("Atticus")
 
 
 # The game starts here.
@@ -16,7 +17,8 @@ label start:
     # images directory to show it.
 
     scene forest day
-    show atticus 
+    show atticus eneutral_c 
+
 
     # These display lines of dialogue.
 
