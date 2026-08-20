@@ -82,20 +82,34 @@ screen quick_menu():
     zorder 100
 
     if quick_menu:
-
-        hbox:
-            xalign 0.5 yanchor 0.5 ypos 0.95
-            spacing 56
-            imagebutton auto "gui/qmenu/save_%s.png" action ShowMenu('save')
-            imagebutton auto "gui/qmenu/skip_%s.png":
-                selected_idle "gui/qmenu/skip_hover.png"
-                action Skip() alternate Skip(fast=True, confirm=True)
-            imagebutton auto "gui/qmenu/auto_%s.png":
-                selected_idle "gui/qmenu/auto_hover.png"
-                action Preference("auto-forward", "toggle")
-            imagebutton auto "gui/qmenu/history_%s.png" action ShowMenu('history')
-            imagebutton auto "gui/qmenu/settings_%s.png" action ShowMenu('preferences')
-            imagebutton auto "gui/qmenu/home_%s.png" action MainMenu(confirm=True)
+        if nvl_mode == True:
+            vbox:
+                xanchor 0.5 xpos 0.75 yanchor 0.0 ypos 0.1
+                spacing 56
+                imagebutton auto "gui/qmenu/save_%s.png" action ShowMenu('save')
+                imagebutton auto "gui/qmenu/skip_%s.png":
+                    selected_idle "gui/qmenu/skip_hover.png"
+                    action Skip() alternate Skip(fast=True, confirm=True)
+                imagebutton auto "gui/qmenu/auto_%s.png":
+                    selected_idle "gui/qmenu/auto_hover.png"
+                    action Preference("auto-forward", "toggle")
+                imagebutton auto "gui/qmenu/history_%s.png" action ShowMenu('history')
+                imagebutton auto "gui/qmenu/settings_%s.png" action ShowMenu('preferences')
+                imagebutton auto "gui/qmenu/home_%s.png" action MainMenu(confirm=True)
+        else:
+            hbox:
+                xalign 0.5 yanchor 0.5 ypos 0.95
+                spacing 56
+                imagebutton auto "gui/qmenu/save_%s.png" action ShowMenu('save')
+                imagebutton auto "gui/qmenu/skip_%s.png":
+                    selected_idle "gui/qmenu/skip_hover.png"
+                    action Skip() alternate Skip(fast=True, confirm=True)
+                imagebutton auto "gui/qmenu/auto_%s.png":
+                    selected_idle "gui/qmenu/auto_hover.png"
+                    action Preference("auto-forward", "toggle")
+                imagebutton auto "gui/qmenu/history_%s.png" action ShowMenu('history')
+                imagebutton auto "gui/qmenu/settings_%s.png" action ShowMenu('preferences')
+                imagebutton auto "gui/qmenu/home_%s.png" action MainMenu(confirm=True)
  
             
 
@@ -132,9 +146,13 @@ screen nvl(dialogue, items=None):
 
     window:
         style "nvl_window"
-
-        has vbox
-        spacing 15
+        has frame 
+        xsize 640 ysize 720 xpos 100 ypos 150
+        background None
+        has vbox    
+        xalign 0.5 yalign 0.5
+        xsize 1.0 ysize 1.0
+        spacing 50
 
         use nvl_dialogue(dialogue)
 
@@ -173,11 +191,15 @@ screen nvl_dialogue(dialogue):
 define config.nvl_list_length = 6
 
 # The style for the NVL "textbox"
+
 style nvl_window:
-    is default
-    xfill True yfill True
+    xpos 550
     background "gui/nvl.png"
-    padding (0, 15, 0, 30)
+# style nvl_window:
+#     is default
+#     xfill True yfill True
+#     background "gui/nvl.png"
+#     padding (0, 15, 0, 30)
 
 # The style for the text of the speaker's name
 style nvl_label:
@@ -190,9 +212,8 @@ style nvl_label:
 
 # The style for dialogue in NVL
 style nvl_dialogue:
-    is say_dialogue
-    xpos 675
-    ypos 12
+    xpos 500
+    ypos 0
     xsize 885
     min_width 885
 
