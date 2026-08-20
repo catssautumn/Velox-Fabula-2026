@@ -24,19 +24,19 @@ screen history():
 
     use game_menu(_(""))
     frame:
-        xsize 956 ysize 872
+        xsize 965 ysize 872
         xanchor 0.5 xpos 0.6
         yalign 1.0
         background None
         viewport:
             
-            xysize (950, 872)
-            xanchor 0.5 xpos 0.8
+            xysize (970, 872)
+            xanchor 0.5 xpos 0.5
             yalign 1.0
 
-            style_prefix 'game_menu'
+            #style_prefix 'game_menu'
             mousewheel True draggable True pagekeys True
-            scrollbars "vertical" yinitial 1.0
+            scrollbars "vertical" 
 
 
             has vbox

@@ -113,7 +113,7 @@ style vscrollbar:
     xsize 18
     base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", 6, 6, 6, 6, tile=False)
     thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", 6, 6, 6, 6, tile=False)
-    unscrollable 'hide'
+    #unscrollable 'hide'
 
 style slider:
     ysize 38
