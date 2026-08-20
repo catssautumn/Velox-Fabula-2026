@@ -14,9 +14,10 @@ screen game_menu(title):
     style_prefix "game_menu"
 
     vbox:
-        xpos 60 yalign 0.5
+        xpos 0.1 yalign 0.5
         spacing 6
 
+        textbutton _("Return") action Return()
         if main_menu:
 
             textbutton _("Start") action Start()
@@ -26,10 +27,11 @@ screen game_menu(title):
             textbutton _("History") action ShowMenu("history")
 
             textbutton _("Save") action ShowMenu("save")
+             
 
-        textbutton _("Load") action ShowMenu("load")
+        textbutton _("Load") action [ShowMenu("load"), SetVariable("menu_use", "load")]
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Preferences") action [ShowMenu("preferences"), SetVariable("menu_use", "settings")]
 
         if _in_replay:
 
@@ -38,8 +40,6 @@ screen game_menu(title):
         elif not main_menu:
 
             textbutton _("Main Menu") action MainMenu()
-
-        textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -52,9 +52,6 @@ screen game_menu(title):
             ## unnecessary on Android and Web.
             textbutton _("Quit") action Quit(confirm=not main_menu)
 
-    textbutton _("Return"):
-        style "return_button"
-        action Return()
 
     ## Remove this line if you don't want to show the screen
     ## title text as a label (for example, if it's baked into
@@ -85,3 +82,6 @@ style game_menu_label:
     padding (10, 10)
 style game_menu_label_text:
     size 45
+    selected_color "#fff" 
+    idle_color "#997F6E"
+    hover_color "#D0B29E"
