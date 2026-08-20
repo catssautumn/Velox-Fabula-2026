@@ -46,7 +46,7 @@ style window:
 # Style for the dialogue
 style say_dialogue:
     adjust_spacing False
-    yalign 0.5
+    yanchor 0.5 ypos 140
     color '#000'
     xalign 0.5
     xysize (790, 150)
@@ -66,7 +66,7 @@ style namebox:
 style say_label:
     color '#5D3232'
     xalign 0.0
-    ypos -0.5
+    ypos name_ypos
     size gui.name_text_size
     font gui.name_text_font
 
@@ -204,11 +204,11 @@ style nvl_window:
 # The style for the text of the speaker's name
 style nvl_label:
     is say_label
-    xpos 645 xanchor 1.0
+    xalign 0.5
     ypos 0 yanchor 0.0
     xsize 225
     min_width 225
-    textalign 1.0
+    textalign 0.0
 
 # The style for dialogue in NVL
 style nvl_dialogue:
