@@ -41,4 +41,9 @@ label start:
 
     "Autumn" "[povname] shined brightly in [their] last movie, {i}Indiana Bones{/i}. But compared to Valen, I wonder if [they_re] falling behind?"
 
+    scene cg1_scared with dissolve:
+        zoom 0.5
+    at "woah"
+
+
     return
