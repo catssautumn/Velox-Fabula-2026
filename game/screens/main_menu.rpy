@@ -6,14 +6,13 @@
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 ## Replace this with your background image, if you like
-image main_menu_background = "gui/main_menu/placeholder.png" # REPLACE WITH WHATEVER
 
 screen main_menu():
 
     ## This ensures that any other menu screen is replaced.
     tag menu
     style_prefix "main_menu"
-    add "main_menu_background"
+    add "gui/main_menu/" + persistent.main_menu_background + ".webp"
 
     vbox:
         xalign 0.5
@@ -40,7 +39,7 @@ screen main_menu():
         frame:
             background None
             xalign 0.5
-            textbutton _("Gallery") action ShowMenu("about") # REPLACE WITH GALLERY LATER
+            textbutton _("Gallery") action ShowMenu("gallery") # REPLACE WITH GALLERY LATER
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
