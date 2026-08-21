@@ -321,15 +321,15 @@ label scene_6:
             "But Atticus isn't just a unicorn; he's a damn good man, and someone worthy of a knight's protection."
             "He is effortlessly kind, intensely passionate when called for - and maybe a little too shy at times."
             "But I wouldn't want him to be any other way than himself."
-        "I think I might be catching feelings for him...…":
-            $ mc_crush = True
-            "If you had asked me a mere few days ago whether or not I would feel this way, I would have laughed it off."
-            "A lonely unicorn in the middle of the woods, and a retired knight still lurking at the borders of [their] kingdom…"
-            "Perhaps it's a more cliché pair than I would have admitted. But I can't deny how I feel."
-            "He is effortlessly kind, intensely passionate when called for - and maybe a little too shy at times."
-            "But I wouldn't want him to be any other way than himself."
-            "..."
-            "Also, he is ridiculously pretty. I will assume it is from the unicorn genetics until proven otherwise."
+    "I think I might be catching feelings for him...":
+        $ mc_crush = True
+        "If you had asked me a mere few days ago whether or not I would feel this way, I would have laughed it off."
+        "A lonely unicorn in the middle of the woods, and a retired knight still lurking at the borders of [their] kingdom…"
+        "Perhaps it's a more cliché pair than I would have admitted. But I can't deny how I feel."
+        "He is effortlessly kind, intensely passionate when called for - and maybe a little too shy at times."
+        "But I wouldn't want him to be any other way than himself."
+        "..."
+        "Also, he is ridiculously pretty. I will assume it is from the unicorn genetics until proven otherwise."
 
 
     "He reaches up to push his glasses up his nose for the fourth time and I can't help but smile."
