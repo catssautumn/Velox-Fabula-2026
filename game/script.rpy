@@ -6,7 +6,7 @@
 define e = Character("Eileen")
 define n = Character(kind=nvl)
 default mc = Character("[povname]")
-default at = Character("Atticus", image = "at")
+define at = Character("Atticus", image ="atticus")
 
 default nvl_mode = False
 

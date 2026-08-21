@@ -85,7 +85,7 @@ screen quick_menu():
     if quick_menu:
         if nvl_mode == True:
             vbox:
-                xanchor 0.5 xpos 0.75 yanchor 0.0 ypos 0.1
+                xanchor 0.5 xpos 0.78 yanchor 0.0 ypos 0.1 
                 spacing 56
                 imagebutton auto "gui/qmenu/save_%s.png" action ShowMenu('save')
                 imagebutton auto "gui/qmenu/skip_%s.png":

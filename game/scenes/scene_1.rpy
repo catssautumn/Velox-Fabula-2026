@@ -45,10 +45,12 @@ label start:
     n "Now, especially, I miss the luxury of a proper shelter with a warm hearth and food I don't have to bleed myself dry to attain."
     n "My makeshift shelter does little to shield me from the torrential rain. Still, the wet wood blocks out some of the storm."
     n "I shall endure. A dragon slayer will not yield to a mere drizzle. A few hours more, and the rain will end."
-    scene blackout with dissolve
     window hide
+    $ quick_menu = False
+    scene blackout with dissolve
     $ nvl_mode = False
-    window show 
+    window auto show
+    $ quick_menu = True
     "I close my eyes, attempting to sleep. It's essential to conserve my energy so I can continue my trek to the next town."
     play sound shake volume 0.6
     "Hm…? What is that? An animal…?"
@@ -142,7 +144,7 @@ label start:
     "Perhaps the storybook illustrators took some liberties with their artwork to save themselves the trouble."
     "They've clearly left out the part where unicorns can take the form of horned humans."
     "But, when the woman takes a closer look at the unicorn, her celebration ceases."
-    "???" "Argh, no… That horn's shit! We won't get nearly as much out of it, but…"
+    "???" "Argh, no… That horn's useless! We won't get nearly as much out of it, but…"
     "???" "Whatever, people will still pay for healing tools, no matter how mediocre they are."
     "The unicorn's breath hitches, before he turns his head."
     "He looks directly at me, vivid violet eyes burning with an emotion I can't name."
@@ -198,7 +200,7 @@ label start:
             "Unicorn" "A-ah…? Yes…?"
             "Hm, so he is capable of speech. That makes this much easier."
             mc "Do you wish to hand over your horn to this individual?"
-            scene cg1 angry with dissolve:
+            scene cg1 angry:
                 zoom 0.7 align (1.0, 0.0)
             "Unicorn" "Huh?! No!"
             mc "I see. Thank you for answering."

@@ -1,38 +1,62 @@
 label scene_3:
-    "I stayed in that bed for three days, watching the sun rise and fall from the windows."
-    "Every single morning, Atticus would mix a new salve and soothe it over my ribs, as concentrating and quiet as ever."
-    "He would leave food for me on the bedside table before heading out into the woods, returning when the sun was low to make stew for the both of us."
-    "He would treat my wounds once more before the night fell, curling up by the front door like I had seen the guard dogs at the palace do once upon a time."
-    "I scratch my arm as I watch him fall asleep, funny little sighs - not quite snores - escaping from him as he rests."
-    "He hardly talks when he's around me. I occasionally catch him muttered to himself when cooking or concocting, but nothing that I can fully hear."
-    "He reminds me of a skittish deer."
-    "Or, in this case, a skittish unicorn."
-    "At the very least, Atticus seems content here, if lonely. I haven't seen or heard any other being other than him, but he returns with a basket full of flora and a soft smile."
-    "I wonder what everything is used for. He hasn't told me anything yet, but it's clear he knows what he's doing."
-    "On the fourth day, he heads out again."
+    show blackout with dissolve:
+            alpha 0.5 blend "multiply"
+    nvl clear
+    n "I stayed in that bed for three days, watching the sun rise and fall from the windows."
+    n "Every single morning, Atticus would mix a new salve and soothe it over my ribs, as concentrating and quiet as ever."
+    n "He would leave food for me on the bedside table before heading out into the woods, returning when the sun was low to make stew for the both of us."
+    n "He would treat my wounds once more before the night fell, curling up by the front door like I had seen the guard dogs at the palace do once upon a time."
+    nvl clear
+    n "I scratch my arm as I watch him fall asleep, funny little sighs - not quite snores - escaping from him as he rests."
+    n "He hardly talks when he's around me. I occasionally catch him muttered to himself when cooking or concocting, but nothing that I can fully hear."
+    n "He reminds me of a skittish deer."
+    n "Or, in this case, a skittish unicorn."
+    nvl clear
+    n "At the very least, Atticus seems content here, if lonely. I haven't seen or heard any other being other than him, but he returns with a basket full of flora and a soft smile."
+    n "I wonder what everything is used for. He hasn't told me anything yet, but it's clear he knows what he's doing."
+    n "On the fourth day, he heads out again."
+
+    window hide
+    $ nvl_mode = False
+    $ quick_menu = False
+    scene interior day:
+        zoom 0.5
+    show atticus
+    with dissolve
+    window auto show
+    $ quick_menu = True
     at "You should be well enough to walk in a couple days! One week of bedrest, then you can start doing easy movement again."
     mc "I'll take your word for it."
+    show atticus bsad tloop
     "He cocks his head with that awkward smile and leaves."
+    hide atticus with dissolve
     "I scratch my arm again, staring at the ceiling. I would love to go outside, feel the bare sun on my skin and the wind on my cheek."
     "We're clearly still in the forest given the abundance of herbs he often comes home with. I wonder how peaceful it is, to be so far away from everything else…"
+    stop music fadeout 0.5
     "..."
     "My arm is really itchy."
-    "I pull up my sleeve, just able to reach my other arm over my chest."
-    "The skin…"
-    "Am I growing scales?"
-    "All over my arm are tiny, hard red scales, the skin pink and sore around them from my scratching. But as I pick at one, it feels just like the scale from a fish, or maybe a salamander, or…"
-    "..."
-    "Just like a red dragon."
+    $ nvl_mode = True
+    nvl clear
+    n "I pull up my sleeve, just able to reach my other arm over my chest."
+    n "The skin…"
+    n "Am I growing scales?"
+    n "All over my arm are tiny, hard red scales, the skin pink and sore around them from my scratching. But as I pick at one, it feels just like the scale from a fish, or maybe a salamander, or…"
+    n "Just like a red dragon."
 
 menu:
     "I think I'm going to throw up.":
         $ mentality = 2
-
-        "This can't be real… right?"
-        "I'm a human - humans don't grow scales. And certainly not spontaneously scattered all up their arm."
-        "I pick at one again - and it flakes off. I can feel the pull from underneath my skin."
-        "It's hard not to gag, but I brush the scale away and off the bed."
-        "I pull my sleeve back over them. What I don't see can't hurt me."
+        nvl clear
+        n "This can't be real… right?"
+        n "I'm a human - humans don't grow scales. And certainly not spontaneously scattered all up their arm."
+        n "I pick at one again - and it flakes off. I can feel the pull from underneath my skin."
+        n "It's hard not to gag, but I brush the scale away and off the bed."
+        n "I pull my sleeve back over them. What I don't see can't hurt me."
+        window hide
+        $ nvl_mode = False
+        $ quick_menu = False
+        show atticus with dissolve
+        window auto show
         "And thank goodness I do, because Atticus arrives just at that moment, his basket filled with bright berries."
         at "[povname]. How's the pain?"
         mc "It's alright. I still haven't moved."
@@ -77,12 +101,17 @@ menu:
 
     "Well, this is new.":
         $ mentality = 1
-
-        "It's hard not to stare at them, all clustered on my arm. It's sort of like a constellation - if I can look past how odd this all is."
-        "..."
-        "Never mind, I can't look past how weird this is."
-        "Could this be a disease? Perhaps staying in the same vicinity as a creature caused an adverse reaction."
-        "Still, there was no point in panicking. I take a deep breath and cover my arm with my sleeve again."
+        nvl clear
+        n "It's hard not to stare at them, all clustered on my arm. It's sort of like a constellation - if I can look past how odd this all is."
+        n "..."
+        n "Never mind, I can't look past how weird this is."
+        n "Could this be a disease? Perhaps staying in the same vicinity as a creature caused an adverse reaction."
+        n "Still, there was no point in panicking. I take a deep breath and cover my arm with my sleeve again."
+        window hide
+        $ nvl_mode = False
+        $ quick_menu = False
+        show atticus with dissolve
+        window auto show
         "And thank goodness I do, because Atticus arrives just at that moment, his basket filled with bright berries."
         at "[povname]. How's the pain?"
         mc "It's alright. I still haven't moved."
@@ -126,14 +155,19 @@ menu:
     "Get them off.":
         $ mentality = 3
 
-        "It's just like skinning a fish. You just have to keep going until they come off."
-        "I feel panic, hot and horrible in my chest the more I stare at the blotches."
-        "With my fingernails, I scratch more fervently. I see blood starting to well around the scales, adding to the red stretching across my skin."
-        "One flakes off. I feel the pull from underneath my skin, like it grows from the bone. I bite back a noise of pain - no, fear - no, pain. It's hard to tell anything right now."
-        "I just have to get these scales off my body-"
+        n "It's just like skinning a fish. You just have to keep going until they come off."
+        n "I feel panic, hot and horrible in my chest the more I stare at the blotches."
+        n "With my fingernails, I scratch more fervently. I see blood starting to well around the scales, adding to the red stretching across my skin."
+        n "One flakes off. I feel the pull from underneath my skin, like it grows from the bone. I bite back a noise of pain - no, fear - no, pain. It's hard to tell anything right now."
+        n "I just have to get these scales off my body-"
+        window hide
+        $ nvl_mode = False
+        $ quick_menu = False
+        show atticus with dissolve
+        window auto show
         "The door opens and Atticus is there, basket full."
         at "[povname], I'm back-"
-        at "Are you alright?"
+        at bshocked eshocked up msad_o "Are you alright?"
         "Tears build in my throat. Everything feels hot, like a fire is cooking me from the inside out."
         mc "There's—my arms—"
         "Atticus throws the basket to the side, rushing over to me."

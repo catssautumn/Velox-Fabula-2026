@@ -16,10 +16,11 @@ init python:
 define audio.storm = "audio/ambience/storm.ogg"
 define audio.fireplace = "audio/ambience/fireplace.ogg"
 define audio.forest = "audio/ambience/forest.ogg"
+define audio.fire = "audio/ambience/fire.ogg"
 
 ## ~ Music ~ ##
 define audio.main_theme = "audio/music/main theme.ogg"
-define audio.main_theme = "audio/music/happy end.ogg"
+define audio.happy_end = "audio/music/happy end.ogg"
 define audio.sad = "audio/music/sad.ogg"
 define audio.light = "audio/music/light.ogg"
 define audio.warm = "audio/music/warm.ogg"

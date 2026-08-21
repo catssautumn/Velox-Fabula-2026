@@ -2,11 +2,12 @@ label scene_2:
     scene blackout with dissolve
     nvl clear
     $ nvl_mode = True
-    n "..."
+    play ambience fire fadein 0.5
     n "There's heat on all sides."
     n "I open my eyes and see it - the great red dragon I once saved the kingdom from, alive and bellowing once more."
     n "Its wings fill the sky, whatever sunlight that once streamed onto the streets below now blotted out in terrifying shadow."
     nvl clear
+    play sound dragon_roar
     n "It roars - and the ground shakes. The villagers cry, sprinting from their homes, holding onto their children and running for their lives."
     n "A great spout of fire flies from its mouth and the nearby houses are burned to cinders in a matter of moments. It circles the sky, wretched eyes circling for another catastrophe to cause."
     $ nvl_mode = False
@@ -21,6 +22,7 @@ label scene_2:
     n "And find nothing but the fabric of my tunic."
     n "I look down - there is no trusty blade to be seen. I look around for any glint, any weapon, any sign for it. The anger turns to a white hot fear."
     n "As I look up once more-"
+    nvl clear
     n "There is no more village. No more buildings or families, no cries. I am in empty space, facing down the dragon."
     n "It ceases its destruction. It bends its head down, a low breath warming the air."
     n "Its eyes are watching me without any sense of attack. Is it… intrigued? Playing a game?"
@@ -34,13 +36,16 @@ label scene_2:
     show layer screens:
         matrixcolor None
     scene interior day with dissolve:
-        zoom 0.5 align (0.5, 0.5)
+        zoom 0.7 align (0.0, 0.4)
+        ease 5 xalign (1.0)
     play ambience fireplace fadein 0.5
     window auto show
     "..."
     "I open my eyes to see that I am in a home I do not recognise. It is far cozier than my meagre shelter - walls, a table and chair, shelves with various trinkets…"
     "It even smells good - like fresh flowers from the river banks."
     "My belongings - my pack and my sword - are at the end of the bed, resting upon a small table."
+    scene interior day with dissolve:
+        zoom 0.5 align (0.5, 0.5)
     "With their back to me, a figure works by the hearth. They are dreadfully quiet, the knock of a spoon against a bowl barely audible."
 
     menu:
@@ -77,7 +82,7 @@ label scene_2:
     "Aside from the obvious features though, he looks like an entirely different person from the poor creature in the net."
     "His hair is bright and fluffy, no longer frazzled from fear. His eyes no longer have that animalistic fear in them, but a keen kindness that is still visible behind the glint of his glasses."
     "He tilts his head as he looks at me. His fingers drum against a small wooden bowl in his hands."
-    show atticus bsad msmile_o
+    show atticus bsad mhappy_o
     "Unicorn" "Um… hi!"
     "Unicorn" "How are you feeling?"
     mc "Uh…{w} rough."
@@ -106,77 +111,112 @@ label scene_2:
             "Unicorn" "It's just not every day that a stranger you took into your bed tells you you're pretty."
             $ blush_heavy = True
             $ blush_light = False
-            show atticus bshocked eshocked msad_o tneutral
+            show atticus bshocked eshocked msad_c tneutral
             "His face turns bright red, and his tail thumps against the bedsheets."
-            show atticus bsad esad down
+            show atticus bsad esad down msad_o
             "Unicorn" "Oh, goodness, that sounds completely inappropriate. I just took you in so you could heal-"
             mc "I understand. This is an… unusual circumstance."
-            at bsad ehappy_c msmile_c "I'm Atticus! I really ought to have begun with that."
+            $ blush_heavy = False
+            $ blush_light = True
+            at ehappy_c msmile_o "I'm Atticus! I really ought to have begun with that."
             mc "I'm [povname]."
-            at "Lovely to meet you! Well… lovely to know your name."
+            at bneutral eneutral "Lovely to meet you!{w}{nw}{done} Well… lovely to know your name."
+            at bsad "Lovely to meet you!{fast} Well… lovely to know your name."
 
         "\"Who are you?\"":
-            "He pauses, then abruptly laughs."
+            show atticus bshocked up eshocked mshocked 
+            "He pauses..."
+            show atticus bsad mid eneutral_la mhappy_c
+            "...Then abruptly laughs."
+            show atticus bsad down eneutral mhappy_o
             "Unicorn" "I forgot we haven't made introductions! My sincere apologies for doing things in an unusual order."
             mc "It's understandable. Neither of us were in a particularly usual state when we met."
+            show atticus bneutral mid
             at "I am Atticus. And you?"
             mc "[povname]."
-            at "A pleasure to finally know your name, [povname]!"
+            at bshocked up ehappy_c "A pleasure to finally know your name, [povname]!"
 
         "Pull back from his touch.":
             $ sub_aff(1)
+            show atticus bshocked up eshocked msad_c
             "I can't help it. I am in pain and in a house that is not my own - I would much rather know my situation before accepting any stranger's help."
+            show atticus bsad esad down tloop
             "His ears flatten against his head, and his face falls."
+            show atticus eneutral_o msad_o
             "Unicorn" "My apologies, I… this is a poultice to help with the wound. I don't want it getting infected."
             "He holds the bowl out to me and lets me take a sniff."
             "It certainly smells medicinal. I sigh."
-            mc "My apologies…"
-            mc "I don't know your name."
+            mc "No, I should be the aplogizing…"
+            mc "It's just that I don't know your name."
+            show atticus msmile_c
             "His frown melts into a small smile."
-            at "I am Atticus. And… who are you?"
+            at msmile_o "I am Atticus. And… who are you?"
             mc "I am [povname], a knight."
-            at "[povname]. Lovely to meet you. May I now apply the salve?"
+            at bshocked up ehappy_c mhappy_o"[povname]. Lovely to meet you.{w}{nw}{done} May I now apply the salve?"
+            at mid eneutral_o "[povname]. Lovely to meet you.{fast} May I now apply the salve?"
             mc "Yes."
-            at "Thank you."
+            at bshocked up ehappy_c "Thank you."
 
+    $ blush_light = False
+    show atticus bneutral mid eneutral_la msmile_c tneutral
     "Atticus dips his hands into the bowl, coating his fingers in a thick, amber salve."
     "His hands are gentle as they soothe the tincture against my wound, although I still occasionally hiss in pain."
     "I want to ask Atticus so many questions - how he was caught, how he escaped, how he brought me here…"
     "What the deal is with his horn, ears and tail."
+    show atticus down mshocked tloop
     "But his ears twitch in concentration, his tail flicking side to side in a steady routine. Given that he is currently disinfecting my wound, I would rather not distract him."
     "..."
     "Once he finishes, he bandages my ribs up tightly and gives me a quick, nervous smile."
-    at "All done!"
+    at up bsad eneutral_o msmile_o tneutral "All done!"
     "I wait for him to say something more: an explanation of what happened, perhaps. Or maybe just where exactly I am."
+    hide atticus with dissolve
     "Instead, he goes over to the tables at the far end of the room, sets the bowl down and picks up another."
+    show atticus with dissolve
     at "I made some vegetable stew for you. Try and eat as much as you can - you took a nasty wound, and I want to make sure you recover well."
     mc "Thank you, Atticus."
 
     if at_aff >= 3: 
+        $ blush_light = True
         "He smiles softly at me, his cheeks turning tawny."
+        $ blush_light = False
 
-    at "I…"
+    at msad_o "I…"
+    show atticus eneutral_la
     "He glances down at my ribs for just a moment."
-    at "I won't keep you here. But you ought to stay here for the next few days at least, just until you recover."
-    at "It may be weeks before you'll be back to normal."
+    at bsad msmile_o "I won't keep you here. But you ought to stay here for the next few days at least, just until you recover."
+    at msad_o tloop "It may be weeks before you'll be back to normal."
     "Well, there were worse places to be. In my rainy shelter, alone and in pain… with the poacher's mocking and jeering laughter…"
     "Hanging in a net."
     mc "That's alright. I'll… I'll stay."
+    show atticus bneutral mhappy_o
     "Atticus lets out a long sigh, his shoulders finally relaxing. He opens his mouth as if to say something-"
-    "And then turns away, picking up a basket from the table."
-    at "I'll be out until nightfall. But don't worry - you'll be perfectly safe here."
+    show atticus mhappy_c
+    "But instead he turns away, picking up a basket from the table."
+    at bshocked up mhappy_o tneutral "I'll be out until nightfall. But don't worry - you'll be perfectly safe here."
     mc "Wait, Atticus-?"
+    hide atticus with dissolve
     "The door closes behind him and I am left alone in his cottage."
     "..."
     "What was I meant to do now?"
+    show interior day:
+        easeout .5 zoom 0.53
     "I can see the whole space from the bed, although when I try once more to stand and look around-"
+    show interior day:
+        linear .2 zoom 0.5
     mc "Ngh!"
     "I collapse back down onto my bed, breathing in as hard as I can against the bandages."
-    "I don't really know what I was expecting."
-    "The room is at least cozy. There are few decorations, although every space and item clearly has a purpose."
-    "The sun shines pleasantly through one of the windows. Atticus left it slightly open, a breeze keeping the cottage from getting too stuffy from the medicinal scents."
-    "..."
-    "There has to be something I can do. I'm not used to sitting still."
+    $ nvl_mode = True
+    n "I don't really know what I was expecting."
+    n "The room is at least cozy. There are few decorations, although every space and item clearly has a purpose."
+    n "The sun shines pleasantly through one of the windows. Atticus left it slightly open, a breeze keeping the cottage from getting too stuffy from the medicinal scents."
+    n "..."
+    n "There has to be something I can do. I'm not used to sitting still."
+    window hide
+    $ nvl_mode = False
+    nvl clear
+    show interior day with dissolve:
+        zoom 0.8 align (0.0, 0.5)
+    window auto show
     "I look to my sides, seeing a small table by the bed. There are two books there, both with well-worn spines and curled at the edges."
     "One has a green fabric cover, the corners completely dog-eared. There are tabs and loose papers packed into it. Perhaps some kind of research book?"
     "The other is bound in a brown leather, more robust than the other book. There is a bookmark near the end. If my instinct is correct, some kind of journal or diary."
@@ -184,32 +224,31 @@ label scene_2:
 
     menu:
         "Read the research book.":
-            # Atticus AFF up
             $ add_aff(1)
             "I take the green book and open it - only for one of the loose papers to immediately fall out."
-            mc "Damn it."
-            "It's a sketch of a mushroom - broad and flat with pretty ribbing. While it's clearly rushed given the charcoal thumb-prints on the paper, it's very detailed."
-            "Atticus has written some notes around it - properties, where he found it, how many in a cluster…"
-            "But there is also another set of handwriting, much shorter and messier than Atticus's."
-            "All the other pages are similar. Fungi, herbs, leaves, updated entries on all the salves and potions he's used them in and the reaction they gave."
-            "If my head wasn't swimming from the pain, I could probably learn a lot from this."
+            mc "Oops."
+            $ nvl_mode = True
+            n "It's a sketch of a mushroom - broad and flat with pretty ribbing. While it's clearly rushed given the charcoal thumb-prints on the paper, it's very detailed."
+            n "Atticus has written some notes around it - properties, where he found it, how many in a cluster…"
+            n "But there is also another set of handwriting, much shorter and messier than Atticus's."
+            n "All the other pages are similar. Fungi, herbs, leaves, updated entries on all the salves and potions he's used them in and the reaction they gave."
+            n "If my head wasn't swimming from the pain, I could probably learn a lot from this."
         "Snoop through Atticus's diary.":
-            # Atticus AFF down
             $ sub_aff(1)
-
             "I take the brown journal and flick to the bookmark. He's written in the date, but nothing more yet."
             "I can't blame him though. Taking care of a dying ex-knight does take a lot of focus."
             "As I flick through the journal though, a lot of the days are fairly bland. Some are just bullet points of things he did that day."
-            "Last week - he saw a new fish in the river."
-            "The week before - he went on a walk and twisted his ankle."
-            "The week before that - he tried a new fruit and didn't like it."
-            "..."
-            "No mention of other people."
+            $ nvl_mode = True
+            n "Last week - he saw a new fish in the river."
+            n "The week before - he went on a walk and twisted his ankle."
+            n "The week before that - he tried a new fruit and didn't like it."
+            n "..."
+            n "No mention of other people."
 
-    "..."
-    "Maybe I should stop reading and try and get some more sleep. My ribs burn and ache, despite the salve."
-    "As I put the book back, I see the stew and my stomach rumbles."
-    "Funny, I didn't feel that hungry."
-    "..."
-    "At least Atticus makes a good stew, even if he doesn't talk to me."
+    nvl clear
+    n "Maybe I should stop reading and try and get some more sleep. My ribs burn and ache, despite the salve."
+    n "As I put the book back, I see the stew and my stomach rumbles."
+    n "Funny, I didn't feel that hungry."
+    n "..."
+    n "At least Atticus makes a good stew, even if he doesn't talk to me much."
     jump scene_3
