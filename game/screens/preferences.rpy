@@ -103,11 +103,12 @@ screen preferences():
 
 
                     if config.has_voice:
-                        label _("Voice Volume")
+                        label _("Ambience Volume")
                         hbox:
-                            bar value Preference("voice volume")
-                            if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
+                            bar value Preference("ambience volume")
+                            if config.sample_sound:
+                                textbutton _("Test") action Play("ambience", config.sample_sound)
+
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height 15

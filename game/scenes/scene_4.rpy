@@ -13,7 +13,7 @@ label scene_4:
 
         "I hold my hand by my side. I pulled my sleeves all the way down before leaving."
         "If I can't see it, it can't hurt me…"
-    elif mentality == 3
+    elif mentality == 3:
 
         "I swallow down a wave of fear that catches in my throat."
         "I can't panic right now - as long as I focus, Atticus and I can figure out what's going on."

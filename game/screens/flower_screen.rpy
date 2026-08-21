@@ -20,7 +20,7 @@ init -1 python:
             for i in total_flowers:
                 if at_aff >= i.minimum:
                     i.image = i.blooming_img
-        #     renpy.sound.play("audio/sfx/sfx-damage2.wav") replace with whatever the raise affectionsound is
+            renpy.sound.play("audio/sound/positive.mp3") #replace with whatever the raise affectionsound is
     def sub_aff(amount):
         global at_aff
         global hint_flowers_showing
@@ -30,8 +30,8 @@ init -1 python:
             for i in total_flowers:
                 if at_aff <= i.minimum:
                     i.image = i.wither_img
-        # if hint_flowers_showing:
-        #     renpy.sound.play("audio/sfx/sfx-damage2.wav") replace with whatever the lower affection sound is
+        if hint_flowers_showing:
+            renpy.sound.play("audio/soud/negative.mp3") #replace with whatever the lower affection sound is
 
 image default_flower:
     "gui/flower_bud.png"

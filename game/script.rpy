@@ -5,15 +5,20 @@
 
 define e = Character("Eileen")
 define n = Character(kind=nvl)
-default mentality = 0
-default nvl_mode = False
-default helped_atticus = False
-default at_aff = 0
-default name_ypos = -0.5
 default mc = Character("[povname]")
 default at = Character("Atticus")
+
+default nvl_mode = False
+
+default name_ypos = -0.5
+
+
+## Story variables
+default at_aff = 0
+default mentality = 0
 default at_knows = False
-# The game starts here.
+default helped_atticus = False
+
 
 label testing:
     # Show a background. This uses a placeholder by default, but you can

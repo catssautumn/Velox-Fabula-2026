@@ -18,21 +18,29 @@ label start:
             $ pronoun = "he/him"
 
     show screen flower_frame()
-    show forest day
-    "Every knight dreams of a glorious victory. A life and death battle won through sheer grit and strength of will, justice brought to all, and a grand feast to celebrate your triumph…"
-    "I was the same, ever since my squire days. I dreamed of saving the people from injustice, of defeating foes far greater than I with nothing but my blade and skill."
-    "Yet, I never once considered what would happen after the fight of my dreams."
-    "The king offered me a reward, as thanks for saving him and his people from a cruel dragon." 
-    "Yet, instead of offering me a hero's title, or perhaps the gold with which to forge my blade and armour anew… He tells me to hang up my sword."
-    "'You have earned a hero's greatest reward: the peace you have earned with your own hands'... and what am I to do with peace? Frolic in the fields with the sheep and the dogs? Let myself grow rust in placidity?"
-    "I think not. I am a knight before I am a king's citizen. As treasonous as this may be, I will not obey his decree."
-    "I spend my days training still, honing my edge to protect the people. A cutpurse here, a scoundrel there, a tyrant here."
-    "I wander wherever I please, doing what good I can for the people I encounter."
-    "While I prefer my freedom, I will admit, sometimes I do miss the amenities of proper knighthood."
-    "Now, especially, I miss the luxury of a proper shelter with a warm hearth and food I don't have to bleed myself dry to attain."
-    "My makeshift shelter does little to shield me from the torrential rain. Still, the wet wood blocks out some of the storm."
-    "I shall endure. A dragon slayer will not yield to a mere drizzle. A few hours more, and the rain will end."
-    # BLACK BG
+    scene  forest day with dissolve
+    stop music fadeout 0.5
+    $ nvl_mode = True
+    n "Every knight dreams of a glorious victory. A life and death battle won through sheer grit and strength of will, justice brought to all, and a grand feast to celebrate your triumph…"
+    n "I was the same, ever since my squire days. I dreamed of saving the people from injustice, of defeating foes far greater than I with nothing but my blade and skill."
+    n "Yet, I never once considered what would happen after the fight of my dreams."
+    n "The king offered me a reward, as thanks for saving him and his people from a cruel dragon." 
+    n "Yet, instead of offering me a hero's title, or perhaps the gold with which to forge my blade and armour anew… He tells me to hang up my sword."
+    nvl clear
+    n "'You have earned a hero's greatest reward: the peace you have earned with your own hands'... and what am I to do with peace? Frolic in the fields with the sheep and the dogs? Let myself grow rust in placidity?"
+    n "I think not. I am a knight before I am a king's citizen. As treasonous as this may be, I will not obey his decree."
+    n "I spend my days training still, honing my edge to protect the people. A cutpurse here, a scoundrel there, a tyrant here."
+    n "I wander wherever I please, doing what good I can for the people I encounter."
+    n "While I prefer my freedom, I will admit, sometimes I do miss the amenities of proper knighthood."
+    nvl clear
+    n "Now, especially, I miss the luxury of a proper shelter with a warm hearth and food I don't have to bleed myself dry to attain."
+    n "My makeshift shelter does little to shield me from the torrential rain. Still, the wet wood blocks out some of the storm."
+    n "I shall endure. A dragon slayer will not yield to a mere drizzle. A few hours more, and the rain will end."
+    scene blackout with dissolve
+    window auto hide
+    $ nvl_mode = False
+    window auto show
+    
     "I close my eyes, attempting to sleep. It's essential to conserve my energy so I can continue my trek to the next town."
     # play a sound
     "Hm…? What is that? An animal…?"
