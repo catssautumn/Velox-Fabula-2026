@@ -1,25 +1,31 @@
 label scene_2:
-    "..."
-    "There's heat on all sides."
-    "I open my eyes and see it - the great red dragon I once saved the kingdom from, alive and bellowing once more."
-    "Its wings fill the sky, whatever sunlight that once streamed onto the streets below now blotted out in terrifying shadow."
-    "It roars - and the ground shakes. The villagers cry, sprinting from their homes, holding onto their children and running for their lives."
-    "A great spout of fire flies from its mouth and the nearby houses are burned to cinders in a matter of moments. It circles the sky, wretched eyes circling for another catastrophe to cause."
+    scene blackout with dissolve
+    nvl clear
+    $ nvl_mode = True
+    n "..."
+    n "There's heat on all sides."
+    n "I open my eyes and see it - the great red dragon I once saved the kingdom from, alive and bellowing once more."
+    n "Its wings fill the sky, whatever sunlight that once streamed onto the streets below now blotted out in terrifying shadow."
+    nvl clear
+    n "It roars - and the ground shakes. The villagers cry, sprinting from their homes, holding onto their children and running for their lives."
+    n "A great spout of fire flies from its mouth and the nearby houses are burned to cinders in a matter of moments. It circles the sky, wretched eyes circling for another catastrophe to cause."
 
     menu:
         "Protect the kingdom.":
             pass
 
-
-    "I have faced this once before. I will face it again, as many times as needed to keep the people safe."
-    "As a burning, boiling hatred crawls up my throat, I reach for my sword by my side-"
-    "And find nothing but the fabric of my tunic."
-    "I look down - there is no trusty blade to be seen. I look around for any glint, any weapon, any sign for it. The anger turns to a white hot fear."
-    "As I look up once more-"
-    "There is no more village. No more buildings or families, no cries. I am in empty space, facing down the dragon."
-    "It ceases its destruction. It bends its head down, a low breath warming the air."
-    "Its eyes are watching me without any sense of attack. Is it… intrigued? Playing a game?"
-    "No, it's waiting for what I'll do next…"
+    nvl clear 
+    n "I have faced this once before. I will face it again, as many times as needed to keep the people safe."
+    n "As a burning, boiling hatred crawls up my throat, I reach for my sword by my side-"
+    n "And find nothing but the fabric of my tunic."
+    n "I look down - there is no trusty blade to be seen. I look around for any glint, any weapon, any sign for it. The anger turns to a white hot fear."
+    n "As I look up once more-"
+    n "There is no more village. No more buildings or families, no cries. I am in empty space, facing down the dragon."
+    n "It ceases its destruction. It bends its head down, a low breath warming the air."
+    n "Its eyes are watching me without any sense of attack. Is it… intrigued? Playing a game?"
+    n "No, it's waiting for what I'll do next…"
+    $ nvl_mode = False
+    nvl clear
     "..."
     "I wake up on a cot."
     "Well, it certainly feels like one. Soft underneath my back, a far cry from the grass."

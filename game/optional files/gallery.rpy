@@ -41,6 +41,10 @@ image cg xia1 = Transform("#bd580a", xysize=(config.screen_width, config.screen_
 image cg ashwin1 = Transform("#127151", xysize=(config.screen_width, config.screen_height))
 image cg zoran1 = Transform("#8157b9", xysize=(config.screen_width, config.screen_height))
 
+## CG 1
+image cg1 scared = "images/cgs/cg1_scared.webp"
+image cg1 angry = "images/cgs/cg1_angry.webp"
+
 ## This is just the button name + _thumb to make it easier to iterate
 image xia_cg_1_thumb = Transform("#bd580a", xysize=gallery_thumb_size)
 image ashwin_cg_1_thumb = Transform("#127151", xysize=gallery_thumb_size)

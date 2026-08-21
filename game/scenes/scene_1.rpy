@@ -54,6 +54,10 @@ label start:
     "It is… rather energetic, isn't it?"
     play sound shake 
     "I crack an eye open, taking a peek at the sound."
+    scene forest night with dissolve:
+        zoom 0.8 yalign 0.5
+        ease 2 yalign 0.2 
+    show rain
     "Up above, hanging from the branches of another tree, there's a figure thrashing about in a hunter's trap."
     "A boar, perhaps? But, it seems much too large for that… Don't tell me, is it a person…? Or some sort of beast?"
     "If it is a person, I'm obligated to lend my aid. But, if it were a beast, or some lucky family's dinner, setting it free would be a terrible offense…"
@@ -65,16 +69,27 @@ label start:
             $ add_aff(1)
             $ helped_atticus = True
             "It is surely the right thing to do. If I am wrong, then I shall make amends afterwards. Forgiveness, not permission, especially when something is in distress."
+            scene forest night with dissolve:
+                zoom 0.5
+            show rain
             "I emerge from my shelter, examining the figure and the trap. It seems that the net is held aloft by a rope weighed down by rocks…"
             "A simple system, one that's easily undone with a bit of strength. I displace the pile of stones, steadily lowering the net to the ground."
             "The figure inside doesn't flee like a frightened animal. Nor do they instantly attack."
             "Instead, they attempt to emerge from the net.{w}.. and immediately fall over."
-            # show cg
             "A very human voice curses as the figure wrestles with the rope, their fight made so much more difficult with the slippery mud and falling rain."
             mc "Do you require aid?"
             "At the sound of my voice, the figure freezes. They stare at me, their eyes wide."
+            window auto hide
+            hide screen flower_frame
+            scene cg1 scared with dissolve:
+                zoom 0.8
+                align (0.6, 0.8)
+            window auto show
             "They appear to be human at first glance - although their snow white hair fades into white, fluffy ears, scared and flattened against their head."
-            "From underneath them, a long, thin tail with a tuft of white hair at the end, whips nervously against the grass. And from their forehead, a horn protrudes, a large kink in the middle."
+            "From underneath them, a long, thin tail with a tuft of white hair at the end, whips nervously against the grass."
+            show cg1 scared:
+                ease 3 zoom 0.53 align (0.5, 0.5)
+            "And from their forehead, a horn protrudes, a large kink in the middle."
             "I see I was too hasty, saying this person was unlike a frightened animal before. Now, there is no description more apt."
             "They regard me as prey watches a hunter. If not for the net, I imagine they would have already fled."
             "I attempt to comfort them, but before I can say a word-"
@@ -83,14 +98,25 @@ label start:
             "It's better to err on the side of caution, lest I accidentally release some sort of fae, or perhaps a particularly large boar."
             "I continue to wait out the storm, ignoring the insistent thrashing above."
             "After what may be hours, or mere minutes, I hear something snap, then a large weight crashes upon the ground."
-            # show cg
-            "When I peek at the figure, I see something that looks almost like a human. They certainly have the body of one - but with fluffy white ears against the side of his head, and long, tufted tail."
+            window auto hide
+            hide screen flower_frame
+            scene cg1 angry with dissolve:
+                zoom 0.8
+                align (0.6, 0.8)
+            window auto show
+            "When I peek at the figure, I see something that looks almost like a human."
+            "They certainly have the body of one - but with fluffy white ears against the side of his head, and long, tufted tail."
+            show cg1 angry:
+                ease 3 zoom 0.53 align (0.5, 0.5)
             "And, more surprisingly, a misshapen horn sprouting from atop their head."
             "Perhaps not the game I had been expecting to see in the net. Although it looks up at me with such animalistic fear - but also human helplessness."
             "Before I can attempt to speak, or hide myself further, I hear-"
 
-
-    "???" "Hey! The hell are you doing with our catch!?"
+    scene forest night with dissolve:
+        zoom 0.5
+    show screen flower_frame()
+    show rain
+    "???" "Hey! The hell are you doing with our catch!?" with vpunch
     "The trapped figure jolts, attempting to free themself with renewed vigor."
     "They do not manage to escape before the newcomer joins us."
     "She is a formidable woman - tall, broad, dressed in leathers and patched up clothes. Clearly someone who wasn't afraid to get her hands dirty."
@@ -110,7 +136,9 @@ label start:
     "A unicorn…?"
     "I had expected unicorns to look less… human. More horse-like. Although it is hard to ignore the ears, tail and horn."
     "Unlike the archetypical unicorn though, his horn is uneven and warped, discoloured at the point."
-    "I wonder, do most unicorns possess similar horns? Perhaps the storybook illustrators took some liberties with their artwork to save themselves the trouble. They've clearly left out the part where unicorns can take the form of horned humans."
+    "I wonder, do most unicorns possess similar horns?"
+    "Perhaps the storybook illustrators took some liberties with their artwork to save themselves the trouble."
+    "They've clearly left out the part where unicorns can take the form of horned humans."
     "But, when the woman takes a closer look at the unicorn, her celebration ceases."
     "???" "Argh, no… That horn's shit! We won't get nearly as much out of it, but…"
     "???" "Whatever, people will still pay for healing tools, no matter how mediocre they are."
@@ -122,7 +150,6 @@ label start:
 
     menu:
         "Withdraw":
-        # Bad ending #1: Just a Bystander
 
             "What right do I have to part a desperate woman and her meagre gold? What wrong should I commit next, steal the chicken from a family's dinner?"
             "As unsavoury as it might appear, given the unicorn's human skin, this woman is a hunter. Her actions are no different from snaring rabbits or shooting deer."
@@ -151,18 +178,35 @@ label start:
             "It wasn't my place to intervene. I was 'retired' supposedly. A boon."
             "..."
             "Even later, when the creature and net are gone, I feel no honor in my actions."
+            hide screen flower_frame
+            $ quick_menu = False
+            scene blackout with dissolve
+            pause 1.3
             return
+
         "Protect him.":
-        # Atticus AFF up
             $ add_aff(1)
             "What foolishness am I even considering? Even if it is a unicorn, I can't turn a blind eye to this."
             mc "Pardon me."
+            $ glasses = False
+            show forest night:
+                easein .5 xoffset 40
+            pause .2
+            show atticus bshocked eshocked mshocked tloop at forest_night with dissolve:
+                yoffset 30
+                pause .3
+                linear .1 yoffset -30 
+                linear .1 yoffset 0 
             "Unicorn" "A-ah…? Yes…?"
             "Hm, so he is capable of speech. That makes this much easier."
             mc "Do you wish to hand over your horn to this individual?"
+            show atticus bsad 
             "Unicorn" "Huh?! No!"
             mc "I see. Thank you for answering."
+            hide atticus with dissolve
             "???" "Oi, what are you doing, talking to the merchandise?"
+            show forest night:
+                easein .5 xoffset 0
             mc "I was simply ascertaining a few things."
             "???" "Well, cut it out! I hunted that freak, far and square! That means his horn is mine!"
             mc "I see. Then, answer me this:"
@@ -171,15 +215,17 @@ label start:
             play music battle fadein 0.5 
             "I draw my blade. Its familiar weight is a reassuring companion as I advance."
             "My first strike falls short, my movements weighed down by wet clothes and slowed by wind. The poacher is surprised only for a moment, before she roars in rage."
+            show forest night:
+                linear 0.3 zoom 0.54 align (0.5, 0.5)
             "Drawing the knife from her belt, she rushes towards me."
             "Our blades clang together, metal scraping against metal in a horrid screech. I grit my teeth as she leans in closer."
             "Poacher" "I don't normally gut humans… but hey, there's always a first for everything!"
-            "She kicks my foot back and I stumble, but manage to duck under her next sweep."
+            "She kicks my foot back and I stumble, but manage to duck under her next sweep." with vpunch
             mc "Last chance to run. Leave the unicorn be, and I'll spare your life."
             "Poacher" "No chance, knightie."
             "Her bravado leaves her open. I jerk forwards, aiming for the gap between her leathers and the blade finds purchase–"
             "Just as the poacher's dagger finds its way between my ribs."
-            mc "Ngh!" # screenshake
+            mc "Ngh!" with vpunch
             "Poacher" "You little…!"
             "We both stumble back from each other… her belly is already stained dark red, but I can feel the warmth seep from my side."
             "I fall to my knees as the poacher falls onto her back. Her dagger sits in my ribs - and my sword is right at my side."
@@ -205,8 +251,13 @@ label start:
                     "If the last thing I were to do was take one more poacher from this world, then that would be enough."
 
 
-                    "I fall onto my back, the pain somehow subsiding. Funny, how the senses dull so quickly."
-                    "There's a faint pulse against my side. My fingers numb and my vision darkens as I taste copper and fire at the back of my throat."
-                    "How disappointing… A mighty knight, a dragonslayer, meeting [their] end at the hand of a mere knave…"
-                    "The last I see is my own blood seeping into the ground, the darkness swallowing me as the heat in my side fades away from my grasp."
+            show blackout with dissolve:
+                alpha 0.5 blend "multiply"
+
+            "I fall onto my back, the pain somehow subsiding. Funny, how the senses dull so quickly."
+            "There's a faint pulse against my side. My fingers numb and my vision darkens as I taste copper and fire at the back of my throat."
+            "How disappointing… A mighty knight, a dragonslayer, meeting [their] end at the hand of a mere knave…"
+            "The last I see is my own blood seeping into the ground, the darkness swallowing me as the heat in my side fades away from my grasp."
+            stop music fadeout 0.5
+            stop ambience fadeout 0.5
             jump scene_2

@@ -1,5 +1,7 @@
 ## meow ##
 
+default glasses = True
+
 layeredimage atticus:
     zoom 0.37 #bc the sprite is insanely huge
     xalign 0.53 #bc the tail makes him off-center
@@ -40,8 +42,8 @@ layeredimage atticus:
 
     group cry auto
 
-    group acc auto:
-        attribute glasses default
+    if glasses:
+        "atticus_acc_glasses"
 
 ## ~ Blinking ~ ##
 
