@@ -19,3 +19,8 @@ define audio.forest = "audio/ambience/forest.ogg"
 
 ## ~ Music ~ ##
 define audio.main_theme = "audio/music/main theme.ogg"
+define audio.main_theme = "audio/music/happy end.ogg"
+define audio.sad = "audio/music/sad.ogg"
+define audio.light = "audio/music/light.ogg"
+define audio.warm = "audio/music/warm.ogg"
+define audio.battle = "audio/music/battle.ogg"
