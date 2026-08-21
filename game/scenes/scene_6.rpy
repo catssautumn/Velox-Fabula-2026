@@ -315,7 +315,7 @@ label scene_6:
     "..."
 
     menu:
-    "He's grown on me.":
+        "He's grown on me.":
             # platonic route
             "I had never thought I would befriend a unicorn - well, up until a few days ago, I didn't know if unicorns truly existed."
             "But Atticus isn't just a unicorn; he's a damn good man, and someone worthy of a knight's protection."
@@ -337,10 +337,10 @@ label scene_6:
 
     if mentality == 1:
         "But if Atticus lets me stick around, I think I'll be alright."
-    elif mentality == 2
+    elif mentality == 2:
         "But Atticus is determined to heal me. And, as nervous as I am, I believe him."
         "Sometimes, I can't stand the feeling of my new claws. But being around Atticus makes it all bearable."
-    elif mentality == 3
+    elif mentality == 3:
         "I don't know what I'm going to do if I turn into… what we think I will."
         "I don't know what to do about Atticus. If I leave, I shall be alone forevermore. If I stay, he will come to resent my new form."
         "We'd better heal me quickly."
