@@ -51,6 +51,8 @@ label scene_2:
             mc "Ah!" with hpunch
             "As I attempt to sit up, a pain slices through my side, hot and sudden."
             "I fall back onto the bedsheets as the figure snaps their head over."
+            show atticus bshocked up eshocked msad_o with dissolve
+            play music main_theme fadein 0.5 
             "Unicorn" "Oh, please be careful!"
             "They couldn't help but notice my hand, still stretched out for my sword, and stood a distance away from me. Their eyes watched me cautiously."
         "Try to stand up.":
@@ -60,11 +62,13 @@ label scene_2:
             mc "Ah!" with hpunch
             "A great pain slices through my side, hot and sudden."
             "I fall back onto the bedsheets as the figure snaps their head over."
+            show atticus bshocked up eshocked msad_o with dissolve
+            play music main_theme fadein 0.5 
             "Unicorn" "Oh, please be careful!"
             "They stand up and start to come towards me, eyes big and worried."
 
-
     "Their eyes…"
+    show atticus eneutral_o mid
     "Such a bright purple, almost piercing. And his ears - large and soft like a deer's, the same fluffy white as his mane of hair."
     "The tail, thin and tufted with that same white at the end, wrapping around his thigh almost nervously…"
     "And that horn! It's crooked, almost as if it were as shy as the man himself, but it looks so sharp."
@@ -72,40 +76,54 @@ label scene_2:
     "Aside from the obvious features though, he looks like an entirely different person from the poor creature in the net."
     "His hair is bright and fluffy, no longer frazzled from fear. His eyes no longer have that animalistic fear in them, but a keen kindness that is still visible behind the glint of his glasses."
     "He tilts his head as he looks at me. His fingers drum against a small wooden bowl in his hands."
+    show atticus bsad msmile_o
     "Unicorn" "Um… hi!"
     "Unicorn" "How are you feeling?"
-    mc "Uh… rough."
+    mc "Uh…{w} rough."
     "He laughs - very prettily. Delicate, much like his stature."
+    show atticus bneutral msmile_c with dissolve:
+        zoom 1.1 yalign 0.4
     "He moves closer, sitting at the edge of the bed."
     "Unicorn" "I'm just going to apply this salve to your side, I won't be a moment…"
 
     menu:
         "\"You're really pretty.\"":
-        # Atticus AFF up
             $ add_aff(1)
+            $ blush_heavy = True
+            show atticus bshocked up eshocked mshocked:
+                linear .1 yoffset 20
+                linear .1 yoffset -20
+                linear .1 yoffset 0 
             "He starts - his back straightens, his ears suddenly pointing straight out. I must have surprised him."
             "To be fair, I don't think I'm totally in my right mind. I'll blame the pain."
             mc "I'm so sorry, I didn't-"
+            $ blush_heavy = False
+            $ blush_light = True
+            show atticus bsad eneutral_o msmile_o tloop
             "Unicorn" "Ah, no! You're, um - haha, you're fine!"
+            show atticus eneutral_la
             "Unicorn" "It's just not every day that a stranger you took into your bed tells you you're pretty."
+            $ blush_heavy = True
+            $ blush_light = False
+            show atticus bshocked eshocked msad_o tneutral
             "His face turns bright red, and his tail thumps against the bedsheets."
+            show atticus bsad esad down
             "Unicorn" "Oh, goodness, that sounds completely inappropriate. I just took you in so you could heal-"
             mc "I understand. This is an… unusual circumstance."
-            at "I'm Atticus! I really ought to have begun with that."
+            at bsad ehappy_c msmile_c "I'm Atticus! I really ought to have begun with that."
             mc "I'm [povname]."
             at "Lovely to meet you! Well… lovely to know your name."
-        "\"Who are you?\"":
 
+        "\"Who are you?\"":
             "He pauses, then abruptly laughs."
             "Unicorn" "I forgot we haven't made introductions! My sincere apologies for doing things in an unusual order."
             mc "It's understandable. Neither of us were in a particularly usual state when we met."
             at "I am Atticus. And you?"
             mc "[povname]."
             at "A pleasure to finally know your name, [povname]!"
-        "Pull back from his touch.":
-        # Atticus AFF down 
-            $ sub_aff(1)
 
+        "Pull back from his touch.":
+            $ sub_aff(1)
             "I can't help it. I am in pain and in a house that is not my own - I would much rather know my situation before accepting any stranger's help."
             "His ears flatten against his head, and his face falls."
             "Unicorn" "My apologies, I… this is a poultice to help with the wound. I don't want it getting infected."
@@ -119,7 +137,6 @@ label scene_2:
             at "[povname]. Lovely to meet you. May I now apply the salve?"
             mc "Yes."
             at "Thank you."
-
 
     "Atticus dips his hands into the bowl, coating his fingers in a thick, amber salve."
     "His hands are gentle as they soothe the tincture against my wound, although I still occasionally hiss in pain."
@@ -135,9 +152,7 @@ label scene_2:
     mc "Thank you, Atticus."
 
     if at_aff >= 3: 
-
         "He smiles softly at me, his cheeks turning tawny."
-
 
     at "I…"
     "He glances down at my ribs for just a moment."

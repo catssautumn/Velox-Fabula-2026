@@ -1,15 +1,19 @@
 ## meow ##
 
 default glasses = True
+default blush_light = False
+default blush_heavy = False
+default teary = False
+default cry = False
 
 layeredimage atticus:
     zoom 0.37 #bc the sprite is insanely huge
     xalign 0.53 #bc the tail makes him off-center
 
-    always "base" # the body
-
     group tail auto:
         attribute tneutral default
+
+    always "base" # the body
     
     group eyes auto:
         attribute eneutral_o default:
@@ -38,9 +42,17 @@ layeredimage atticus:
     group ears auto:
         attribute mid default
     
-    group blush auto
+    if blush_light:
+        "atticus_blush_light"
 
-    group cry auto
+    if blush_heavy:
+        "atticus_blush_heavy"
+
+    if cry:
+        "atticus_cry_cry"
+
+    if teary:
+        "atticus_cry_teary"
 
     if glasses:
         "atticus_acc_glasses"

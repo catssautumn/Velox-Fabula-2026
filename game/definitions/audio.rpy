@@ -16,3 +16,6 @@ init python:
 define audio.storm = "audio/ambience/storm.ogg"
 define audio.fireplace = "audio/ambience/fireplace.ogg"
 define audio.forest = "audio/ambience/forest.ogg"
+
+## ~ Music ~ ##
+define audio.main_theme = "audio/music/main theme.ogg"
