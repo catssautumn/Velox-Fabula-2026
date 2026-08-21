@@ -9,11 +9,12 @@ label scene_2:
     nvl clear
     n "It roars - and the ground shakes. The villagers cry, sprinting from their homes, holding onto their children and running for their lives."
     n "A great spout of fire flies from its mouth and the nearby houses are burned to cinders in a matter of moments. It circles the sky, wretched eyes circling for another catastrophe to cause."
-
+    $ nvl_mode = False
     menu:
         "Protect the kingdom.":
             pass
 
+    $ nvl_mode = True
     nvl clear 
     n "I have faced this once before. I will face it again, as many times as needed to keep the people safe."
     n "As a burning, boiling hatred crawls up my throat, I reach for my sword by my side-"
