@@ -26,7 +26,7 @@ screen history():
     frame:
         xsize 965 ysize 872
         xanchor 0.5 xpos 0.6
-        yalign 1.0
+        yalign 0.7
         background None
         viewport:
             

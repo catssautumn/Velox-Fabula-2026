@@ -29,6 +29,13 @@ label scene_2:
     "..."
     "I wake up on a cot."
     "Well, it certainly feels like one. Soft underneath my back, a far cry from the grass."
+    hide window
+    show layer screens:
+        matrixcolor None
+    scene interior day with dissolve:
+        zoom 0.5 align (0.5, 0.5)
+    play ambience fireplace fadein 0.5
+    window auto show
     "..."
     "I open my eyes to see that I am in a home I do not recognise. It is far cozier than my meagre shelter - walls, a table and chair, shelves with various trinkets…"
     "It even smells good - like fresh flowers from the river banks."
@@ -41,7 +48,7 @@ label scene_2:
             $ sub_aff(1)
             "Whether or not they have good intentions with me, it is better to be wary of any stranger."
             "It is only at the foot of the bed. If I am calm and quick enough, I can prepare myself-"
-            mc "Ah!"
+            mc "Ah!" with hpunch
             "As I attempt to sit up, a pain slices through my side, hot and sudden."
             "I fall back onto the bedsheets as the figure snaps their head over."
             "Unicorn" "Oh, please be careful!"
@@ -50,7 +57,7 @@ label scene_2:
             # Atticus affection up
             $ add_aff(1)
             "I try to stand, but as I do-"
-            mc "Ah!"
+            mc "Ah!" with hpunch
             "A great pain slices through my side, hot and sudden."
             "I fall back onto the bedsheets as the figure snaps their head over."
             "Unicorn" "Oh, please be careful!"

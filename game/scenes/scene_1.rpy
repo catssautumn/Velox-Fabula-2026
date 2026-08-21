@@ -16,17 +16,20 @@ label start:
             $ pronoun = "she/her"
         "He/him":
             $ pronoun = "he/him"
-            
-    show layer screens:
-        matrixcolor TintMatrix("#cecee2")
-        
-    show screen flower_frame()
+    
+    window hide
+    $ quick_menu = False   
     scene forest night with dissolve:
         zoom 0.5
+    show layer screens:
+        matrixcolor TintMatrix("#cecee2")
+    show screen flower_frame()
     stop music fadeout 0.5
     show rain
     play ambience storm fadein 0.5 
     $ nvl_mode = True
+    $ quick_menu = True
+    window show
     n "Every knight dreams of a glorious victory. A life and death battle won through sheer grit and strength of will, justice brought to all, and a grand feast to celebrate your triumph…"
     n "I was the same, ever since my squire days. I dreamed of saving the people from injustice, of defeating foes far greater than I with nothing but my blade and skill."
     n "Yet, I never once considered what would happen after the fight of my dreams."
@@ -43,14 +46,13 @@ label start:
     n "My makeshift shelter does little to shield me from the torrential rain. Still, the wet wood blocks out some of the storm."
     n "I shall endure. A dragon slayer will not yield to a mere drizzle. A few hours more, and the rain will end."
     scene blackout with dissolve
-    window auto hide
+    window hide
     $ nvl_mode = False
-    window auto show
-    
+    window show 
     "I close my eyes, attempting to sleep. It's essential to conserve my energy so I can continue my trek to the next town."
-    play sound shake volume 0.5
+    play sound shake volume 0.6
     "Hm…? What is that? An animal…?"
-    play sound shake volume 0.7
+    play sound shake volume 0.8
     "It is… rather energetic, isn't it?"
     play sound shake 
     "I crack an eye open, taking a peek at the sound."
@@ -61,7 +63,7 @@ label start:
     "Up above, hanging from the branches of another tree, there's a figure thrashing about in a hunter's trap."
     "A boar, perhaps? But, it seems much too large for that… Don't tell me, is it a person…? Or some sort of beast?"
     "If it is a person, I'm obligated to lend my aid. But, if it were a beast, or some lucky family's dinner, setting it free would be a terrible offense…"
-
+    window auto show
     "What should I do?"
 
     menu:
@@ -79,7 +81,7 @@ label start:
             "A very human voice curses as the figure wrestles with the rope, their fight made so much more difficult with the slippery mud and falling rain."
             mc "Do you require aid?"
             "At the sound of my voice, the figure freezes. They stare at me, their eyes wide."
-            window auto hide
+            window hide
             hide screen flower_frame
             scene cg1 scared with dissolve:
                 zoom 0.8
@@ -98,7 +100,7 @@ label start:
             "It's better to err on the side of caution, lest I accidentally release some sort of fae, or perhaps a particularly large boar."
             "I continue to wait out the storm, ignoring the insistent thrashing above."
             "After what may be hours, or mere minutes, I hear something snap, then a large weight crashes upon the ground."
-            window auto hide
+            window hide
             hide screen flower_frame
             scene cg1 angry with dissolve:
                 zoom 0.8
@@ -188,45 +190,57 @@ label start:
             $ add_aff(1)
             "What foolishness am I even considering? Even if it is a unicorn, I can't turn a blind eye to this."
             mc "Pardon me."
-            $ glasses = False
-            show forest night:
-                easein .5 xoffset 40
-            pause .2
-            show atticus bshocked eshocked mshocked tloop at forest_night with dissolve:
-                yoffset 30
-                pause .3
-                linear .1 yoffset -30 
-                linear .1 yoffset 0 
+            window hide
+            hide screen flower_frame
+            scene cg1 scared with dissolve:
+                zoom 0.7 align (1.0, 0.0)
+            window show
             "Unicorn" "A-ah…? Yes…?"
             "Hm, so he is capable of speech. That makes this much easier."
             mc "Do you wish to hand over your horn to this individual?"
-            show atticus bsad 
+            scene cg1 angry with dissolve:
+                zoom 0.7 align (1.0, 0.0)
             "Unicorn" "Huh?! No!"
             mc "I see. Thank you for answering."
-            hide atticus with dissolve
+            window hide
+            scene forest night with dissolve:
+                zoom 0.5
+            show rain
+            show screen flower_frame()
+            window auto show
             "???" "Oi, what are you doing, talking to the merchandise?"
-            show forest night:
-                easein .5 xoffset 0
             mc "I was simply ascertaining a few things."
             "???" "Well, cut it out! I hunted that freak, far and square! That means his horn is mine!"
             mc "I see. Then, answer me this:"
             mc "If I defeat you now, may I have your heart?"
             "Poacher" "Huh…?!"
+            play sound sword_draw 
             play music battle fadein 0.5 
             "I draw my blade. Its familiar weight is a reassuring companion as I advance."
             "My first strike falls short, my movements weighed down by wet clothes and slowed by wind. The poacher is surprised only for a moment, before she roars in rage."
             show forest night:
-                linear 0.3 zoom 0.54 align (0.5, 0.5)
+                linear 0.3 zoom 0.6 align (0.5, 0.5)
             "Drawing the knife from her belt, she rushes towards me."
+            play sound sword_clash
             "Our blades clang together, metal scraping against metal in a horrid screech. I grit my teeth as she leans in closer."
             "Poacher" "I don't normally gut humans… but hey, there's always a first for everything!"
             "She kicks my foot back and I stumble, but manage to duck under her next sweep." with vpunch
             mc "Last chance to run. Leave the unicorn be, and I'll spare your life."
             "Poacher" "No chance, knightie."
+            play sound sword_slice
             "Her bravado leaves her open. I jerk forwards, aiming for the gap between her leathers and the blade finds purchase–"
+            play sound stab
+            show red haze:
+                zoom 0.6 align (0.5, 0.5)
+                blend "multiply"
+            show bloodstain:
+                align (0.5, 0.5)
             "Just as the poacher's dagger finds its way between my ribs."
             mc "Ngh!" with vpunch
             "Poacher" "You little…!"
+            hide red haze
+            hide bloodstain 
+            with dissolve
             "We both stumble back from each other… her belly is already stained dark red, but I can feel the warmth seep from my side."
             "I fall to my knees as the poacher falls onto her back. Her dagger sits in my ribs - and my sword is right at my side."
 

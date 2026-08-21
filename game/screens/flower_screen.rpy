@@ -28,10 +28,9 @@ init -1 python:
         
         if hint_flowers_showing:
             for i in total_flowers:
-                if at_aff <= i.minimum:
+                if at_aff < i.minimum:
                     i.image = i.wither_img
-        if hint_flowers_showing:
-            renpy.sound.play("audio/soud/negative.mp3") #replace with whatever the lower affection sound is
+            renpy.sound.play("audio/sound/negative.mp3") #replace with whatever the lower affection sound is
 
 image default_flower:
     "gui/flower_bud.png"
@@ -93,40 +92,40 @@ image white_blooming_2:
     "white_bud_2"
     "white_flower_2" with dissolve
 image pink_wither:
-    "pink_flower"
+    #"pink_flower"
     "pink_bud" with dissolve
 image red_wither:
-    "red_flower"
+    #"red_flower"
     "red_bud" with dissolve
 image gold_wither:
-    "gold_flower"
+    #"gold_flower"
     "gold_bud" with dissolve
 image dark_wither:
-    "dark_flower"
+    #"dark_flower"
     "dark_bud" with dissolve
 image blue_wither:
-    "blue_flower"
+    #"blue_flower"
     "blue_bud" with dissolve
 image white_wither:
-    "white_flower"
+    #"white_flower"
     "white_bud" with dissolve
 image pink_wither_2:
-    "pink_flower_2"
+    #"pink_flower_2"
     "pink_bud_2" with dissolve
 image red_wither_2:
-    "red_flower_2"
+    #"red_flower_2"
     "red_bud_2" with dissolve
 image gold_wither_2:
-    "gold_flower_2"
+    #"gold_flower_2"
     "gold_bud_2" with dissolve
 image dark_wither_2:
-    "dark_flower_2"
+    #"dark_flower_2"
     "dark_bud_2" with dissolve
 image blue_wither_2:
-    "blue_flower_2"
+    #"blue_flower_2"
     "blue_bud_2" with dissolve
 image white_wither_2:
-    "white_flower_2"
+    #"white_flower_2"
     "white_bud_2" with dissolve
 image pink_bud:
     "gui/flowers/pink_bud.png"

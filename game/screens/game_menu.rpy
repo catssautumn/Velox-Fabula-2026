@@ -75,6 +75,11 @@ style game_menu_side:
     yfill True
     align (1.0, 0.5)
 
+style game_menu_button_text:
+    idle_color "#997F6E"
+    hover_color "#D0B29E"
+    selected_color "#fff"
+    
 style game_menu_vscrollbar:
     unscrollable "hide"
 
