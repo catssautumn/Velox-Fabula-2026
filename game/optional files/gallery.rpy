@@ -53,10 +53,11 @@ image zoran_cg_1_thumb = Transform("#8157b9", xysize=gallery_thumb_size)
 screen gallery():
 
     tag menu
+    add "gui/game_menu/background.png"
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
-    use game_menu(_("Gallery"))
+    use game_menu()
+    add "gui/game_menu/label_save.png" # REPLACE THIS LATER
 
 
     fixed:

@@ -302,9 +302,9 @@ label scene_6:
     python:
         fav_color = renpy.input("What's your favourite color?", default = "", length=10,)
 
-        fav_color = povname.strip()
+        fav_color = fav_color.strip()
 
-    mc "If you can't do it straight away, [fav_color] is my favourite."
+    mc "If you can't do it straight away, [fav_color!l] is my favourite."
     "Atticus nods eagerly."
     at "I'll see what I can do!"
     "He works over the books for the rest of the day, even as my scales turn back to the normal red."
@@ -321,7 +321,7 @@ label scene_6:
             "But Atticus isn't just a unicorn; he's a damn good man, and someone worthy of a knight's protection."
             "He is effortlessly kind, intensely passionate when called for - and maybe a little too shy at times."
             "But I wouldn't want him to be any other way than himself."
-        "I think I might be catching feelings for him...":
+        "I think I might be catching feelings for him...…":
             $ mc_crush = True
             "If you had asked me a mere few days ago whether or not I would feel this way, I would have laughed it off."
             "A lonely unicorn in the middle of the woods, and a retired knight still lurking at the borders of [their] kingdom…"

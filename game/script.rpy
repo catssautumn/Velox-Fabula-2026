@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -12,13 +12,17 @@ default nvl_mode = False
 
 default name_ypos = -0.5
 
-
 ## Story variables
 default at_aff = 0
 default mentality = 0
 default at_knows = False
 default helped_atticus = False
-
+default talked_garden = False
+default ask_trip = False
+default mc_crush = False
+default gave_chair = False
+default attempted_poach = False
+default persistent.main_menu_background = "default"
 
 label testing:
     # Show a background. This uses a placeholder by default, but you can
