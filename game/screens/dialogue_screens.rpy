@@ -169,7 +169,6 @@ screen nvl(dialogue, items=None):
 
 
 screen nvl_dialogue(dialogue):
-
     for d in dialogue:
 
         window:
@@ -213,10 +212,10 @@ style nvl_label:
 
 # The style for dialogue in NVL
 style nvl_dialogue:
-    xpos 500
+    xalign 0.5
     ypos 0
-    xsize 885
-    min_width 885
+    xsize 700
+    min_width 700
 
 # The style for dialogue said by the narrator in NVL
 style nvl_thought:
