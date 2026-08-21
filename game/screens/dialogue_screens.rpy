@@ -46,9 +46,10 @@ style window:
 # Style for the dialogue
 style say_dialogue:
     adjust_spacing False
-    yanchor 0.5 ypos 140
+    #yanchor 0.5 
+    pos (200, 70) 
     color '#000'
-    xalign 0.5
+    #xalign 0.5
     xysize (790, 150)
 
 # The style for dialogue said by the narrator

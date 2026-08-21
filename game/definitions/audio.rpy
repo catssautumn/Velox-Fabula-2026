@@ -8,7 +8,7 @@ init python:
         # Mark first-time initialization done
         persistent.initialized = True
         # Set volume preference if this is first launch
-        preferences.set_volume("ambience", 1.0)
+        preferences.set_volume("ambience", 0.2)
         # Setup other default preferences if needed
 
 

@@ -16,10 +16,16 @@ label start:
             $ pronoun = "she/her"
         "He/him":
             $ pronoun = "he/him"
-
+            
+    show layer screens:
+        matrixcolor TintMatrix("#cecee2")
+        
     show screen flower_frame()
-    scene  forest day with dissolve
+    scene forest night with dissolve:
+        zoom 0.5
     stop music fadeout 0.5
+    show rain
+    play ambience storm fadein 0.5 
     $ nvl_mode = True
     n "Every knight dreams of a glorious victory. A life and death battle won through sheer grit and strength of will, justice brought to all, and a grand feast to celebrate your triumph…"
     n "I was the same, ever since my squire days. I dreamed of saving the people from injustice, of defeating foes far greater than I with nothing but my blade and skill."
@@ -42,11 +48,11 @@ label start:
     window auto show
     
     "I close my eyes, attempting to sleep. It's essential to conserve my energy so I can continue my trek to the next town."
-    # play a sound
+    play sound shake volume 0.5
     "Hm…? What is that? An animal…?"
-    # MORE SOUND
+    play sound shake volume 0.7
     "It is… rather energetic, isn't it?"
-    # MORE SOUND 
+    play sound shake 
     "I crack an eye open, taking a peek at the sound."
     "Up above, hanging from the branches of another tree, there's a figure thrashing about in a hunter's trap."
     "A boar, perhaps? But, it seems much too large for that… Don't tell me, is it a person…? Or some sort of beast?"
@@ -162,6 +168,7 @@ label start:
             mc "I see. Then, answer me this:"
             mc "If I defeat you now, may I have your heart?"
             "Poacher" "Huh…?!"
+            play music battle fadein 0.5 
             "I draw my blade. Its familiar weight is a reassuring companion as I advance."
             "My first strike falls short, my movements weighed down by wet clothes and slowed by wind. The poacher is surprised only for a moment, before she roars in rage."
             "Drawing the knife from her belt, she rushes towards me."

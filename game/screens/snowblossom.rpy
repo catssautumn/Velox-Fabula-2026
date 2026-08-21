@@ -1,6 +1,6 @@
-# image rain = SnowBlossom("w_conf_rain",
-#     count=100, border=25,
-#     xspeed=(0,0), yspeed=(900,1000), start=5) #replace w_conf_rain with whatever the png is called
+image rain = SnowBlossom("images/rain.png",
+     count=100, border=25,
+     xspeed=(0,0), yspeed=(900,1000), start=5) #replace w_conf_rain with whatever the png is called
 
 
 # image p_conf:
@@ -26,7 +26,7 @@
 #         rotate 0
 #         linear 4.0 rotate 360
 #         repeat
-# image w_conf:
+# image w_conf_rain:
 #     "w_conf_normal"
 #     parallel:
 #         linear 1.0 xzoom -1.0 yzoom 1.0
