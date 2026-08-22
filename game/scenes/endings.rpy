@@ -39,13 +39,13 @@ label dark_end:
             at "[povname]!"
             "..."
             # bg forest
-            "I walk away from the cottage. There's nothing left there anymore."
-            "My sword is heavy in my hand. My shoulders feel weighed down by something I dare not name."
-            "At my belt, I have tied the horn into the leather. When I walk, the end pokes into my thigh."
-            "The scales have already started to fade. By sunrise, I shall be human once again."
-            "Yes… human. I'm human."
-            "I will never not be."
-            "..."
+            n "I walk away from the cottage. There's nothing left there anymore."
+            n "My sword is heavy in my hand. My shoulders feel weighed down by something I dare not name."
+            n "At my belt, I have tied the horn into the leather. When I walk, the end pokes into my thigh."
+            n "The scales have already started to fade. By sunrise, I shall be human once again."
+            n "Yes… human. I'm human, and always will be"
+            nvl clear
+            "No matter the cost."
             $ persistent.main_menu_background = "dark_end"
             return
         "Sheathe the knife.":
@@ -69,21 +69,24 @@ label dark_end:
 label tragic_end_1:
     at "[povname]..."
     "..."
-    "There is nothing else to say. I've said my piece, and Atticus has said his."
-    "He continues to patch me up, wrapping me in bandages and soothing my head with cool water from a rag."
-    "When he is content, he remains silent, before setting a bowl of stew by my bedside and tending to the hearth, his back to me."
+    n "There is nothing else to say. I've said my piece, and Atticus has said his."
+    n "He continues to patch me up, wrapping me in bandages and soothing my head with cool water from a rag."
+    n "When he is content, he remains silent, before setting a bowl of stew by my bedside and tending to the hearth, his back to me."
+    nvl clear
 
     if mentality == 2:
-        "Day in and day out he tends to me, soothing my burns and feeding me stew. But with each spoonful, the flavor I once enjoyed fades into bitterness."
-        "So, as soon as I am able to walk once more, I leave, unable to take one more sip of it."
-        "I pack my bags and head out the door. I leave Atticus behind, I leave that damned poacher camp behind."
-        "I try to leave my curse behind, but it is never too far from me."
-        "No matter where I run, it follows, the shadows of great wings and a whipping tail just behind me."
+        n "Day in and day out he tends to me, soothing my burns and feeding me stew. But with each spoonful, the flavor I once enjoyed fades into bitterness."
+        n "So, as soon as I am able to walk once more, I leave, unable to take one more sip of it."
+        n "I pack my bags and head out the door. I leave Atticus behind, I leave that damned poacher camp behind."
+        n "I try to leave my curse behind, but it is never too far from me."
+        nvl clear
+        n "No matter where I run, it follows, the shadows of great wings and a whipping tail just behind me."
     elif mentality == 3:
-        "I'm not sure how many bowls he leaves out for me. Of how many days pass by before I am sick to my stomach at its very stench."
-        "As soon as I can stumble to my feet, I leave. I don't understand how he could ever be around me for as long as he was."
-        "So I leave the hut behind with nothing but the monstrosity on my skin and sword in my clawed hand."
-        "It's time to slay a dragon."
+        n "I'm not sure how many bowls he leaves out for me. Of how many days pass by before I am sick to my stomach at its very stench."
+        n "As soon as I can stumble to my feet, I leave. I don't understand how he could ever be around me for as long as he was."
+        n "So I leave the hut behind with nothing but the monstrosity on my skin and sword in my clawed hand."
+        nvl clear
+        n "It's time to slay a dragon."
 
     $ persistent.main_menu_background = "tragic_end_1"
     return
@@ -112,32 +115,36 @@ label tragic_end_2:
     "I ask him questions. I beg him to tell me what happened, what made him do this."
     "He doesn't answer me. I don't think he can. He smiles sweetly at me, as he always does. But it carries a weight and pain I can never understand."
     # blackout bg
-    "And I don't think I could ever begin to understand. Of why he made the choices he did, or what he saw in me that was worthy to make such a sacrifice."
-    "But he did. And my life returned to the way it once was."
-    "Maybe I came out of retirement and returned to my knightly duties."
-    "Or maybe I accepted the idyllic life after all. Perhaps I settled down or traversed across kingdoms to see sights never seen before."
-    "But whenever I get a quiet moment to myself, my thoughts always wander back to Atticus."
-    "He may have left so I could forget him, but I never will. The unicorn... the man everyone labelled as a freak, was the most kind-hearted person I've ever had the privilege of knowing."
-    "Sometimes, I wonder what would have happened if I had listened to his words."
-    "Would I have actually been able to live with the curse? Would he have stayed? Would we have remained friends?"
-    "But such thoughts are useless. The best I can do is carry him by my heart, like he did with mine."
+    n "And I don't think I could ever begin to understand. Of why he made the choices he did, or what he saw in me that was worthy to make such a sacrifice."
+    n "But he did. And my life returned to the way it once was."
+    n "Maybe I came out of retirement and returned to my knightly duties."
+    n "Or maybe I accepted the idyllic life after all. Perhaps I settled down or traversed across kingdoms to see sights never seen before."
+    n "But whenever I get a quiet moment to myself, my thoughts always wander back to Atticus."
+    nvl clear
+    n "He may have left so I could forget him, but I never will. The unicorn... the man everyone labelled as a freak, was the most kind-hearted person I've ever had the privilege of knowing."
+    n "Sometimes, I wonder what would have happened if I had listened to his words."
+    n "Would I have actually been able to live with the curse? Would he have stayed? Would we have remained friends?"
+    nvl clear
+    n "But such thoughts are useless. The best I can do is carry him by my heart, like he did with mine."
     $ persistent.main_menu_background = "tragic_end_2"
     return
 
 label happy_end:
     mc "I… can't promise I'll be too bearable for a while. But I promise to try."
     "He remains calm, fussing over my wounds and my back like a worried mother. But more than that - he cannot wipe the smile from his face."
-    "True to his word, he helps me through my transformation. He teaches me how to survive in the wild."
-    "Of course, I already knew how to hunt, make a fire, set up a tent..."
-    "But he taught me which herbs were useful for a burn, and which one would make me dead within a minute."
-    "How to avoid as much human interaction as possible, and where to potentially acquire supplies in case of an emergency."
-    "It takes a long time to soak up every bit of his bountiful knowledge. But it was peaceful and dotted with happy moments."
-    "Life was hard, and it's still hard. My tail gets in the way, and I have to be careful not to breathe fire or else I can ruin my throat for good."
-    "Not to mention that my wings are heavy and cumbersome. And I can't even fly with them!"
-    "... Not yet, at least. I'm still working on that."
-    "But there are still positives. With sufficient knowledge from Atticus, I can move out on my own."
-    "Thanks to my draconic eyesight, I can navigate even the darkest of nights. It's then that I use it as my chance to strike hidden foes and protect the kingdom I still love."
-    "People even begin to whisper about me, a mysterious and noble hero who disappeared into the shadows after being released from their post."
+    n "True to his word, he helps me through my transformation. He teaches me how to survive in the wild."
+    n "Of course, I already knew how to hunt, make a fire, set up a tent..."
+    n "But he taught me which herbs were useful for a burn, and which one would make me dead within a minute."
+    n "How to avoid as much human interaction as possible, and where to potentially acquire supplies in case of an emergency."
+    nvl clear
+    n "It takes a long time to soak up every bit of his bountiful knowledge. But it was peaceful and dotted with happy moments."
+    n "Life was hard, and it's still hard. My tail gets in the way, and I have to be careful not to breathe fire or else I can ruin my throat for good."
+    n "Not to mention that my wings are heavy and cumbersome. And I can't even fly with them!"
+    n "... Not yet, at least. I'm still working on that."
+    nvl clear
+    n "But there are still positives. With sufficient knowledge from Atticus, I can move out on my own."
+    n "Thanks to my draconic eyesight, I can navigate even the darkest of nights. It's then that I use it as my chance to strike hidden foes and protect the kingdom I still love."
+    n "People even begin to whisper about me, a mysterious and noble hero who disappeared into the shadows after being released from their post."
     # bg outside cottage
     "But here, I can take off my helm. I take the time to emerge from the unknown to pay a certain unicorn a visit. Mostly for his company but..."
     at "Ah, [povname]! Back for some stew? You're just in time, I've harvested some fresh ingredients!"
@@ -149,10 +156,10 @@ label best_end:
     "I'm not fully convinced I can do this. But with Atticus by my side, I'll sure as hell try."
     "He smiles so brightly as I answer him. He continues to work on my injuries, soothing my back with cool water and salves, day in and day out."
     "He doesn't stop. I don't think Atticus is even capable of stopping his caring. And I wouldn't want him to."
-    "The next few weeks are grueling. The curse latches to my body, sprouting large, red wings and tail. Horns weigh on my head and my eyes are slitted."
-    "But just as Atticus surmised, the pains ceased. Now it was just a matter of acclimating to my new appendages."
-    "I've accidentally broken my fair share of pitchers and vials bumping into everything. I swear they have a mind of their own, but my roommate doesn't seem to mind, thankfully."
-    "Now, the forest is slowly growing back since the fire. Signs of new life bloom and Atticus is determined to restock his supply of herbs."
+    n "The next few weeks are grueling. The curse latches to my body, sprouting large, red wings and tail. Horns weigh on my head and my eyes are slitted."
+    n "But just as Atticus surmised, the pains ceased. Now it was just a matter of acclimating to my new appendages."
+    n "I've accidentally broken my fair share of pitchers and vials bumping into everything. I swear they have a mind of their own, but my roommate doesn't seem to mind, thankfully."
+    n "Now, the forest is slowly growing back since the fire. Signs of new life bloom and Atticus is determined to restock his supply of herbs."
     # bg forest
     "In the end, we both got carried away and wound up near the edge of the woods."
     "Not too far from us, I can see the main road that loops around to the distant town I was journeying to."
@@ -242,26 +249,28 @@ label best_end:
 
     mc "I have a good feeling this is going to be quite the memorable journey."
     # $ bg half black out
-    "And what a memorable journey it was."
-    "Just as promised, I took Atticus across the lands I was familiar with and more. It wasn't easy to avoid human crowds, but we did stumble across people in similar situations to us."
-    "I admit that I've never noticed them during my time as a knight, but now that I am..."
-    "We didn't hesitate to lend a helping hand. We taught them what we knew, provided aid where we could."
-    "We even built a small community of our own. People to rely on when times are tough."
-    "Now we're even honing in on ending poaching once and for all."
-    "It's not all serious business, though. Atticus soon discovered the joys of candied sweets, a delicacy he strived to perfect in his own kitchen."
+    n "And what a memorable journey it was."
+    n "Just as promised, I took Atticus across the lands I was familiar with and more. It wasn't easy to avoid human crowds, but we did stumble across people in similar situations to us."
+    n "I admit that I've never noticed them during my time as a knight, but now that I am..."
+    nvl clear
+    n "We didn't hesitate to lend a helping hand. We taught them what we knew, provided aid where we could."
+    n "We even built a small community of our own. People to rely on when times are tough."
+    n "Now we're even honing in on ending poaching once and for all."
+    nvl clear
+    n "It's not all serious business, though. Atticus soon discovered the joys of candied sweets, a delicacy he strived to perfect in his own kitchen."
 
     if mc_crush == True:
-        "There are quiet moments that we enjoy together. I've quickly learned of the fact that Atticus loves to cuddle with my tail."
-        "Sometimes, when he lucks out on a new book, he huddles under the blankets to read, insisting I join him."
-        "I can't truly wrap my mind around whatever informative tome he reads, but it's a wonderful way to fall asleep."
+        n "There are quiet moments that we enjoy together. I've quickly learned of the fact that Atticus loves to cuddle with my tail."
+        n "Sometimes, when he lucks out on a new book, he huddles under the blankets to read, insisting I join him."
+        n "I can't truly wrap my mind around whatever informative tome he reads, but it's a wonderful way to fall asleep."
     else:
-        "Life with Atticus means that there isn't a day that goes by without a laugh."
-        "It's fun to banter with him, and in turn he's been learning to play along."
-        "The other day, he even pulled a small prank on me. I'm so proud."
+        n "Life with Atticus means that there isn't a day that goes by without a laugh."
+        n "It's fun to banter with him, and in turn he's been learning to play along."
+        n "The other day, he even pulled a small prank on me. I'm so proud."
 
-
-    "And of course, we do get attacked or ambushed every once in a while."
-    "It's nothing a strong (and admittedly clumsy) knight such as I can't handle."
-    "...But if I couldn't? A certain unicorn concocted potions that can turn anyone's skin rainbow for a {i}very{/i} long time."
+    nvl clear
+    n "And of course, we do get attacked or ambushed every once in a while."
+    n "It's nothing a strong (and admittedly clumsy) knight such as I can't handle."
+    n "...But if I couldn't? A certain unicorn concocted potions that can turn anyone's skin rainbow for a {i}very{/i} long time."
     $ persistent.main_menu_background = "happy_end"
     return

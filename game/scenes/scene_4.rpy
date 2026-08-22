@@ -50,9 +50,16 @@ label scene_4:
     window hide
     $ nvl_mode = False
     window auto show
+    stop music fadeout 1
     "As I walk around, I soon hear voices coming from a nearby grove."
     "None of them sound like Atticus - his voice is too delicate compared to these murmurs."
-    "I keep a hand on my sword, ducking low into the foliage and sneaking towards the conversation. I soon see the perpetrators: a group of four cloaked figures, an array of shining weapons at their sides."
+    show forest day:
+        ease 1.3 zoom 0.55
+    play sound grass
+    "I keep a hand on my sword, ducking low into the foliage and sneaking towards the conversation."
+    "I soon see the perpetrators: a group of four cloaked figures, an array of shining weapons at their sides."
+    show forest day:
+        ease 1.3 zoom 0.6 align (0.0, 0.7)
     "I keep behind a tree, but press my back to the bark to listen into their discussion."
     "Hunter 1" "It was around here, I swear! I know what I saw."
     "Hunter 2" "I believe you. I've seen that unicorn around this area too, slipping between the trees."
@@ -62,15 +69,34 @@ label scene_4:
     "Hunter 4" "With these new weapons? Never been easier."
     "They laugh together, low and sinister. Do they know how malevolent they sound?"
     "But they are far too close to the hut. Two minutes in the wrong direction and Atticus's home would be more than compromised - it would be ruined."
-    "I slowly rise from the ground, trying to get a good vantage point. Even in my injured state, I knew my training from battle - if I were quick, I could take down a couple, fend off the others and send them running."
+    show forest day:
+        ease 2 zoom 0.5 
+    "I slowly rise from the ground, trying to get a good vantage point."
+    "Even in my injured state, I knew my training from battle - if I were quick, I could take down a couple, fend off the others and send them running."
+    play sound grass
     "Just as I was about to circle them though, I heard footprints to my right."
+    $ blush_heavy = False
+    play sound grass
+    show atticus bshocked mshocked:
+        xalign 0.95 xoffset 600
+        easein 1.8 xoffset 0 
     at "[povname]? What are you doing out here?"
     mc "Atticus!"
-    at "You're supposed to be rest-AH!"
+    at "You're supposed to be rest-{w}{nw}{done}AH!"
+    show atticus up eshocked msad_o 
+    at "You're supposed to be rest-{fast}AH!" with vpunch
     "Catching sight of us, the hunters started calling out, rushing towards us."
     mc "Atticus, get back!"
+    scene forest day:
+        zoom 0.5
+    show atticus bshocked down eshocked msad_c tloop at shake:
+        xalign 0.95
+    with dissolve
+    play music battle fadein 0.5 fadeout 0.5
     "I backed away, the hunters soon entering the clearing. Atticus quickly ducked behind me, quivering against my back."
     "Hunter 3" "What do we have here? The very unicorn we've been looking for!"
+    show atticus bsad esad:
+        easeout .5 xalign 1.0
     mc "I'd advise you to leave this place immediately - lest you face the same fate as your friend."
     "The hunters' faces darkened."
     "Hunter 1" "You're the one who killed her?"
@@ -85,8 +111,12 @@ label scene_4:
         "\"He is not malformed!\"":
             # Atticus AFF up
             $ add_aff(1)
+            $ blush_light = True
+            show atticus bshocked up eshocked mshocked tneutral 
             "The outburst escapes me before I can help it. How horrid, to dismiss anyone by a perceived 'deformity'?"
             "He was alive. That was the only factor that mattered."
+            $ blush_light = False
+            show atticus bsad down msad_c tloop
             "While the hunter who asked the question looks almost taken aback, the others laugh mockingly."
             "I feel Atticus press closer to my back, his ears trembling against my shoulder."
         "\"I could say the same thing.\"":
@@ -97,15 +127,30 @@ label scene_4:
 
     "Hunter 2" "Be that as it may, any horn is worth a good price, no matter how mutated it is."
     mc "Then you shall have to cut me down to get it."
+    play sound sword_draw
     "I draw my sword. Despite the time spent away from it, it still fits so nicely into my hand."
+    play sound sword_draw_2
     "The hunters glance at each other… and then take up their own weapons."
     "Hunter 1" "Job done, then."
+    camera:
+        linear .2 zoom 1.1
+    play sound sword_clash 
+    show atticus bshocked up eshocked msad_o tneutral
     "They lunge for me. I parry one easily and kick another in the stomach, sending him sprawling."
     mc "Atticus, stay back!"
+    show atticus:
+        linear .3 xalign 2.0
     at "Yep! I'm okay with that!"
+    hide atticus
+    play sound sword_clash_2
     "The hunters are fierce - but clearly lack the experience in fighting that I do. Their movements are rushed and eager, but lack the finesse needed to take down someone of my calibre."
+    camera:
+        ease .5 zoom 1.0
+    play sound punch
     "I catch one on the elbow and another in the neck with one move of my arm, winding one and injuring the other."
-    "Hunter 1" "Get [them]!"
+    "Hunter 1" "Get [them]!" with vpunch
+    show forest day:
+        easeout .5 zoom 0.5
     "They are certainly trying - although I'm not worried. I've been needing a workout after spending so much time cooped up in bed."
     "Still - I need to focus. Atticus is behind me and watching my every move… although perhaps I can provide a little of a show, as thanks for saving me."
 
@@ -116,10 +161,14 @@ label scene_4:
             "There is a little part of me - that grand knight who once saved the kingdom - who feels honored by Atticus keeping so close to me."
             "So, why not repay that feeling?"
             "I laugh and gesture for the hunters to come closer."
-            mc "Is that all you can give me? I've barely broken a sweat!"
-            "They come at me again, although I've already given a good few enough scars to remember me by. I bat them away easily, adding a little flourish to my sword as the hilt catches one in the temple."
-            "Hunter 4" "Stop that!"
+            mc "Is that all you can give me? I've barely broken a sweat!" with hpunch
+            "They come at me again, although I've already given a good few enough scars to remember me by."
+            "I bat them away easily, adding a little flourish to my sword as the hilt catches one in the temple."
+            "Hunter 4" "Stop that!" with vpunch
             mc "Why should I? I'm having quite a bit of fun!"
+            show forest day:
+                easein .5 zoom 0.55 xalign 0.0
+                easein .5 xalign 1.0
             "I hear Atticus laugh behind me as I spin, sweeping the legs out from two of them in one movement."
             "It's the sort of thing my sword instructor would have scolded me for, perhaps with a knock on the head to get some sense into me."
             "But I was retired and he wasn't here, so I was going to have some fun."
@@ -131,17 +180,23 @@ label scene_4:
             mc "Atticus! Back up, I don't want you to get in the way!"
             "I heard Atticus squeal and felt him leave my back."
             at "Sorry!"
+            show forest day:
+                easein .5 zoom 0.55 xalign 0.0
+                easein .5 xalign 1.0
             "I had to focus. I grit my teeth, batting one dagger away and ducking under another, sending the two combatants falling into each other."
             "It was almost comedic how they floundered around me - but now I had the space to concentrate, I could ensure none of them would be chasing us down again."
         "Focus on the fight.":
 
             "Now was not the time to be distracted. I tightened my grip on my sword, eyes tracking every movement."
+            show forest day:
+                easein .5 zoom 0.55 xalign 0.0
+                easein .5 xalign 1.0
             "As one hunter lunged, I moved back. As another swung, I ducked. As the third reached to grab me, I swung my sword up and sliced at their forearm, sending them away."
             "Swordfighting was a dance. Where they were ungraceful, I was a master of performance."
             "Atticus remained close to my back, never far enough away for anyone to make a sudden lunge for him. It took a minimal change, just making sure my arm or chest blocked him from an easy grab, to keep him safe."
             "I had trained this way for years. These hunters were barely catching up to me."
 
-
+    play sound sword_draw
     "I raise my sword once more, high and proud-"
     "Hunter 2" "Look at that! A freak protecting a freak!"
     "I freeze and glance up - my sleeve has rolled down, just revealing the latest, long stretch of scales from wrist to elbow."
@@ -161,11 +216,14 @@ label scene_4:
 
         "But I take one breath - just one, just a moment - and concentrate again."
         "Their jeers and calls are only words. And I still hold a sword in my hand."
+        show forest day:
+                easein .5 zoom 0.5 xalign 0.5
         "Before they've finished laughing, I'm swooping again, knocking them off their feet and spilling their blood."
         mc "Leave this place! And if you dare come back, I shall make sure you never leave again!"
         "Their inexperience weakens them more than any taunts could ever weaken me. They can barely lift their sword, exhausted and thoroughly beaten by a true knight."
         "As they groan and rally around me, their leader backs away into the trees."
         "Hunter 1" "We'll be back! We won't rest until we've got horns and scales in our market!"
+        stop music fadeout 1.0
         "Despite their sore loss, they cackle as they flee, their laughter soon fading among the plants."
         "I huff, feeling the exhaustion hit me. My side flares in pain, although nothing compared to what it was a few days ago."
         "I turn to catch Atticus's eye."
@@ -175,10 +233,13 @@ label scene_4:
 
         "I tighten my grip on my sword. The adrenaline pumps stronger through my body, and I lower my sleeve until it covers my arm once more."
         mc "I am no monster. I am a proud knight, and it is my duty to protect people from the likes of you!"
+        show forest day:
+                easein .5 zoom 0.5 xalign 0.5
         "I jerk forwards, aiming for the throat. The hunter dodges just in time, but all four snap out of whatever had amused them so and renew their attacks."
         "Unfortunately for them, I'm a little too practiced, and they're a little too slow."
         "As they groan and rally around me, their leader backs away into the trees."
         "Hunter 1" "We'll be back! We won't rest until we've got horns and scales in our market!"
+        stop music fadeout 1.0
         "Despite their sore loss, they cackle as they flee, their laughter soon fading among the plants."
         "I huff, feeling the exhaustion hit me. My side flares in pain, although nothing compared to what it was a few days ago."
         "I turn to catch Atticus's eye."
@@ -188,6 +249,8 @@ label scene_4:
 
         "Fear floods through me, my grip shaking around my sword. I can't help it - I shake and tremble, and my voice comes out loud and hoarse."
         mc "I am not a monster! I am not, and will never be, a monster!"
+        show forest day:
+                easein .5 zoom 0.5 xalign 0.5
         "I sprint forwards, swinging my sword too quickly for them. I slash one through their arm, watching the blood run out as they back away in fear."
         "It's not enough though. I need to move, need to get all of this out."
         "I spin around and catch another, stabbing straight through their leg to make sure they cannot run away. They scream, pushing themselves away from me. They can't run away from this."
@@ -199,6 +262,7 @@ label scene_4:
         mc "Get back here! I'll kill you all!"
         at "[povname]!"
         "I stop still as Atticus calls for me."
+        stop music fadeout 1.0
         "My hand still trembles. There is blood splattered all along the forest floor, trailing after the hunters."
         "I take a deep breath…"
         "..."

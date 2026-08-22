@@ -22,3 +22,8 @@ transform jump:
     linear .1 yoffset 20
     linear .1 yoffset -20
     linear .1 yoffset 0 
+
+transform shake:
+    linear .1 xoffset 5
+    linear .1 xoffset -5
+    repeat
