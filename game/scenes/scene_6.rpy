@@ -1,6 +1,9 @@
 label scene_6:
     "I barely see Atticus during the next day - he spends as many hours of the day and night studying the dagger as possible."
     "But in the night, I am shaken awake."
+    show interior night
+    show atticus eshocked 
+    with dissolve
     at "[povname]!"
     mc "What is it?"
     "His eyes are glassy from lack of sleep, purple bags deep underneath them. His hair is frizzier than ever, mussed from lack of sleep."
@@ -8,26 +11,29 @@ label scene_6:
     "I cautiously raise my hand."
     mc "These?"
     "Atticus sighs."
-    at "Sorry. I'm very tired."
-    at "The dagger is a dragon claw dagger. It took me a while to find the notes on it, but I think I'm right."
+    at esad msad_c "Sorry. I'm very tired."
+    at eneutral_o msad_o "The dagger is a dragon claw dagger. It took me a while to find the notes on it, but I think I'm right."
     mc "Okay… what does that mean?"
-    at "Dragon claw daggers are very rare, mostly because they take so long to make correctly. That, and they're banned due to how dangerous and… and cruel they are."
+    at esad msad_c "Dragon claw daggers are very rare, mostly because they take so long to make correctly. That, and they're banned due to how dangerous and… and cruel they are."
     at "Dragon claw daggers are used to inflict a curse onto their victim. They will slowly transform into a dragon - and, once that happens, the poachers return to harvest their scales and claws."
     "That's… unnerving."
     mc "You mean… they're making their own prey from innocent people?"
-    at "I- yes."
+    at esad_la msad_o "I-"
+    show atticus esad msad_c
+    extend "yes."
     "His ears fall to fit his frown."
-    at "But now we know what it is, I can find a potential cure much quicker. I can't promise it immediately, but…"
+    at eangry "But now we know what it is, I can find a potential cure much quicker. I can't promise it immediately, but…"
     "He trails off."
-    at "I'm sorry."
+    at esad msad_c "I'm sorry."
     mc "It's… it's okay."
     "So I really am turning into a red dragon. The very one I had once protected the kingdom against."
     "Atticus is still watching me. I try to smile."
     mc "Could I… just have a moment alone? To process."
     "Atticus nods."
-    at "Of course! Of course, I…"
-    at "I'll be out the back if you need me. I know we don't have a lot, but I'll give you what space I can."
+    at eshocked mshocked "Of course! Of course, I…"
+    at esad msad_c "I'll be out the back if you need me. I know we don't have a lot, but I'll give you what space I can."
     mc "Thank you."
+    hide atticus with dissolve
     "He lingers for a moment more, but soon turns away and leaves the cottage."
     "I sigh and sit up, hunched over. The skin on my legs itches and pulls oddly with the movement."
     "..."
@@ -61,25 +67,28 @@ label scene_6:
     "..."
     "I can't stand sitting here any longer."
     "I stand up on my new feet, working out how to walk after a few stumbles, and leave the cottage."
+
+    # show the cottage background
     "Following the sounds of work, I soon find Atticus. As he catches sight of me, his eyebrows shoot up his forehead."
-    at "Are you okay?"
+    show atticus eshocked mshocked
+    at  "Are you okay?"
     mc "Yes, I'm fine. I just… can I help? I feel terrible sitting inside all day while you work away."
     "His worry quickly fades away, and he pushes a basket into my hands."
-    at "I'd love the help! Could you pick some of the flowers by that bush?"
+    at ehappy_c mhappy_o "I'd love the help! Could you pick some of the flowers by that bush?"
     "I nod and walk over, taking a stem into my hands- "
-    at "Not that one! Sorry. The small green ones. The flower you're holding will make you sneeze uncontrollably."
+    at eshocked mshocked "Not that one! Sorry. The small green ones. The flower you're holding will make you sneeze uncontrollably."
     mc "Oh, got it."
     mc "Why do you have that flower? The one that makes you sneeze?"
-    at "When diluted, it can provide relief for colds. But if you use too much, it just makes you sneeze out all of the illness. Effective, but… a little painful."
+    at ehappy mhappy_c "When diluted, it can provide relief for colds. But if you use too much, it just makes you sneeze out all of the illness. Effective, but… a little painful."
     mc "Any chance we can get me to sneeze out a curse?"
     "Atticus chuckles, but his ears twitch just enough for me to notice."
-    at "I am actually working on a potion right now to do just that! No sneezing required."
+    at ehappy_c mhappy_c "I am actually working on a potion right now to do just that! No sneezing required."
     mc "Really?"
-    at "Yep! I can't promise it will break the curse, but my hope is that it will slow the transformation until I have time to find a proper cure."
+    at mhappy_o "Yep! I can't promise it will break the curse, but my hope is that it will slow the transformation until I have time to find a proper cure."
     mc "That's very thoughtful. And a good idea - if we can do anything to stop me from turning any more than I already have…"
     "Atticus pauses to look over at me, his smile confident and reassuring, eyes slightly crinkled."
-    at "We'll find a way. Don't worry."
-    at "Now - the small green flowers, please. And the angel's bloom after that."
+    at eangry mhappy_c "We'll find a way. Don't worry."
+    at ehappy "Now - the small green flowers, please. And the angel's bloom after that."
     "It's simple work, but Atticus gives me clear instructions and I can follow them. It's just enough for my mind to focus, to think of anything other than the scratch of my scales against my clothes."
     "I am uneducated in medicine myself, merely trusting the magic of the palace healers when needed. No human can cast magic normally, although their salves and tinctures always worked wonders."
     "That being said, I have seen magic many times before. Either through the thick potions and hexes woven from magical plants, to the cursed weapons those poachers held. I know of its power - if not of its intricacies."
@@ -96,18 +105,20 @@ label scene_6:
             at "Well, mine was quite simple at first! I didn't have quite the spread you see before you until a couple of years into my work."
             at "I began with just vegetables. All the standard things you can forage for, just enough to make meals with…"
             "He began to smile brighter, as if he wasn't quite aware he was doing it."
-            at "One day, there was a traveller coming through the woods. He didn't see me - I was far too scared for that. But he set up camp a few minutes away."
+            at mhappy_o "One day, there was a traveller coming through the woods. He didn't see me - I was far too scared for that. But he set up camp a few minutes away."
             at "I kept coming back to watch him. He would examine every leaf, every berry, every blade of grass he saw and dissect it for his notebook."
             "Atticus picked up the green book and held it aloft."
-            at "It just so happened that he left it behind. Completely forgotten."
+            at ehappy_c mhappy_c "It just so happened that he left it behind. Completely forgotten."
             mc "Did he not come back and look for it?"
-            at "I'm fairly certain he made several notes - this one was only half-filled. But, it meant I knew a lot more about the forest than before."
+            at ehappy "I'm fairly certain he made several notes - this one was only half-filled. But, it meant I knew a lot more about the forest than before."
             at "So, I gave myself a mission: to find and grow every plant he had written about for my garden and find as many uses for them as possible!"
-            at "Food, medicine, salves - even just decoration. It's been a lot of trial and error."
+            at ehappy_c mhappy_o "Food, medicine, salves - even just decoration. It's been a lot of trial and error."
             mc "Such as the flowers that make you sneeze?"
             "Atticus turns bright red, rubbing his nose in painful memory."
-            at "Such as the puffing petal, yes."
+            $ blush_light = True
+            at esad_la mhappy_c "Such as the puffing petal, yes."
             "We both chuckle as he returns to preparing the ingredients."
+            $ blush_light = False
         "Stay quiet.":
             "We are both working - and the last thing I want is to startle Atticus so badly he ruins the potion."
             "He's so skittish and jumpy normally, I hate to think what would happen around a cauldron…"
@@ -116,13 +127,13 @@ label scene_6:
 
 
     "When my basket is full, Atticus checks through it with a smile."
-    at "I… think that's everything! Now it's time to brew it."
+    at ehappy_c mhappy_o "I… think that's everything! Now it's time to brew it."
     "We go back inside, Atticus setting the basket on the side and setting out every ingredient."
     "I have no idea what everything is for, but I trust him enough."
     "He takes a moment to look through his shelves, pulling a few books from them."
-    at "I know there's one here… one curses and hexes… aha!"
+    at eangry mpout "I know there's one here… one curses and hexes… aha!"
     "He pulls a purple cover from the shelf."
-    at "Would you mind starting the fire? We'll need a rolling boil for this one!"
+    at ehappy mhappy_c "Would you mind starting the fire? We'll need a rolling boil for this one!"
     mc "On it."
     "As he reads through, I prepare the cauldron. I look back at the shelves, curious."
     mc "If you don't mind me asking, where did you find all of these books?"
@@ -132,16 +143,16 @@ label scene_6:
 
 
     "Atticus laughs, surprised."
-    at "Why do you ask?"
+    at eshocked mhappy_c "Why do you ask?"
     mc "Well, simply put, I would like my own copy of a curse-breaker book from whatever trade or market you got it from!"
     "At my words, his face falls, and he busies himself in the book."
-    at "No trades nor markets, unfortunately. I, um… can't go anywhere humans are, remember?"
+    at esad "No trades nor markets, unfortunately. I, um… can't go anywhere humans are, remember?"
     "He taps the end of his horn."
     mc "Oh… yes, I'm sorry."
     mc "I suppose… I had just- well, forgotten that part of you. In the sense that it no longer matters to me."
     "Atticus pauses before laughing brightly."
-    at "I'm honestly quite happy to hear that. I can't remember the last time I was treated… normally. Without any special notice either of fear or malice."
-    at "Thank you!"
+    at ehappy_c mhappy_c"I'm honestly quite happy to hear that. I can't remember the last time I was treated… normally. Without any special notice either of fear or malice."
+    at mhappy_o "Thank you!"
     mc "Ha, no problem."
     "With the fire boiling, Atticus ushers me away to sit in the chair as he works on the potion. He's calm and meticulous, always referring back to the litany of notes by his side."
 
@@ -150,52 +161,52 @@ label scene_6:
             # Atticus AFF down
             $ sub_aff(1)
             "He freezes for a moment, then drops a few berries into the cauldron."
-            at "Well… yes."
-            at "But it's either be lonely or be in danger at every moment, so…"
+            at esad msad_c "Well… yes."
+            at msad_o "But it's either be lonely or be in danger at every moment, so…"
             "He swallows thickly, blinking rapidly as he reads through the book."
         "\"If you could go anywhere, where would you go?\"":
             $ ask_trip = True
             # Atticus AFF up
             "Atticus thinks in silence for a moment, dropping a few berries into the cauldron."
-            at "I… I don't know."
+            at econfused mpout "I… I don't know."
             at "I haven't really known anywhere except this forest for quite some time…"
             mc "Come on. Anywhere in the kingdom - no, anywhere in the world."
             "Atticus chuckles, smoothing a hand over the page in the book."
-            at "Maybe… maybe the mountains."
+            at esad_la mhappy_c "Maybe… maybe the mountains."
             mc "Why the mountains?"
-            at "I'm always surrounded by foliage. I'd love to be able to be up high, still feeling the air on my skin, but really seeing the world all around me…"
-            at "I can't imagine what cities look like from above. Or forests, or lakes, seeing the rivers cut through the world…"
+            at ehappy "I'm always surrounded by foliage. I'd love to be able to be up high, still feeling the air on my skin, but really seeing the world all around me…"
+            at esad_la mhappy_o"I can't imagine what cities look like from above. Or forests, or lakes, seeing the rivers cut through the world…"
             "He smiles and shakes his head."
-            at "It's a nice thought."
+            at mhappy_c "It's a nice thought."
 
             if (at_aff >=11) and (mentality != 3):
                 mc "I see no reason why it's not a possibility."
                 mc "I mean… I am a fantastic knight. By my side, you could go anywhere in the world and I'll be able to protect you."
                 mc "I could even show you the palace, if you want. I have some words for the king that warrant a visit, after all…"
                 "Atticus bursts into laughter, stepping away from the cauldron to avoid knocking into it."
-                at "My own knight in shining armor! That would, uh…"
-                at "Certainly be interesting."
+                at eshocked mshocked "My own knight in shining armor! That would, uh…"
+                at ehappy mhappy_o "Certainly be interesting."
             else:
                 mc "It is a nice thought."
                 "I have travelled all over the kingdom, seen great beasts and defeated them, all the while he has been scared of people like me…"
                 "One day, Atticus."
                 "He smiles sadly back at me, bowing his head."
-                at "It is."
+                at esad_la mhappy_c "It is."
 
 
 
 
 
     "Atticus drops in a final ingredient - and the cauldron bubbles, turning a thick purple colour. Even the fire underneath roars more viciously."
-    at "Okay… I think it's done!"
+    at ehappy mhappy_o "Okay… I think it's done!"
     mc "Just like that?"
-    at "I think!"
+    at econfused "I think!"
     mc "Please stop saying that you just 'think', I am about to ingest this."
-    at "Sorry."
+    at esad msad_c "Sorry."
     "He takes a ladle and fills a bottle with the liquid, holding it out to me."
-    at "Blow on it first. I don't want you to scald yourself."
+    at econfused  "Blow on it first. I don't want you to scald yourself."
     "I do as he says. A thick, pungent smell wafts up from the bottle…"
-    at "It… won't taste very good. But with any luck, it should slow down the curse's progression!"
+    at esad mhappy_o "It… won't taste very good. But with any luck, it should slow down the curse's progression!"
     "His smile doesn't quite reach his eyes."
 
     menu:
@@ -203,14 +214,14 @@ label scene_6:
             # Atticus AFF 
             $ sub_aff(1)
             "He catches my hesitation and smiles awkwardly."
-            at "Don't worry. There's no worm tails or goatvenom in there."
+            at mhappy_c "Don't worry. There's no worm tails or goatvenom in there."
             "Do goats even have venom?"
             "I still laugh, a little appeased, despite how unappetising the potion remains to be."
             mc "Alright…"
             "I take a sip."
             "..."
             "It tastes worse than it smells, and it already smells terrible."
-            at "You may want to just… chug the rest."
+            at econfused "You may want to just… chug the rest."
             "Ugh. I know he's right. It doesn't mean I'm happy about it."
             "With a final prayer to whatever divinity was still looking out for me, I swallow it all down."
         "Bottoms up!":
@@ -218,16 +229,16 @@ label scene_6:
             $ add_aff(1)
             "Well, there was no point in delaying the inevitable."
             "I pinch my nose, tilt my head back, and swallow it in one go."
-            at "Impressive!"
+            at eshocked mshocked "Impressive!"
             "As soon as it's done though, I fight to keep it down my throat."
             mc "That… did not taste good."
-            at "I'm not surprised. Sorry!"
+            at esad mhappy_c "I'm not surprised. Sorry!"
             "He doesn't sound too sorry."
 
 
     "After a few moments, I glance at Atticus."
     mc "So… how long should this take?"
-    at "Not too long. Should be…"
+    at eneutral_c msad_o "Not too long. Should be…"
     # show cg
     at "... soon."
     at "That's… not supposed to happen. I'm so sorry!"
@@ -236,14 +247,14 @@ label scene_6:
     "Atticus, mortified, holds his hands over his face."
     at "I'm so sorry! I was confident that the potion would affect the scales, but I thought I was going to slow down the curse, not…"
     at "This!"
-
+    # hide cg
     menu:
         "\"Well… no harm done.\"":
             mc "I mean… it's not exactly what I was hoping for."
-            at "No! No, nor I! Oh, I'm so sorry."
+            at eangry mshocked "No! No, nor I! Oh, I'm so sorry."
             mc "It's alright, Atticus. Really."
             "He reaches up to fiddle with his glasses, his tail swooping around like a whip."
-            at "I'll cook stew for tonight to make up for this."
+            at esad_la msad_c twag "I'll cook stew for tonight to make up for this."
             at "I… I think it will fade soon?"
         "\"This is so funny.\"":
             # Atticus AFF up
@@ -252,25 +263,30 @@ label scene_6:
             "But all of that build-up, all of that worry…"
             "Just for me to spontaneously change colors."
 
-    if mentality == 1:
-        "I start laughing, looking down at my multi-colored arms."
-        mc "Look! It's like an artist's attic exploded!"
-        "Atticus freezes, eyes locked onto me - and then starts laughing with me, relief flooding his face."
-    elif mentality == 2:
-        "I chuckle, running my hands over the scales. They change color with my touch."
-        mc "See? It's not so bad. At the very least, a temporary party trick."
-        "Atticus rubs the back of his neck, although chuckles along with me."
-    elif mentality == 3:
-        "Despite my constant worries about the curse, it's hard not to crack a smile in the moment."
-        mc "See? This is almost pretty."
-        "Atticus sighs, smiling back at me."
+            if mentality == 1:
+                "I start laughing, looking down at my multi-colored arms."
+                mc "Look! It's like an artist's attic exploded!"
+                show atticus eshocked msad_c
+                "Atticus freezes, eyes locked onto me -"
+                show atticus ehappy_c mhappy_o
+                extend "and then starts laughing with me, relief flooding his face."
+            elif mentality == 2:
+                "I chuckle, running my hands over the scales. They change color with my touch."
+                mc "See? It's not so bad. At the very least, a temporary party trick."
+                show atticus esad mhappy_c
+                "Atticus rubs the back of his neck, although chuckles along with me."
+            elif mentality == 3:
+                "Despite my constant worries about the curse, it's hard not to crack a smile in the moment."
+                mc "See? This is almost pretty."
+                "Atticus sighs, smiling back at me."
+                show atticus esad mhappy_c
 
 
-    "Even if I wasn't yet cured, at least I was having fun with it."
+            "Even if I wasn't yet cured, at least I was having fun with it."
 
 
     "Still, Atticus looks back at the cauldron, still with the remains of the potion simmering at the bottom."
-    at "It's just a matter of tweaking ratios… I'm not giving up though!"
+    at eangry mhappy_c tneutral "It's just a matter of tweaking ratios… I'm not giving up though!"
 
     if mentality == 1:
         mc "It's alright! I'm not either."
@@ -284,17 +300,17 @@ label scene_6:
         "This is just the first step. I'll make it. I have to."
 
 
-    at "R-Right!"
+    at mhappy_o "R-Right!"
     "He scratches the back of his head."
-    at "Do you- um…"
+    at esad_la mhappy_c"Do you- um…"
     mc "You can ask me, Atticus. You can ask me anything."
     "He smiles gratefully, but still turns away to head back to the books and cauldron."
-    at "Could… do you think you'll be okay if I can't…"
+    at esad "Could… do you think you'll be okay if I can't…"
     "He mumbles to himself. I pause."
     mc "What… do you mean?"
     at "I-I mean- if…"
     "He swallows, then looks at me with a bright smile."
-    at "What's your favourite colour? If the next potion doesn't work, I can at least try to make your scales turn the way you'd prefer!"
+    at ehappy mhappy_c "What's your favourite colour? If the next potion doesn't work, I can at least try to make your scales turn the way you'd prefer!"
     mc "Well… I would prefer you to focus on curing them rather than changing them. But…"
 
     # PLAYER INPUT
@@ -306,7 +322,8 @@ label scene_6:
 
     mc "If you can't do it straight away, [fav_color!l] is my favourite."
     "Atticus nods eagerly."
-    at "I'll see what I can do!"
+    at ehappy_c mhappy_o "I'll see what I can do!"
+    hide atticus with dissolve
     "He works over the books for the rest of the day, even as my scales turn back to the normal red."
     "Since there's nothing much for me to do, I relax in the chair and let him ramble about plants and magic as he needs to."
     "He's always been dedicated - whether to his garden or me - but now, he focuses with an intensity I've never seen before."
