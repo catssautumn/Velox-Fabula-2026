@@ -4,10 +4,11 @@ label scene_2:
     $ nvl_mode = True
     play ambience fire fadein 0.5
     n "There's heat on all sides."
+    play ambience_2 crowd_panic fadein 0.5
     n "I open my eyes and see it - the great red dragon I once saved the kingdom from, alive and bellowing once more."
     n "Its wings fill the sky, whatever sunlight that once streamed onto the streets below now blotted out in terrifying shadow."
     nvl clear
-    play sound dragon_roar
+    play sound dragon_roar volume 0.3
     n "It roars - and the ground shakes. The villagers cry, sprinting from their homes, holding onto their children and running for their lives."
     n "A great spout of fire flies from its mouth and the nearby houses are burned to cinders in a matter of moments. It circles the sky, wretched eyes circling for another catastrophe to cause."
     $ nvl_mode = False
@@ -29,6 +30,8 @@ label scene_2:
     n "No, it's waiting for what I'll do next…"
     $ nvl_mode = False
     nvl clear
+    stop ambience fadeout 0.5
+    stop ambience_2 fadeout 0.5
     "..."
     "I wake up on a cot."
     "Well, it certainly feels like one. Soft underneath my back, a far cry from the grass."
@@ -195,6 +198,7 @@ label scene_2:
     at bshocked up mhappy_o tneutral "I'll be out until nightfall. But don't worry - you'll be perfectly safe here."
     mc "Wait, Atticus-?"
     hide atticus with dissolve
+    play music warm fadein 1.0 fadeout 1.0
     "The door closes behind him and I am left alone in his cottage."
     "..."
     "What was I meant to do now?"
@@ -205,18 +209,25 @@ label scene_2:
         linear .2 zoom 0.5
     mc "Ngh!"
     "I collapse back down onto my bed, breathing in as hard as I can against the bandages."
+    window hide
+    $ quick_menu = False
+    show darken with dissolve
     $ nvl_mode = True
+    window auto show
+    $ quick_menu = True
     n "I don't really know what I was expecting."
     n "The room is at least cozy. There are few decorations, although every space and item clearly has a purpose."
     n "The sun shines pleasantly through one of the windows. Atticus left it slightly open, a breeze keeping the cottage from getting too stuffy from the medicinal scents."
     n "..."
     n "There has to be something I can do. I'm not used to sitting still."
     window hide
+    $ quick_menu = False
     $ nvl_mode = False
     nvl clear
-    show interior day with dissolve:
+    scene interior day with dissolve:
         zoom 0.8 align (0.0, 0.5)
     window auto show
+    $ quick_menu = True
     "I look to my sides, seeing a small table by the bed. There are two books there, both with well-worn spines and curled at the edges."
     "One has a green fabric cover, the corners completely dog-eared. There are tabs and loose papers packed into it. Perhaps some kind of research book?"
     "The other is bound in a brown leather, more robust than the other book. There is a bookmark near the end. If my instinct is correct, some kind of journal or diary."
@@ -227,7 +238,12 @@ label scene_2:
             $ add_aff(1)
             "I take the green book and open it - only for one of the loose papers to immediately fall out."
             mc "Oops."
+            window hide
+            $ quick_menu = False
+            show darken with dissolve
             $ nvl_mode = True
+            window auto show
+            $ quick_menu = True
             n "It's a sketch of a mushroom - broad and flat with pretty ribbing. While it's clearly rushed given the charcoal thumb-prints on the paper, it's very detailed."
             n "Atticus has written some notes around it - properties, where he found it, how many in a cluster…"
             n "But there is also another set of handwriting, much shorter and messier than Atticus's."
@@ -238,7 +254,12 @@ label scene_2:
             "I take the brown journal and flick to the bookmark. He's written in the date, but nothing more yet."
             "I can't blame him though. Taking care of a dying ex-knight does take a lot of focus."
             "As I flick through the journal though, a lot of the days are fairly bland. Some are just bullet points of things he did that day."
+            window hide
+            $ quick_menu = False
+            show darken with dissolve
             $ nvl_mode = True
+            window auto show
+            $ quick_menu = True
             n "Last week - he saw a new fish in the river."
             n "The week before - he went on a walk and twisted his ankle."
             n "The week before that - he tried a new fruit and didn't like it."

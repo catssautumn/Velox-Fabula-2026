@@ -1,5 +1,7 @@
 init python:
     renpy.music.register_channel("ambience", mixer="ambience", loop=True)
+    renpy.music.register_channel("ambience_2", mixer="ambience", loop=True)
+    renpy.music.register_channel("ambience_3", mixer="ambience", loop=True)
 
 
 init python:
@@ -17,6 +19,8 @@ define audio.storm = "audio/ambience/storm.ogg"
 define audio.fireplace = "audio/ambience/fireplace.ogg"
 define audio.forest = "audio/ambience/forest.ogg"
 define audio.fire = "audio/ambience/fire.ogg"
+define audio.crowd_panic = "audio/ambience/crowd_panic.ogg"
+define audio.creepy = "audio/ambience/creepy.ogg"
 
 ## ~ Music ~ ##
 define audio.main_theme = "audio/music/main theme.ogg"

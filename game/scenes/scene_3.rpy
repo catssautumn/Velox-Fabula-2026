@@ -35,12 +35,21 @@ label scene_3:
     stop music fadeout 0.5
     "..."
     "My arm is really itchy."
+    window hide
+    $ quick_menu = False
+    show darken with dissolve
     $ nvl_mode = True
+    window auto show
+    $ quick_menu = True
     nvl clear
     n "I pull up my sleeve, just able to reach my other arm over my chest."
+    play ambience creepy fadein 0.5 fadeout 0.5
+    n "I can't contain the initial shock and repulsion at what I find."
     n "The skin…"
     n "Am I growing scales?"
-    n "All over my arm are tiny, hard red scales, the skin pink and sore around them from my scratching. But as I pick at one, it feels just like the scale from a fish, or maybe a salamander, or…"
+    nvl clear
+    n "All over my arm are tiny, hard red scales, the skin pink and sore around them from my scratching."
+    n "But as I pick at one, it feels just like the scale from a fish, or maybe a salamander, or…"
     n "Just like a red dragon."
 
 menu:
@@ -55,22 +64,31 @@ menu:
         window hide
         $ nvl_mode = False
         $ quick_menu = False
-        show atticus with dissolve
+        show layer screens:
+            matrixcolor TintMatrix("#cecee2")
+        scene interior night:
+            zoom 0.5
+        show atticus mshocked at forest_night
+        with dissolve
+        $ quick_menu = True
         window auto show
         "And thank goodness I do, because Atticus arrives just at that moment, his basket filled with bright berries."
-        at "[povname]. How's the pain?"
-        mc "It's alright. I still haven't moved."
+        at bshocked msad_o tloop "[povname]. How's the pain?"
+        mc "It's alright. I still can't walk for long, though."
+        show atticus msmile_c 
         "His smile comes back - soft and small. He's still so nervous around me."
-        at "That's alright."
+        at "That's alright. It's part of the recovery, give it some time."
 
         if at_aff >= 3: 
-
+            show atticus msad_c tneutral
             "Atticus opens his mouth as if he's about to ask me a question, or say anything just beyond the bare minimum—"
 
-
+        hide atticus with dissolve
         "He swallows and turns away, back to the counter to set his basket down."
         "My arm still feels hot under my sleeve."
         mc "Atticus…?"
+        $ blush_light = True
+        show atticus bshocked up eshocked mshocked at jump, forest_night
         "He jumps - literally - before spinning sharply around to look at me."
         at "Oh! Um, yes?"
 
@@ -78,10 +96,14 @@ menu:
             "Ask about the scales.":
 
                 mc "Uh… I think something's wrong with me."
+                $ blush_light = False
+                show atticus bsad msad_c
                 "Atticus frowns."
-                at "How so? Is it your wound? Are the bandages too tight?"
+                at msad_o "How so? Is it your wound? Are the bandages too tight?"
                 mc "No, no, uh…"
                 "Part of me wants to keep my arms hidden - but it's a bit too late for that now."
+                show atticus msad_c mid tloop:
+                    easein .8 zoom 1.3 yalign 0.1
                 "I peel my sleeves up as Atticus comes closer."
                 mc "I don't know how long they've been, uh, growing, but… I've got scales."
 
@@ -90,10 +112,14 @@ menu:
                 "I think about asking him…"
                 "But given he still can barely look at me without that blush on his face, I don't want to ask him anything more personal than he can handle."
                 mc "What did you find today?"
+                show atticus mid msad_c
                 "He blinks a few times - then cocks his head. Somehow, his eyes feel piercing on me."
-                at "Just some moose's nettle. And some bearberries."
+                at bsad eneutral_la  msmile_o "Just some moose's nettle. And some bearberries."
+                show atticus  eneutral_o mshocked 
                 "He stares at me a moment more before turning away."
+                hide atticus with dissolve
                 "Same old, same old."
+                $ blush_light = False
 
                 jump scene_4
 
@@ -110,23 +136,32 @@ menu:
         window hide
         $ nvl_mode = False
         $ quick_menu = False
-        show atticus with dissolve
+        show layer screens:
+            matrixcolor TintMatrix("#cecee2")
+        scene interior night:
+            zoom 0.5
+        show atticus mshocked at forest_night
+        with dissolve
+        $ quick_menu = True
         window auto show
         "And thank goodness I do, because Atticus arrives just at that moment, his basket filled with bright berries."
-        at "[povname]. How's the pain?"
-        mc "It's alright. I still haven't moved."
+        at bshocked msad_o tloop "[povname]. How's the pain?"
+        mc "It's alright. I still can't walk for long, though."
+        show atticus msmile_c 
         "His smile comes back - soft and small. He's still so nervous around me."
-        at "That's alright."
+        at "That's alright. It's part of the recovery, give it some time."
 
         if at_aff >= 3: 
-
+            show atticus msad_c tneutral
             "Atticus opens his mouth as if he's about to ask me a question, or say anything just beyond the bare minimum—"
 
-
+        hide atticus with dissolve
         "He swallows and turns away, back to the counter to set his basket down."
         "My arm still feels hot under my sleeve."
         mc "Atticus…?"
-        "He jumps - literally."
+        $ blush_light = True
+        show atticus bshocked up eshocked mshocked at jump, forest_night
+        "He jumps - literally - before spinning sharply around to look at me."
         at "Oh! Um, yes?"
 
         menu:
@@ -134,19 +169,27 @@ menu:
 
                 "I pull up my sleeve once more, raising my arm as much as my position allows."
                 mc "I don't suppose one of the side effects of that salve is 'may grow scales', is it?"
+                $ blush_light = False
+                show atticus msad_c mid tloop:
+                    easein .8 zoom 1.3 yalign 0.1
                 "Atticus's eyebrows raise, and he comes over to the bed."
-                at "Not… that I know of. You're growing scales?"
+                at bsad down msad_o "Not… that I know of. You're growing scales?"
                 mc "Yep. Just on my arms, as far as I can tell."
 
                 jump ask_atticus
+                
             "Stay quiet about the scales.":
                 "I think about asking him…"
                 "But given he still can barely look at me without that blush on his face, I don't want to ask him anything more personal than he can handle."
                 mc "What did you find today?"
+                show atticus mid msad_c
                 "He blinks a few times - then cocks his head. Somehow, his eyes feel piercing on me."
-                at "Just some moose's nettle. And some bearberries."
+                at bsad eneutral_la  msmile_o "Just some moose's nettle. And some bearberries."
+                show atticus  eneutral_o mshocked 
                 "He stares at me a moment more before turning away."
+                hide atticus with dissolve
                 "Same old, same old."
+                $ blush_light = False
 
                 jump scene_4
 
@@ -154,7 +197,7 @@ menu:
 
     "Get them off.":
         $ mentality = 3
-
+        nvl clear
         n "It's just like skinning a fish. You just have to keep going until they come off."
         n "I feel panic, hot and horrible in my chest the more I stare at the blotches."
         n "With my fingernails, I scratch more fervently. I see blood starting to well around the scales, adding to the red stretching across my skin."
@@ -163,22 +206,32 @@ menu:
         window hide
         $ nvl_mode = False
         $ quick_menu = False
-        show atticus with dissolve
+        show layer screens:
+            matrixcolor TintMatrix("#cecee2")
+        scene interior night:
+            zoom 0.5
+        show atticus at forest_night
+        with dissolve
+        $ quick_menu = True
         window auto show
         "The door opens and Atticus is there, basket full."
         at "[povname], I'm back-"
-        at bshocked eshocked up msad_o "Are you alright?"
+        show atticus bshocked eshocked up msad_o at jump
+        at "Are you alright?"
         "Tears build in my throat. Everything feels hot, like a fire is cooking me from the inside out."
         mc "There's—my arms—"
+        show atticus :
+            easein .5 zoom 1.3 yalign 0.1
         "Atticus throws the basket to the side, rushing over to me."
-        at "Hey, hey! I need you to just breathe right now."
+        at down bsad eneutral_o "Hey, hey! I need you to just breathe right now."
         mc "There's scales-!"
-        at "And I'll examine them as soon as you take a moment. Please."
+        at bsad tloop "And I'll examine them as soon as you take a moment. Please."
         "I manage some breaths, long and deep. Atticus breathes with me, his eyes wide and watching me intensely."
         "They're so purple… so strange…"
         "But soon, although I still can hardly bear to look at my arm, I calm down."
-        at "There you are. Now, tell me what's going on?"
+        at mhappy_o mid "There you are. Now, tell me what's going on?"
         "I take one more deep breath. A pit sits in my stomach."
+        show atticus msad_c
         mc "They-I'm growing {i}scales{/i}. All up my arms."
         mc "I don't know when they started but-but I'm covered in scales!"
 
@@ -188,13 +241,11 @@ menu:
 label ask_atticus:
     $ add_aff(1)
     $ at_knows = True
-    # Atticus aff UP
-    # Atticus knows about curse
 
+    show atticus bsad down eneutral_la msad_c tloop
     "Atticus sat down on the bed, taking my arm in his hands."
 
     if at_aff >= 4: 
-
         "His thumb, almost absent-mindedly, rubs soothing circles just above my elbow."
         "I can't say I mind it."
 
@@ -202,12 +253,13 @@ label ask_atticus:
     "His brow furrows and he takes his time. Just as when he applies the salve to my side, his ears twitch in concentration."
     "His hand ghosts from my nails to my shoulder, touching each scale and the skin around it, examining the visible veins under my wrist, touching each fingertip."
     mc "Um, Atticus?"
-    at "One moment, please."
+    at @ msad_o "One moment, please."
     "He continues to examine the skin, gently squeezing around every single knuckle. I have no idea what he's looking for."
     "..."
     "Did he do this?"
     "I hadn't spent so long in the vicinity of any non-human creature before. Perhaps there was some latent reaction, biology or chemistry or…"
-    "Was this a reaction from Atticus's medicines? I had no idea what was in any of the concoctions he made except from the stews - and even then, some of the mushrooms he named went over my head."
+    "Was this a reaction from Atticus's medicines?"
+    "I had no idea what was in any of the concoctions he made except from the stews - and even then, some of the mushrooms he named went over my head."
     "..."
     "Maybe it was something more intentional. A way of keeping me here, an odd revenge against the humans who had once trapped him."
     "..."
@@ -217,11 +269,15 @@ label ask_atticus:
         "Voice these thoughts to Atticus.":
             # Atticus AFF down  
             $ sub_aff(1)
+            show atticus bneutral eneutral_o mid tneutral
             mc "Atticus… do you think you…"
             mc "Did you cause this?"
+            show atticus bshocked eshocked mshocked down tloop
             "Atticus's head shoots up to look at me - and he looks almost heartbroken."
             "His ears flatten against his head and, just for a moment, his hands tighten around my arm."
-            at "No. No, I… I would never do this to anyone. Let alone you."
+            $ teary = True
+            at bsad esad "No. No, I… I would never do this to anyone. Let alone you."
+            show atticus eneutral_la msad_c
             "He ducks his head back down again, unable to look me in the eye."
             "Gods, he looked like he was the one who had been stabbed. Of course he hadn't done this to me intentionally."
         "Stay silent and let him work.":
@@ -230,22 +286,27 @@ label ask_atticus:
             "These were thoughts caused by fear. Irrational, but I wouldn't let them control me."
             "I keep quiet as he examines my nail beds. I'm sure he has a reason to."
 
-
+    $ teary = False 
     "After a couple minutes, he sets my arm down and looks at me with a forlorn expression."
-    at "I'm sorry, but… this looks like a curse to me."
+    at eneutral_c msad_o tneutral "I'm sorry, but… this looks like a curse to me."
     "..."
     mc "A curse?"
+    show atticus eneutral_o msad_c
     "Atticus nods, his teeth chewing his bottom lip."
-    at "That's what it looks like to me - a transformation of this specificity doesn't seem like a reaction to a potion or anything."
-    at "But, then again, I haven't seen this before. In all honesty, I don't know how to stop this."
+    at msad_o mid  "That's what it looks like to me - a transformation of this specificity doesn't seem like a reaction to a potion or anything."
+    at eneutral_la down tloop "But, then again, I haven't seen this before. In all honesty, I don't know how to stop this."
     "I sigh, falling back against the bed."
-    at "But… I won't stop trying to figure out how to help."
-    mc "... really?"
+    at bangry mid eneutral_o msad_o tneutral"But… I won't stop trying to figure out how to help."
+    mc "...Really?"
     "Atticus nods, his expression entirely serious. He pushes his glasses up his nose."
-    at "I may not be a master curse-breaker. But you saved me from those hunters, and if the least I can do is try my best to help…"
-    at "Well, that's just what I'll do!"
+    at bneutral msmile_o "I may not be a master curse-breaker. But you saved me from those hunters, and if the least I can do is try my best to help…"
+    at bhappy ehappy_c up mhappy_o "Well, that's just what I'll do!"
+    $ blush_heavy = True
+    show atticus bsad eneutral_la mhappy_c
     "A blush spreads all over his face and he looks away from me… but I can't help but believe him."
-    "Truly, I don't know if he can help me. He may be knowledgeable on plants, but I doubt that eating my five-a-day will save me from whatever this curse wants to do with me."
+    show darken with dissolve
+    "Truly, I don't know if he can help me."
+    "He may be knowledgeable on plants, but I doubt that eating my five-a-day will save me from whatever this curse wants to do with me."
     "But… he promised to help. He's been sleeping on the floor while I heal, and he has never done anything to make me uncomfortable."
     "Maybe once my side is healed, I can find a magician in town. But for now, I'm happy to accept Atticus's help."
     jump scene_4

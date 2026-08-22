@@ -1,35 +1,55 @@
 label scene_4:
-    "Three days later - a whole week after I was first stabbed - I am finally able to stand once more."
-    "Atticus, as per his usual routine, leaves after giving me food, basket on his arm."
-    "However, given I can see the sunlight through the window - and my side finally doesn't feel like it's burning from the inside out - after an hour or so, I tail after him."
-    "I pat my trusty sword, once more faithfully by my side. I'm not dressed in my full armour, but I feel more like myself with every step into the forest."
-    "I feel a scale from my palm catch on my sword hilt."
-    "They've been growing every day - inch by inch, creeping from my arm to my hand, curling around my shoulder. It's only a matter of time before they reach my chest."
+    play ambience fireplace fadeout 0.5
+    play music warm fadein 0.5
+    window hide
+    $ quick_menu = False
+    scene interior day with dissolve:
+        zoom 0.5
+    $ nvl_mode = True
+    show layer screens:
+            matrixcolor None
+    $ quick_menu = True
+    nvl clear
+    window auto show
+    n "Three days later - a whole week after I was first stabbed - I am finally able to stand once more."
+    n "Atticus, as per his usual routine, leaves after giving me food, basket on his arm."
+    n "However, given I can see the sunlight through the window - and my side finally doesn't feel like it's burning from the inside out - after an hour or so, I tail after him."
+    nvl clear
+    n "I pat my trusty sword, once more faithfully by my side. I'm not dressed in my full armour, but I feel more like myself with every step into the forest."
+    n "I feel a scale from my palm catch on my sword hilt."
+    n "They've been growing every day - inch by inch, creeping from my arm to my hand, curling around my shoulder. It's only a matter of time before they reach my chest."
+    nvl clear
 
     if mentality == 1:
 
-        "At least it's taking a while to spread. The more time I have to uncover what's happening, the better."
+        n "At least it's taking a while to spread. The more time I have to uncover what's happening, the better."
     elif mentality == 2:
 
-        "I hold my hand by my side. I pulled my sleeves all the way down before leaving."
-        "If I can't see it, it can't hurt me…"
+        n "I hold my hand by my side. I pulled my sleeves all the way down before leaving."
+        n "If I can't see it, it can't hurt me…"
     elif mentality == 3:
 
-        "I swallow down a wave of fear that catches in my throat."
-        "I can't panic right now - as long as I focus, Atticus and I can figure out what's going on."
+        n "I swallow down a wave of fear that catches in my throat."
+        n "I can't panic right now - as long as I focus, Atticus and I can figure out what's going on."
 
 
-    "I don't plan on going too far from the hut. After all, my side isn't completely healed - and I don't actually know where I am within the forest."
-    "No. This is a small hike to get used to movement again, not some grand escape plan."
+    n "I don't plan on going too far from the hut. After all, my side isn't completely healed - and I don't actually know where I am within the forest."
+    n "No. This is a small hike to get used to movement again, not some grand escape plan."
 
     if at_aff >= 4: 
 
-        "And besides - I couldn't leave Atticus without at least saying goodbye and thank you for all he had done for me."
+        n "And besides - I couldn't leave Atticus without at least saying goodbye and thank you for all he had done for me."
 
-
-    "The forest is beautiful around Atticus's cottage - bushes of bright berries cluster underneath towering trees, dappled sunlight hitting their leaves."
-    "Flowers bloom all along the rich green grass - yellows and pinks and blues, all different shapes and curves. Further away, I see a small stretch of heather-like herbs winding a path between the trees."
-    "No wonder he comes home with something new every day - he's not exactly starved for choice around here."
+    nvl clear
+    scene forest day with dissolve:
+        zoom 0.5
+    play ambience forest fadein 1.0
+    n "The forest is beautiful around Atticus's cottage - bushes of bright berries cluster underneath towering trees, dappled sunlight hitting their leaves."
+    n "Flowers bloom all along the rich green grass - yellows and pinks and blues, all different shapes and curves. Further away, I see a small stretch of heather-like herbs winding a path between the trees."
+    n "No wonder he comes home with something new every day - he's not exactly starved for choice around here."
+    window hide
+    $ nvl_mode = False
+    window auto show
     "As I walk around, I soon hear voices coming from a nearby grove."
     "None of them sound like Atticus - his voice is too delicate compared to these murmurs."
     "I keep a hand on my sword, ducking low into the foliage and sneaking towards the conversation. I soon see the perpetrators: a group of four cloaked figures, an array of shining weapons at their sides."
