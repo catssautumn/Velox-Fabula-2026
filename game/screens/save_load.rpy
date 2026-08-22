@@ -19,7 +19,8 @@ screen save():
     tag menu
     
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
+    add "gui/game_menu/background.png"
+    add "gui/game_menu/label_save.png"
 
     use file_slots(_("Save"))
     $ menu_use = "save"
@@ -29,23 +30,19 @@ screen load():
 
     tag menu
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
+    add "gui/game_menu/background.png"
+    add "gui/game_menu/label_load.png"
 
     use file_slots(_("Load"))
 
     $ menu_use = "load"
 
 screen file_slots(title):
-    add "gui/game_menu/background.png"
     default page_name_value = FilePageNameInputValue(
         pattern=_("Page {}"), auto=_("Automatic saves"),
         quick=_("Quick saves"))
 
-    use game_menu("")
-    if menu_use == "save":
-        add "gui/game_menu/label_save.png"
-    else:
-        add "gui/game_menu/label_load.png"
+    use game_menu(_(""))
     fixed:
         xsize 1500 xalign 1.0
         ## This ensures the input will get the enter event before any of the
