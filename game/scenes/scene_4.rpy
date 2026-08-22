@@ -216,23 +216,27 @@ label scene_4:
 
         "But I take one breath - just one, just a moment - and concentrate again."
         "Their jeers and calls are only words. And I still hold a sword in my hand."
+        play sound sword_clash
         show forest day:
                 easein .5 zoom 0.5 xalign 0.5
         "Before they've finished laughing, I'm swooping again, knocking them off their feet and spilling their blood."
         mc "Leave this place! And if you dare come back, I shall make sure you never leave again!"
         "Their inexperience weakens them more than any taunts could ever weaken me. They can barely lift their sword, exhausted and thoroughly beaten by a true knight."
+        play sound run
         "As they groan and rally around me, their leader backs away into the trees."
         "Hunter 1" "We'll be back! We won't rest until we've got horns and scales in our market!"
         stop music fadeout 1.0
         "Despite their sore loss, they cackle as they flee, their laughter soon fading among the plants."
         "I huff, feeling the exhaustion hit me. My side flares in pain, although nothing compared to what it was a few days ago."
+        show atticus bsad down esad mshocked tloop with dissolve
         "I turn to catch Atticus's eye."
         mc "Are you alright?"
-        at "I'm perfectly fine. A little shaken, but…"
+        at msad_o "I'm perfectly fine. A little shaken, but…"
     elif mentality == 2:
 
         "I tighten my grip on my sword. The adrenaline pumps stronger through my body, and I lower my sleeve until it covers my arm once more."
         mc "I am no monster. I am a proud knight, and it is my duty to protect people from the likes of you!"
+        play sound sword_clash
         show forest day:
                 easein .5 zoom 0.5 xalign 0.5
         "I jerk forwards, aiming for the throat. The hunter dodges just in time, but all four snap out of whatever had amused them so and renew their attacks."
@@ -240,90 +244,119 @@ label scene_4:
         "As they groan and rally around me, their leader backs away into the trees."
         "Hunter 1" "We'll be back! We won't rest until we've got horns and scales in our market!"
         stop music fadeout 1.0
+        play sound run
         "Despite their sore loss, they cackle as they flee, their laughter soon fading among the plants."
         "I huff, feeling the exhaustion hit me. My side flares in pain, although nothing compared to what it was a few days ago."
+        show atticus bsad down esad mshocked tloop with dissolve
         "I turn to catch Atticus's eye."
         mc "Are you alright?"
-        at "I'm perfectly fine. A little shaken, but…"
+        at msad_o "I'm perfectly fine. A little shaken, but…"
     elif mentality == 3:
 
         "Fear floods through me, my grip shaking around my sword. I can't help it - I shake and tremble, and my voice comes out loud and hoarse."
-        mc "I am not a monster! I am not, and will never be, a monster!"
+        mc "I am not a monster! I am not, and will never be, a monster!" with hpunch
         show forest day:
                 easein .5 zoom 0.5 xalign 0.5
         "I sprint forwards, swinging my sword too quickly for them. I slash one through their arm, watching the blood run out as they back away in fear."
+        show red haze with dissolve:
+            zoom 0.5 blend "multiply"
         "It's not enough though. I need to move, need to get all of this out."
-        "I spin around and catch another, stabbing straight through their leg to make sure they cannot run away. They scream, pushing themselves away from me. They can't run away from this."
+        "I spin around and catch another, stabbing straight through their leg to make sure they cannot run away."
+        "They scream, pushing themselves away from me. They can't run away from this."
         "I can't run away from this."
-        mc "{i}I'm not a monster!{/i}" #screenshake
+        mc "{i}I'm not a monster!{/i}" with vpunch
         "A couple respond with blows of their own - but I'm too fast, too vicious for them. Their leader backs away, pulling another with them."
         "Hunter 1" "Retreat! Retreat!"
+        play sound run
         "They lean on each other, one carrying another, sprinting off into the forest. I start towards them, tears blinding my vision, my sword red."
         mc "Get back here! I'll kill you all!"
+        show atticus bsad down esad mshocked tloop with dissolve
         at "[povname]!"
+        hide red haze with dissolve
         "I stop still as Atticus calls for me."
         stop music fadeout 1.0
         "My hand still trembles. There is blood splattered all along the forest floor, trailing after the hunters."
         "I take a deep breath…"
         "..."
         mc "I'm… I'm sorry, Atticus."
+        show atticus:
+            easein .5 zoom 1.1 yoffset 100
         "Atticus hovers by the tree line - and then walks towards me."
-        at "It's okay. I'm… I'm sorry they called you that. And…"
+        at msad_o "It's okay. I'm… I'm sorry they called you that. And…"
 
-
-    at "Thank you, so much, for protecting me."
-    at "I truly don't know how I can repay you. This is the second time you've saved my life."
+    play music sad fadein 0.5
+    at ehappy mid mhappy_o tneutral "Thank you, so much, for protecting me."
+    at bsad down msad_o "I truly don't know how I can repay you. This is the second time you've saved my life."
     mc "You're already repaying me, Atticus."
+    show atticus eneutral_la msad_c
     "He bows his head."
-    at "I'll find more ways."
+    at eneutral_o mhappy_o "I'll find more ways."
+    hide atticus with dissolve
     "I turn away from him, looking at the path the hunters escaped down. They would surely be back, especially after knowing both Atticus and I were posted nearby."
+    show forest day:
+        ease 1 zoom 0.58 yoffset -150
     "However, a glimmer on the ground catches my eye:"
     "A dagger made with blood red metal, laying on the ground."
-    "I pick it up and hold it to the sunlight, watching the metal shine. It's hard to name, but there's a coldness to the handle, a chill that wouldn't make sense if someone were just holding it in battle…"
+    show forest day:
+        ease .8 yoffset -50
+    "I pick it up and hold it to the sunlight, watching the metal shine."
+    "It's hard to name, but there's a coldness to the handle, a chill that wouldn't make sense if someone were just holding it in battle…"
     "I recognise it. It's perhaps not the exact same dagger, but it is remarkably similar to the one I was stabbed with a week ago."
     at "What have you found?"
+    show forest day:
+        ease 1 zoom 0.5 yoffset 0
     "I show the dagger to Atticus."
+    show atticus mshocked with dissolve
     mc "Take care not to nick yourself with it - I fear it's quite dangerous."
+    show atticus down tloop bangry eangry
     "His ears flatten against his head as he inspects the blade."
     at "Is it…?"
     mc "I think it is of the same make. At the very least, that group knew the hunter I… dispatched."
     "Atticus swallowed. He rubs the back of his head, adjusting his glasses and looking more and more like the skittish unicorn I had grown accustomed to."
 
     if at_knows == False:
-
-        at "[povname], if you don't mind me asking…"
+            
+        at bsad eneutral_la msad_o "[povname], if you don't mind me asking…"
         mc "Yes?"
-        at "What… was that on your arm? And why did they call you a monster?"
+        at eneutral_o mid tloop "What… was that on your arm? And why did they call you a monster?"
         "I swallow… and hitch the dagger into my belt. I'd rather not hold it while having such a vulnerable conversation."
 
         if mentality == 1:
-
+    
             "I roll back my sleeve, revealing the patches of scales travelling from my hand upwards."
             mc "About three days ago, I spotted this. They've been growing more every day - they started just around my elbow, now they're from my fingernails to my shoulder."
-            at "Do… do they hurt?"
+            at down esad tneutral "Do… do they hurt?"
             mc "No. They itch a lot though… and I'm not meant to grow scales, Atticus."
+            $ blush_light = True
+            show atticus bshocked up eshocked mshocked
             "Atticus flushes."
-            at "Oh! Yes, sorry."
+            at "Oh!{w}{nw}{done} Yes, sorry."
+            at bsad mid eneutral mhappy_o tloop "Oh!{fast} Yes, sorry."
         elif mentality == 2:
 
             "It takes me a second to compose myself, but I roll back my sleeve, revealing the patches of scales travelling from my hand upwards."
             mc "I'm… growing scales. I tried to ignore them - could have been a weird reaction to the medicine or… or something."
             mc "But they've been growing more and more. They started just around my elbow and now my whole arm is covered."
             mc "I… I don't know what to do."
+            show atticus down esad tneutral 
             "Atticus looks at me, his big eyes filled with so much sympathy, it makes me shy away from him."
 
 
-        at "May I… take a look?"
+        at up eneutral_o tneutral msad_o "May I… take a look?"
+        show atticus bneutral eneutral_la mpout:
+            easein .5 zoom 1.1 yoffset 100
         "I hold out my arm and he cautiously holds it, dragging his fingers hesitantly over the scales."
         "They've grown to great patches, spreading like a rash up my arm. Still, Atticus doesn't flinch at the sight, but treats them with gentleness and care that makes them itch even more."
-        at "I'm sorry, but… this looks like a curse to me."
+        at mid bsad eneutral_o msad_o "I'm sorry, but… this looks like a curse to me."
+        show atticus msad_c
         "..."
         mc "A curse?"
+        show atticus down tloop
         "Atticus nods, his teeth chewing his bottom lip."
-        at "That's what it looks like to me - a transformation of this specificity doesn't seem like a reaction to a potion or anything."
+        at mid tneutral @ msad_o "That's what it looks like to me - a transformation of this specificity doesn't seem like a reaction to a potion or anything."
         mc "Agreed. If this were a reaction to the salve, it would be concentrated around my ribs and you would have noticed long before I did."
 
-
+    show atticus bangry mid eneutral_la msad_c tloop
     "His eyes dropped to the dagger."
     at "Do you… do you think the dagger may have caused your curse?"
     "It wasn't too far out of the question. It had stabbed me pretty good - and so far, it was one of the few reasonable explanations."
