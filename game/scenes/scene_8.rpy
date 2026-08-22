@@ -1,13 +1,18 @@
 label scene_8:
+    scene forest day with fade:
+        zoom 0.5 align (0.5, 0.5)
     "The light is no more friendly though."
     "I awake in agony, a half-scream coming out of my mouth before my eyes are even open."
     "My back feels like it's ripping open. My shoulder blades are tense, rippling, struggling against the thin fabric of my shirt."
     "I curl up, scared to touch them and scared to move too much."
+    $ glasses = False
+    show atticus bsad mhappy_c 
+    with dissolve
     at "I'm here."
     "I finally open my eyes, seeing Atticus hunching over me through a haze of pain-induced tears."
     mc "Atticus… what's happening?"
     "I can barely see his face. His glasses are off though, and his hands are colder than normal."
-    at "You got hurt pretty badly. Try to relax if you can."
+    at ehappy_c "You got hurt pretty badly. Try to relax if you can."
     "I feel his hands on my legs. I look down and see the scales, once glistening and red, now scorched and black in places."
     "The trap-the fire."
     "Atticus, facing the fire just to make sure I escaped…"
@@ -15,7 +20,7 @@ label scene_8:
     "Not quite as bad as me, but he's still far more hurt than I ever want him to be."
     mc "You got hurt…"
     "I can now see the purplish bags under his eyes. Despite his exhaustion, he smiles at me."
-    at "I got you out. That's all that matters right now."
+    at bhappy mhappy_o "I got you out. That's all that matters right now."
 
     if mentality == 1:
         "Through all the pain and all the fear, what comes through is an immense and undying gratitude."
@@ -29,22 +34,22 @@ label scene_8:
 
 
     mc "Ngh!"
-    "Another wave of pain shoots through my back, my spine tingling as though the fire still raged inside it. I bite my tongue, trying to keep the cries back–"
-    at "[povname], stop!"
+    "Another wave of pain shoots through my back, my spine tingling as though the fire still raged inside it. I bite my tongue, trying to keep the cries back-"
+    at bshocked eshocked mshocked "[povname], stop!"
     "He gently pries my jaw open as blood drips from my mouth - new fangs pierced the flesh, large and bloody in my mouth."
     "It's hard to think through the pain. But I reach up and grasp his arm."
     mc "The Queen's promise… did you find it?"
     "He takes my hand and places it back in front of me."
-    at "We can talk about it once you're through this spell-"
+    at bsad ehappy mhappy_c "We can talk about it once you're through this spell-"
     mc "No! No, Atticus - did you find the flower?"
     "I can feel my body changing. My bones feel close to snapping. My back may soon split open. There is a roiling heat that is soon to explode inside of me."
     mc "I don't know if I have much longer."
     "Atticus pauses… and then his face crumbles. He shakes his head."
-    at "The fire… it burned the only patch I could see. I only found the remnants as I was pulling you away from the inferno."
+    at esad_la msad_c "The fire… it burned the only patch I could see. I only found the remnants as I was pulling you away from the inferno."
     "..."
     mc "Isn't there… anything we can do?"
     "Atticus chokes back a sob. He shakes his head."
-    at "The fire… it was too much. They won't grow back before the transformation. I'm… I'm sorry."
+    at esad "The fire… it was too much. They won't grow back before the transformation. I'm… I'm sorry."
     "..."
     "That's it then. I'm going to become a dragon."
     "Wings will sprout from my back. I will breathe fire and my claws will never know softness again."
@@ -57,13 +62,13 @@ label scene_8:
     mc "Atticus…"
     "He smoothes a sweat-soaked strand of hair from my head."
     at "We may not be able to reverse it. But we don't have to let it control you."
-    at "I… don't think it will be easy, learning how to live again. But… I'm here."
+    at mhappy_c "I… don't think it will be easy, learning how to live again. But… I'm here."
     "His smile is so small, so worried. But, at the same time, it is so strong that tears well in my eyes."
     at "I can help you navigate your way through it." 
-    at "I know it's… an isolating experience. But you don't have to be alone. We can find ways of making this life comfortable for you again."
+    at esad_la "I know it's… an isolating experience. But you don't have to be alone. We can find ways of making this life comfortable for you again."
     mc "The humans treat you so horribly… I don't know if I can…"
     "I cringe through the pain. Atticus swallows, but takes my hand and squeezes it tight."
-    at "I know. And you can - it will be hard, but you will find your way through this."
+    at esad "I know. And you can - it will be hard, but you will find your way through this."
     "My back burns. I grit my teeth."
     "Maybe this is only temporary. I am scared beyond my wits, transforming into a terrible creature…"
 
@@ -74,12 +79,12 @@ label scene_8:
 
 
     mc "I… I don't know…"
-    at "You don't have to know now. We can figure things out. But… I believe in you."
+    at bhappy mhappy_c ehappy_c "You don't have to know now. We can figure things out. But… I believe in you."
 
     if at_aff >= 15:
-        at "You are the bravest, strongest, most resilient person I have ever met. You have dedicated your life to making this world safer for others."
+        at mhappy_o "You are the bravest, strongest, most resilient person I have ever met. You have dedicated your life to making this world safer for others."
         at "If anyone can find it in them to live their life in spite of a curse, it's you."
-        at "Stay with me. Let me help you."
+        at ehappy "Stay with me. Let me help you."
 
 
     "He looks at me with so much belief, so much honestly. I cannot think of a more honorable man in my entire life."
@@ -89,18 +94,21 @@ label scene_8:
 
     menu:
         "\"The life of a monster is no life for me.\"":
+            show atticus bsad msad_c esad
             $ mentality = 3
             if at_aff >= 12:
                 jump tragic_end_2
             else:
                 jump tragic_end_1
         "\"I just don't think I can do this. I'm sorry, Atticus.\"":
+            show atticus bsad msad_c esad
             $ mentality = 2
             if at_aff >= 12:
                 jump tragic_end_2
             else:
                 jump tragic_end_1
         "\"...Perhaps you're right. There is hope for me yet.\"":
+            show atticus bhappy mhappy_o ehappy_c
             $ mentality = 1
             if at_aff >= 12:
                 jump best_end
