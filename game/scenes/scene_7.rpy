@@ -1,7 +1,14 @@
 label scene_7:
+    scene interior day with fade:
+        zoom 0.5 align (0.5, 0.5)
+    
     "Over the next few days, I try several of Atticus's potions."
-    "One changed my vision to make every colour the inverse. Another made my hair grow three inches in an hour. The third turned all the scales as cold as ice for the entire afternoon."
+    "One changed my vision to make every colour the inverse. Another made my hair grow three inches in an hour." 
+    "The third turned all the scales as cold as ice for the entire afternoon."
+    show atticus ehappy mhappy_o twag
+    with dissolve
     at "We're getting closer though!"
+    hide atticus with dissolve
     "Sure."
     "When I wake up this time though, there are dots of pain all over my body: namely at my temples, my shoulder blades, and down by my tailbone."
     "I roll over onto my stomach to relieve the pressure, reaching around to my back to feel for them."
@@ -11,16 +18,20 @@ label scene_7:
     "When I reach up to my head, however, there is definitely something there. It twinges against my skull when I touch it, but feels almost like my claws."
     mc "Atticus?"
     "He always wakes up earlier than me. I hear him clatter something by the hearth."
+    show atticus esad msad_o bsad
+    with dissolve
     at "Yes?"
     mc "What… are these?"
+    show atticus eshocked mshocked bshocked
     "I show him the nubs atop my head and he feels for the nubs at my shoulder blades. As per usual, he takes a moment to examine the skin, tenderly feeling around them."
     mc "So? What's the verdict, doc?"
+    show atticus esad_la msad_c bsad
     "Atticus hums in thought, taking off his glasses and cleaning them."
-    at "I… think they may be the beginnings of the transformation."
+    at eangry "I… think they may be the beginnings of the transformation."
     mc "But… the scales were the beginning."
-    at "I know. But…"
+    at esad "I know. But…"
     at "I'm sorry, it appears that you're growing horns. "
-    at "And I think the nubs may turn into wings and a tail."
+    at esad_la msad_o "And I think the nubs may turn into wings and a tail."
     "He sounds almost broken as he says it, trying to keep back from revealing his own panic too much."
 
     menu:
@@ -29,42 +40,48 @@ label scene_7:
             "I sigh, rolling my shoulders and feeling how the muscle has already changed."
             mc "Well… it's a bit sooner than expected."
             mc "But hey, traversing the land will be a lot easier. I can just fly over the trees instead of needing to plan paths through them."
-            at "Ha, that's true! You can fly up and get all the fruit and flowers I can't reach."
+            at ehappy_c mhappy_o bhappy "Ha, that's true! You can fly up and get all the fruit and flowers I can't reach."
             mc "See? Not too bad, is it?"
             "Still, I can see his relief at my acceptance as clear as the morning sun coming through the window."
         "We need to heal me now.":
             $ mentality = 3
             mc "So… we should get working on the cure then?"
-            at "[povname]..."
+            at esad msad_c "[povname]..."
             mc "No, no - if it's moving this quickly then - then we don't have time to waste, do we?"
             mc "Because if-if I've started growing wings a-and and tail, then it's only a matter of time before it gets worse-"
             mc "So we need to hurry up! I'll take all the potions you need me to, but we need to get going-"
             "Atticus places his hands on my shoulders, heavy and grounding."
-            at "We'll get there. I promise, I'm trying my best."
+            at eangry bangry msad_c "We'll get there. I promise, I'm trying my best."
             mc "Atticus, I'm going to turn into a monster-"
-            at "No, you won't. We just have to… keep trying."
-            at "I promise I am not going to leave you alone in this, alright?"
+            at esad msad_c bsad "No, you won't. We just have to… keep trying."
+            at mhappy_c "I promise I am not going to leave you alone in this, alright?"
             "He motions for me to breathe. I do so, although I can't say that it makes me feel totally better."
             mc "Alright."
-            at "Thank you."
+            at ehappy mhappy_c "Thank you."
         "Not ideal…":
             $ mentality = 2
             "It's hard to be too positive about this. But I try to take it on the chin."
             mc "Well… the wings will be a bit hard to disguise around humans. And I can't say I'm a huge fan of the tail - sitting down is going to be a nightmare."
             "Atticus offers me a sympathetic smile."
-            at "I'm sure we can find solutions, no matter what."
+            at ehappy mhappy_c "I'm sure we can find solutions, no matter what."
 
     if at_aff >= 10:
-        at "And hey! With the horns and tail, at least we'll be matching."
+        at ehappy_c mhappy_o bhappy "And hey! With the horns and tail, at least we'll be matching."
         mc "Sure…"
 
 
 
 
 
-    at "Look… even if we're not able to stop it - which, I think we will! - there are ways of hiding yourself, if that's what you want."
+    at esad msad_c bsad "Look… even if we're not able to stop it"
+    show atticus esad mhappy_o
+    extend "- which, I think we will!"
+    show atticus esad mhappy_c
+    extend " - there are ways of hiding yourself, if that's what you want."
     mc "Like… finding ways I can still be in civilisation?"
-    at "Right! I've been thinking of ways for a very long time, I just… never felt the need to use them."
+    at ehappy_c mhappy_o bhappy "Right! I've been thinking of ways for a very long time, I just…"
+    show atticus esad_la mhappy_c bsad
+    extend " never felt the need to use them."
 
     if gave_chair:
         "He sits down at the table, and I sit on my seat beside him."
@@ -73,10 +90,11 @@ label scene_7:
 
 
     at "When I was younger, older unicorns would transform into humans so we could trade with others and keep connections outside of the herd."
-    at "It takes a while to learn how to transform, so it was only ever the elders that did it. But even then, they normally wrapped up in lots of clothes just to make sure."
+    at esad mhappy_c bhappy "It takes a while to learn how to transform, so it was only ever the elders that did it. But even then, they normally wrapped up in lots of clothes just to make sure."
     mc "No chance of the ears poking out then."
     "Atticus grins, twitching his ears to prove a point."
-    at "A hat can do wonders… I remember seeing so many of them. Once, we managed to trade for an entire hatter's stock and we all walked around with silly bobbles on our horns for a week…"
+    at ehappy_c mhappy_c "A hat can do wonders… I remember seeing so many of them. Once, we managed to trade for an entire hatter's stock and we all walked around with silly bobbles on our horns for a week…"
+    show atticus bsad esad_la 
     "He swallows, his gaze darting away from me."
 
     if mentality == 1:
@@ -84,9 +102,9 @@ label scene_7:
         "Sad."
         mc "You don't have to tell me more if it's hard."
         "Atticus chuckles, although it doesn't hold much humor. He shakes his head."
-        at "It's okay, I can keep going."
+        at  "It's okay, I can keep going."
         mc "Just… don't say any more than you feel you can."
-        at "Thank you."
+        at ehappy_c mhappy_o bhappy "Thank you."
     elif mentality == 2:
         "There's a definite shift in him - his normal meek but happy self suddenly looks so…"
         "Sad."
@@ -95,29 +113,31 @@ label scene_7:
         "Is that what I have to look forward to? Wrapping myself up in hats and scarves to hide every damn scale on my face?"
         "Never being able to honestly interact with another human again, lest I be screamed at or slaughtered…"
 
-
+    show atticus bsad ehappy_c mhappy_c
     "Atticus sighs softly, smiling down at the table."
     at "Normally, young unicorns learn how to transform into humans and back from their elders. It's a skill that's been passed down for generations."
-    at "But, uh… I lost my herd before I learned from them."
+    at esad_la "But, uh… I lost my herd before I learned from them."
     "He swallows thickly, blinking rapidly as his ears freeze against his head."
     mc "How did you lose them?"
-    at "Poachers. Not the same group that were in the forest the other day, but…"
+    at esad "Poachers. Not the same group that were in the forest the other day, but…"
     "He clenches his hands, as if anchoring himself back down into reality."
-    at "I had started learning, but… I always found it tricky. Always getting stuck halfway, never fully quite committing to the change."
-    at "So, when… when my herd was attacked, my father transformed me with magic so I could run away. There was less chance of the poachers finding me if I only had two legs instead of four."
+    at msad_c "I had started learning, but… I always found it tricky. Always getting stuck halfway, never fully quite committing to the change."
+    at "So, when… when my herd was attacked, my father transformed me with magic so I could run away."
+    at esad_la "There was less chance of the poachers finding me if I only had two legs instead of four."
     at "I'm stuck though. I've tried to shift either way, but… I can't quite do it."
     mc "I'm so sorry, Atticus… have you made no progress?"
+    show atticus ehappy mhappy_o bhappy
     "Atticus laughs, a spark appearing in his eyes."
-    at "I have, actually. When my father transformed me, he, uh… forgot to give me hands."
+    at ehappy_c  bsad "I have, actually. When my father transformed me, he, uh… forgot to give me hands."
     at "So I was fumbling around with hooves for a long time."
     "Despite the grief weighing heavily on him, Atticus grinned, miming his hands uselessly clopping around on the table."
-    at "Building was terrible! Although at least I had a built-in hammer for the nails."
+    at bhappy "Building was terrible! Although at least I had a built-in hammer for the nails."
     at "Like the potions, everything is just… trial and error. One day I'll be able to transform fully. But, until then…"
     mc "You've got some funky ears and a funky horn."
     "Atticus smiles. There's a thud against the table."
-    at "Don't forget the tail."
+    at bangry ehappy mhappy_c twag "Don't forget the tail."
     "He straightens his shoulders though, pushing his glasses up his nose to look at me squarely in the eye."
-    at "Still. I'm confident I'll find a way for both of us to live happily, without fear."
+    at bneutral mhappy_c tneutral "Still. I'm confident I'll find a way for both of us to live happily, without fear."
 
     if mentality == 1:
         if mc_crush:
@@ -155,22 +175,24 @@ label scene_7:
 
     mc "Thank you, Atticus."
     "He bows his head, then rises to his feet."
-    at "I'm going to start working again, okay?"
+    at bhappy ehappy_c mhappy_o "I'm going to start working again, okay?"
     mc "What are you working on today?"
     "He smiles."
-    at "In one of the books, a flower called the Queen's promise was mentioned to being useful in pausing the spread of hexes and curses."
+    at ehappy bneutral "In one of the books, a flower called the Queen's promise was mentioned to being useful in pausing the spread of hexes and curses."
     at "They're incredibly rare and tend to only exist in small patches, so I'll be searching for it today. I think this might be the key I've been missing in all my potions."
     mc "What if you don't find it?"
-    at "I will."
+    at bangry mhappy_c "I will."
 
     if at_aff >= 12:
         if mc_crush:
             "He takes my hands in his, squeezing them gently. I still see a blush creeping up his neck."
-            at "I'm not coming back until I find that flower. I promise."
+            $ blush_light = True
+            at bhappy "I'm not coming back until I find that flower. I promise."
             "His hands are so calloused, but they hold my scales and claws so gently, as if he doesn't want to hurt me…"
+            $ blush_light = False
         else:
             "He grasps my shoulder, shaking it slightly so I look into his eyes."
-            at "I'm not coming back until I find that flower. I promise."
+            at bhappy "I'm not coming back until I find that flower. I promise."
             "His hands are so calloused, I can feel them scratch against my tunic. He works so hard."
 
 
@@ -179,18 +201,21 @@ label scene_7:
 
     "Atticus moves away from me, picking up his basket from the side and opening the front door."
     at "There's a pot of water by the hearth. You can wash with it - the water might help alleviate your pains."
-    at "Just… take it easy today."
+    at bhappy ehappy_c mhappy_c "Just… take it easy today."
     mc "Thank you, Atticus."
     "He bows his head and leaves the cottage."
+    hide atticus with dissolve
     "Well, there's nothing much for me to do. I take the cloth from the hearth, soak it in the warm water, and run it over my shoulders."
-    "It's definitely not fixing the whole 'wing' problem, but it does soothe my shoulders. After my shoulders, I move to my forehead, trying to ignore how the very tips of the horns catch against the fabric."
+    "It's definitely not fixing the whole 'wing' problem, but it does soothe my shoulders."
+    "After my shoulders, I move to my forehead, trying to ignore how the very tips of the horns catch against the fabric."
     "As I reach down to resoak the cloth, I notice how dirty the hearth is. It's covered in soot and charcoal, no doubt from years of cooking."
     "Without thinking, I push away some of the debris with my foot - and catch sight of a half-burned scrap of parchment."
     "It's got Atticus's handwriting."
     "..."
     "Well, he's not around to know. I wipe my damp hand on my trousers, then pick up the scrap."
     "{i}Two different books about unicorns now say the same thing: the horns are invaluable to medicine, no matter how malformed they are.{/i}"
-    "{i}One story says a person's broken leg healed in a day using a salve made from powdered unicorn horn. Another says a person came from the brink of death by holding the horn against their chest.{/i}"
+    "{i}One story says a person's broken leg healed in a day using a salve made from powdered unicorn horn.{/i}"
+    "{i}Another says a person came from the brink of death by holding the horn against their chest.{/i}"
     "{i}It's hard to tell whether it's the horn's innate magic, or whether the magic comes from giving up the horn itself. One sacrifice for another."
     "{i}It's not ideal, but if…{/i}"
     "The scrap burns away there."
@@ -247,6 +272,8 @@ label scene_7_no_dark_ending:
 
 label scene_7_flower:
     # fade in
+    scene interior day with fade:
+        zoom 0.5 align (0.5, 0.5)
     "The next day, I wake and stare at the ceiling. The cottage is empty and the basket is gone, meaning Atticus must have left already."
     "One day, I'll get used to the slow life. Today is not the day."
 
@@ -258,6 +285,8 @@ label scene_7_flower:
     "..."
     "He had mentioned he was looking for a rare flower - the Queen's promise. Surely two pairs of eyes were better than one?"
     "After putting out the hearth and grabbing my sword, I left the cottage."
+    scene forest day with fade:
+        zoom 0.5 align (0.5, 0.5)
     "However, after a few minutes of bravely walking through the forest, it becomes very clear that I am a little lost."
     "Not in the navigational sense - a knight is always aware of their surroundings, after all - but it occurs to me very quickly that I have no idea what the flower I am looking for looks like."
     "Or where it would grow."
@@ -288,7 +317,8 @@ label scene_7_flower:
     "No…"
     "From the treeline, the four hunters I had once bravely fought off emerge, each wearing viciously victorious grins."
     "Hunter 2" "Wow, those are quite some scales… Maggie's dagger really was a cursed item then!"
-    "They laugh amongst themselves, slowly removing their weapons. An axe, wicked and sharp; a sword, black and curved like a claw; and a remarkably familiar dagger, one that glimmers like blood in the sunlight."
+    "They laugh amongst themselves, slowly removing their weapons."
+    "An axe, wicked and sharp; a sword, black and curved like a claw; and a remarkably familiar dagger, one that glimmers like blood in the sunlight."
     "Hunter 3" "Look at [them]... a knight turned dragon. And now, turned prey."
     "Hunter 4" "Think of the prices! Dragon scales sell for much more than a measly horn."
     "I hold onto my sword."
@@ -297,6 +327,7 @@ label scene_7_flower:
     "Hunter 1" "You know what? I don't think we {i}will{/i} regret this."
     "He raises his axe, poised like an executioner. My hand sweats around my sword and I open my mouth to scream-"
     "And a burst of flame exits my throat."
+    show fire_bad
     "As the taste of coal and acid fills my mouth, choking and smothering, I can hear the screams get louder."
     "Hunter 1" "What?! How is this-{i}argh!{/i}"
     "Hunter 3" "It's everywhere! The fire's spreading!"
@@ -312,11 +343,12 @@ label scene_7_flower:
         "Even as my own chaos reigns around me, I cannot help but feel a sense of peace."
         "I knew I wouldn't die peacefully. A knight's life rarely does. But this hardly feels fitting for how hard I had worked throughout my life."
         "No battle, no glorious sword slays me. Just a fire of my own making, chasing inexperienced idiots who were too scared to face me honestly."
-        "Maybe I should have been smarter. I should have avoided that dagger in the first place. But at least die honourable."
+        "Maybe I should have been smarter. I should have avoided that dagger in the first place. But at least I die honourable."
         "I close my eyes, feeling the heat inch closer…"
     elif mentality == 2:
         "This is how I die, isn't it? Not in a blaze of glory, tales of my heroic actions lining the path of my legend, but in a fire I caused by mistake and fear."
-        "There is little honour in this. But, as the charred hunter's body is swallowed by fire, at least I know I took one of them out with me. Justice was served, even if it is tainted."
+        "There is little honour in this. But, as the charred hunter's body is swallowed by fire, at least I know I took one of them out with me."
+        "Justice was served, even if it is tainted."
         "I close my eyes, swallowing back the bile in my throat…"
     elif mentality == 3:
         "Tears drip down my face that immediately evaporate in the smoke. This cannot be how I die - not as a knight, not as a human, but as squandered livestock."
@@ -327,6 +359,9 @@ label scene_7_flower:
 
     at "[povname]!"
     "My eyes fly open."
+    show atticus bangry eshocked msad_c
+    # if this is a cg just don't worry about it
+    with dissolve
     mc "Atticus? What are you doing? Get out of here!"
     "He's so nervous. His eyes are wide, hair frazzled, movements frantic."
     at "I'm going to get you out of here."
@@ -334,15 +369,15 @@ label scene_7_flower:
     "He leaps over me, bracing the fire licking against his back, hands working against the trap."
 
     if at_aff >= 12:
-        at "You're not dying here. Not while I'm here!"
+        at mangry "You're not dying here. Not while I'm here!"
 
 
     at "Just trust me!"
     "He's focussed. He's always so focussed, even with his forest turning to ruin around him."
     mc "You can't save everyone. Just go, it's okay, save your cottage-"
-    at "Got it!"
+    at mhappy_o "Got it!"
     "The trap springs open around my ankle. He immediately stands over me, grabbing my arm and hauling me up onto my weak legs."
-    at "That's it, just lean on me. I'm going to get you out of here…"
+    at bsad msad_c "That's it, just lean on me. I'm going to get you out of here…"
     "I hadn't thought him to be so strong, but he holds me so firmly against his side, moving me through the brush with ease."
     "I can feel the heat receding. My mind reels, still flooded with panic and near-death worries…"
     "But I trust Atticus. If there's one thing in this world I can be sure of, it's him."
