@@ -332,6 +332,7 @@ label scene_4:
             "Atticus flushes."
             at "Oh!{w}{nw}{done} Yes, sorry."
             at bsad mid eneutral mhappy_o tloop "Oh!{fast} Yes, sorry."
+            $ blush_light = False
         elif mentality == 2:
 
             "It takes me a second to compose myself, but I roll back my sleeve, revealing the patches of scales travelling from my hand upwards."
@@ -360,28 +361,42 @@ label scene_4:
     "His eyes dropped to the dagger."
     at "Do you… do you think the dagger may have caused your curse?"
     "It wasn't too far out of the question. It had stabbed me pretty good - and so far, it was one of the few reasonable explanations."
+    show atticus down bneutral eneutral_o 
     mc "I think it's a possibility."
-    at "I'd like to study it, if that's alright with you. Even if it doesn't hold the clue to breaking your curse, any more information about it is good."
-    at "And besides… I want to help you."
+    at mid msad_o "I'd like to study it, if that's alright with you. Even if it doesn't hold the clue to breaking your curse, any more information about it is good."
+    at bsad mhappy_o tneutral "And besides… I want to help you."
+    show atticus mhappy_c
     "Gods, his face is so earnest. He looks at me with such innocence, like he couldn't bear not helping me."
     mc "Thank you, Atticus."
+    show atticus bneutral ehappy_c
     "I hand him the dagger. He sighs and bows his head."
-    at "Thank you, [povname]! I won't let you down."
+    at bangry up ehappy mhappy_o "Thank you, [povname]! I won't let you down."
+    show atticus msmile_c
     "I laugh, although it soon turns into a long sigh as exhaustion floods through me."
     mc "I'm sure you won't… although I could do with a long rest. I haven't fought that much in quite a long time…"
-    at "Of course! Here, let me help you back. You weren't hurt again, were you?"
-    "I can hardly call it confidence, although I've never seen Atticus quite so animated about something. I laugh again, and Atticus's ears twitch as he giggles along with me."
-    at "Sorry. I just… want to help you."
+    at bshocked up ehappy_c mhappy_o "Of course! Here, let me help you back.{w}{nw}{done} You weren't hurt again, were you?"
+    at bsad mid eneutral_o msad_o "Of course! Here, let me help you back.{fast} You weren't hurt again, were you?"
+    "I can hardly call it confidence, although I've never seen Atticus quite so animated about something."
+    show atticus bconfused up mpout tloop
+    "I laugh again, and Atticus's ears twitch as he giggles along with me."
+    at bsad eneutral_la mid mhappy_o "Sorry. I just… want to help you."
     mc "I'm alright to walk, but thank you. Perhaps you can guide us back?"
-    at "Yes! Absolutely!"
+    at bhappy up ehappy_c mhappy_o "Yes! Absolutely!"
+    hide atticus with dissolve
+    show forest day:
+        ease 1.5 zoom 0.54 yoffset -20
     "He immediately starts trotting, taking a much slower pace to allow me to keep up."
     "As he walks us back towards the cottage, he turns to me."
+    show atticus bsad eneutral_o mhappy_o tloop with dissolve
     at "I, um…"
+    show atticus mhappy_c
     mc "Yes, Atticus?"
-    at "I just… uh…"
+    $ blush_light = True
+    at mhappy_o "I just… uh…"
+    show atticus bshocked eneutral_la mpout
     "He turns his face away, but I can still see his bright red cheeks."
-    at "I just want to say that I don't think you're a monster. Or a freak."
-    at "No matter what those hunters said."
+    at bhappy msmile_o twag "I just want to say that I don't think you're a monster. Or a freak."
+    at bsad ehappy_c "No matter what those hunters said."
 
     menu: 
         "Thank him.":
@@ -389,15 +404,21 @@ label scene_4:
             $ add_aff(1)
             mc "Thank you, Atticus."
             mc "I… I needed to hear that."
+            show atticus eneutral_o msad_c tloop 
             "He looked up at me again, his expression soft and worried."
-            at "You'll never be a monster. Not as long as you've got that honor."
+            at mhappy_o up "You'll never be a monster. Not as long as you've got that honor."
+            hide atticus with  dissolve
             "We continue down the path in silence."
+
         "Shrug it off.":
             # Atticus AFF down
             $ sub_aff(1)
+            hide atticus with dissolve
             "I turn away, looking straight ahead. There was nothing to say in response."
             "After a few moments, I hear Atticus sigh and quicken his pace."
 
-
+    $ blush_light = False
+    scene interior day with dissolve:
+        zoom 0.5
     "We soon reach the cottage once more. I set my sword to the side and collapse onto the bed, falling asleep in a matter of moments as Atticus busies himself around the house."
     jump scene_5

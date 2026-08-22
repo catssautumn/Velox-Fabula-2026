@@ -1,84 +1,142 @@
 label scene_5:
-    "I wake up and feel more rested than I have in a week."
-    "Perhaps the exertion yesterday did me good. My body is relaxed, my annoyance from being cooped up gone, and my fingers luxuriously scratch up the covers."
-    "..."
-    "My fingers now end in claws, the scales smoothing down from the knuckles into thick cartilage. I've torn a hole in Atticus's bedsheets."
-    "Both arms now. When I reach up to my shoulders, I can feel the scales slip behind and around my neck."
+    window hide
+    $ quick_menu = False
+    show darken with dissolve
+    $ nvl_mode = True
+    nvl clear
+    window auto show
+    $ quick_menu = True
+    play music warm fadein 0.5 fadeout 0.5
+    play ambience fireplace fadein 0.5 fadeout 0.5
+    n "I wake up and feel more rested than I have in a week."
+    n "Perhaps the exertion yesterday did me good. My body is relaxed, my annoyance from being cooped up gone, and my fingers luxuriously scratch up the covers."
+    n "..."
+    n "My fingers now end in claws, the scales smoothing down from the knuckles into thick cartilage. I've torn a hole in Atticus's bedsheets."
+    n "Both arms now. When I reach up to my shoulders, I can feel the scales slip behind and around my neck."
+    nvl clear
 
     menu:
         "Maybe those hunters were right…":
             $ mentality = 2
-            "Part of me baulks at acknowledging those miscreants as right… but it's hard to deny."
-            "The parts of me I can see with my own eyes are no longer human. They are scaled, red and angry, ripping holes in innocent folks' bedsheets."
-            "I can't hide my arms anymore. The rot has spread too far."
-            "But… I am still human. I think with my own head and speak with my own voice."
-            "For now, at least."
+            n "Part of me baulks at acknowledging those miscreants as right… but it's hard to deny."
+            n "The parts of me I can see with my own eyes are no longer human. They are scaled, red and angry, ripping holes in innocent folks' bedsheets."
+            n "I can't hide my arms anymore. The rot has spread too far."
+            n "But… I am still human. I think with my own head and speak with my own voice."
+            n "For now, at least."
+            window hide
+            $ nvl_mode = False
+            window auto show
+            hide darken
+            show atticus
+            with dissolve
+            window auto show
             "As I ponder, I see Atticus raise his head. He had clearly slept at the table, his hair mussed and flat on one side."
-            at "You're awake. Good morning!"
+            at bhappy ehappy_c @ msmile_o "You're awake. Good morning!"
             mc "Good morning, Atticus."
         "They were right - I am a monster.":
             $ mentality = 3
-            "I stare at my hands - my clawed and scaled hands - and know that if in some world I am still considered human, it is a fast ending one."
-            "Is this how monsters begin? Torn from the comfort, the familiarity of being a malleable human, cursed to become that which terrifies what they once were?"
-            "What if I become one? What if soon I shall tour the skies and burn down the villages I swore to protect, only to be slain by a knight who looks as I once did?"
-            "When does the mind fade? After the skin or the heart?"
+            stop music fadeout 0.5
+            play ambience creepy fadein 0.5 fadeout 0.5
+            n "I stare at my hands - my clawed and scaled hands - and know that if in some world I am still considered human, it is a fast ending one."
+            n "Is this how monsters begin? Torn from the comfort, the familiarity of being a malleable human, cursed to become that which terrifies what they once were?"
+            show red haze with dissolve:
+                zoom 0.5 blend "multiply" alpha 0.5
+            n "What if I become one? What if soon I shall tour the skies and burn down the villages I swore to protect, only to be slain by a knight who looks as I once did?"
+            n "When does the mind fade? After the skin or the heart?"
+            window hide
+            $ nvl_mode = False
+            window auto show
+            hide darken
+            show atticus up bangry eangry mangry 
+            with dissolve
+            window auto show
             at "[povname]!"
             "I feel his hands around mine, soft and padded with human fingerprints."
+            play ambience fireplace fadein 0.5 fadeout 0.5
+            hide red haze with dissolve
             "I snap out of whatever cursed state I was in, looking down at my clenched hands-oh."
             "I had clenched them so tight that my claws had dug into the soft flesh of my own palms, blood seeping from them."
+            show atticus bsad msad_c
             mc "Atticus, I…"
             "I take in a breath. Long and slow."
             mc "My apologies. I… was lost in my head."
+            show atticus mid mhappy_c
+            play music warm fadein 0.5 fadeout 0.5
             "Atticus gently pried my hands open, careful to avoid the blood welling in my palms."
-            at "That's perfectly alright. Just… take a moment with me."
-            at "In and out… that's it."
+            at ehappy_o tloop @ mhappy_o "That's perfectly alright. Just… take a moment with me."
+            at bneutral eneutral_c @ mhappy_o "In and out… that's it."
             "He's patient. Almost too patient, as if he'd been expecting me to act this way."
             "But, I comply. I take the breaths and let him dab at my new wounds with some honey salve to disinfect them."
-            at "Are you alright?"
+            at bhappy eneutral_o @ mhappy_o "Are you alright?"
             mc "Yes. My apologies for startling you."
-            at "No need to apologise. As long as you're alright."
+            at bshocked ehappy_c @ mhappy_o "No need to apologise. As long as you're alright."
         "I am no monster.":
             $ mentality = 1
-            "I take a breath - long and slow…"
-            "I am not a monster. My human skin may be fading, but my heart and honor has never, and will never, waver."
-            "I am a human, and more importantly, a knight who swore to protect and serve the kingdom."
-            "No scale nor claw could stop me from doing that. If the great dragon I had once slashed from the sky could not, then whatever this curse was would not either."
+            n "I take a breath - long and slow…"
+            n "I am not a monster. My human skin may be fading, but my heart and honor has never, and will never, waver."
+            n "I am a human, and more importantly, a knight who swore to protect and serve the kingdom."
+            n "No scale nor claw could stop me from doing that. If the great dragon I had once slashed from the sky could not, then whatever this curse was would not either."
+            window hide
+            $ nvl_mode = False
+            window auto show
+            hide darken
+            show atticus
+            with dissolve
+            window auto show
             "As I ponder, I see Atticus raise his head. He had clearly slept at the table, his hair mussed and flat on one side."
-            at "You're awake. Good morning!"
+            at bhappy ehappy_c @ msmile_o "You're awake. Good morning!"
             mc "Good morning, Atticus."
 
-
+    show atticus bhappy eneutral_o msmile_c
     "His smile was gentle, as Atticus normally tended to be, and he got to his feet."
-    at "I'll be out in the garden today - just behind the house. It needs a little maintenance, so don't be too surprised if I'm out all day."
+    at bshocked @ mhappy_o "I'll be out in the garden today - just behind the house. It needs a little maintenance, so don't be too surprised if I'm out all day."
     mc "You normally are, so I'll refrain from causing a fuss."
+    show atticus up ehappy twag 
     "Atticus giggled, his tail swishing in the air."
-    at "I'm hoping there'll be plenty of crops today… including for my specialty stew, if you're interested."
+    at bshocked ehappy_c @ mhappy_o "I'm hoping there'll be plenty of crops today… including for my specialty stew, if you're interested."
     "I can barely think of the specialty stew before my stomach growls. Atticus laughs, broad and open, louder than I've ever heard him."
     mc "Ha, sorry! Yesterday must have taken a lot out of me."
-    at "Don't apologise! I'm glad you like my cooking. I work very hard on it."
-    at "No stew yet, although do help yourself to anything in my pantry. Bread, honey - and the jam is fairly fresh, so… enjoy!"
+    at mid eneutral_o tloop "Don't apologise! I'm glad you like my cooking. I work very hard on it."
+    at bneutral ehappy_c "No stew yet, although do help yourself to anything in my pantry. Bread, honey - and the jam is fairly fresh, so… enjoy!"
+    hide atticus with dissolve
     "He does a funny little tilt, his cheeks full with a smile, before collecting his basket and heading out the door."
     "Once he leaves, I do indeed help myself to bread, honey and jam, all of which taste sweet and fresh. Atticus really does know his way around food."
-    "However, there's still very little to do, despite the fact that I can now walk around. I get the feeling that Atticus usually spends a lot of time outside, even before I got here."
-    "His shelves are packed with various trinkets and artifacts, although they are packed together so messily it's hard to know where to begin. Perhaps that's why he hasn't tidied the shelf."
-    "I do find a coin though - so weathered and worn that the silver has tarnished into black, the insignia in it smoothed over to almost flatness."
-    "Despite this, I can still make it out - a unicorn stamp, the horse's head bent low with the horn proudly sprouting straight out. I had never seen any issued coin with this insignia before."
-    "Unlike the other objects here, it's not covered in dust at all. If it weren't for how old it is, this coin would be pristine."
+    $ quick_menu = False
+    show darken with dissolve
+    $ nvl_mode = True
+    nvl clear
+    window auto show
+    $ quick_menu = True
+    n "However, there's still very little to do, despite the fact that I can now walk around. I get the feeling that Atticus usually spends a lot of time outside, even before I got here."
+    n "His shelves are packed with various trinkets and artifacts, although they are packed together so messily it's hard to know where to begin. Perhaps that's why he hasn't tidied the shelf."
+    n "I do find a coin though - so weathered and worn that the silver has tarnished into black, the insignia in it smoothed over to almost flatness."
+    nvl clear
+    n "Despite this, I can still make it out - a unicorn stamp, the horse's head bent low with the horn proudly sprouting straight out. I had never seen any issued coin with this insignia before."
+    n "Unlike the other objects here, it's not covered in dust at all. If it weren't for how old it is, this coin would be pristine."
+    nvl clear
 
     menu:
         "Put it back.":
-            "If it has been this loved, I wouldn't want to tamper with it."
-            "All it would take is one wrong tap with these new claws to warp the metal, and that wouldn't do."
-            "I place it back on the shelf. Perhaps I can ask him about it later."
-            "I continue keeping myself busy, examining trinkets and occupying my restless mind as I wait for Atticus."
+            n "If it has been this loved, I wouldn't want to tamper with it."
+            n "All it would take is one wrong tap with these new claws to warp the metal, and that wouldn't do."
+            n "I place it back on the shelf. Perhaps I can ask him about it later."
+            n "I continue keeping myself busy, examining trinkets and occupying my restless mind as I wait for Atticus."
         "Dust the shelves.":
             # Atticus AFF up
             $ add_aff(1)
-            "While the coin has been loved to the point of cleanliness, there are plenty of other trinkets that have not been given the same courtesy."
-            "Luckily, there are a few rags on the lowest shelf I can use to sweep away the worst of it."
-            "It takes a while, but soon the shelf is cleaner than ever. And I don't feel like I've wasted all my time lazing around Atticus's home."
+            n "While the coin has been loved to the point of cleanliness, there are plenty of other trinkets that have not been given the same courtesy."
+            n "Luckily, there are a few rags on the lowest shelf I can use to sweep away the worst of it."
+            n "It takes a while, but soon the shelf is cleaner than ever. And I don't feel like I've wasted all my time lazing around Atticus's home."
 
-
+    window hide
+    $ nvl_mode = False
+    show layer screens:
+        matrixcolor TintMatrix("#cecee2")
+    scene interior night:
+        zoom 0.5 
+    show atticus at forest_night
+    with dissolve
+    window auto show
     "Atticus returns home just as the sun sets. His tunic and trousers are covered in a healthy amount of dirt, and his hands aren't faring much better."
     at "I'm home! And with plenty of vegetables."
     "Indeed, his basket is almost bursting. I think the onions are close to rolling out."
@@ -90,7 +148,6 @@ label scene_5:
         at "Who knows why! Maybe I had a lucky charm with me…"
         "He swallows and quickly sets the basket down."
         at "Anyway!"
-
 
     "Atticus starts to pile the vegetables on the counter: carrots, mushrooms, onions, potatoes…"
     "Everything needed for a damn good stew."
