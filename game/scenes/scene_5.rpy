@@ -134,121 +134,170 @@ label scene_5:
         matrixcolor TintMatrix("#cecee2")
     scene interior night:
         zoom 0.5 
-    show atticus at forest_night
+    show atticus twag at forest_night
     with dissolve
     window auto show
     "Atticus returns home just as the sun sets. His tunic and trousers are covered in a healthy amount of dirt, and his hands aren't faring much better."
-    at "I'm home! And with plenty of vegetables."
+    at bhappy ehappy_c up mhappy_o "I'm home! And with plenty of vegetables."
     "Indeed, his basket is almost bursting. I think the onions are close to rolling out."
     mc "Good work! That's an amazing harvest."
-    at "Isn't it? I was a little worried this year, but everything has pulled through."
+    at ehappy_o tloop "Isn't it? I was a little worried this year, but everything has pulled through."
 
     if at_aff >= 7: 
+        $ blush_light = True
+        show atticus eneutral_la tneutral
         "He chuckled, looking down at the vegetables."
-        at "Who knows why! Maybe I had a lucky charm with me…"
+        at mid mhappy_c "Who knows why! Maybe I had a lucky charm with me…"
         "He swallows and quickly sets the basket down."
-        at "Anyway!"
+        at bconfused eneutral_o mhappy_o "Anyway!"
+        $ blush_light = False
 
+    show atticus bneutral eneutral_la mhappy_c tloop
     "Atticus starts to pile the vegetables on the counter: carrots, mushrooms, onions, potatoes…"
     "Everything needed for a damn good stew."
     mc "Can… May I help you with that?"
+    show atticus bshocked eshocked msmile_o twag
     "Atticus beams like the sun had risen early."
-    at "Of course you can! I would—I would love the help!"
-    at "You could help peel the potatoes as I prepare the onions? After that, you can move onto the carrots."
+    at "Of course you can! I would—"
+    at up ehappy_c "I would love the help!"
+    at bhappy eneutral_o "You could help peel the potatoes as I prepare the onions? After that, you can move onto the carrots."
     mc "I can do that."
     "As I get to work, his tail accidentally bumps into me in excitement."
-    at "Sorry."
+    $ blush_light = True
+    at bsad eneutral_la "Sorry."
+    show atticus eneutral_o msmile_c
+    $ blush_light = False
     mc "It's alright."
+    show atticus eneutral_la
+    show darken
+    with dissolve
     "He gets to work deftly chopping the onions, making a pile of the scraps, slicing through them with an ease that only comes from practice."
     "I take the peeler and look down at the potatoes, starting on one-"
     "The peeler slides out from my hand, my fingers unable to curl and grip as easily as before. The scales are too thick."
     "I press my lips together."
-    at "Are you alright?"
+    hide darken with dissolve
+    at bsad eneutral_o mshocked tloop "Are you alright?"
     "I look over - he's stopped what he's doing and now stares at me."
     mc "I'm fine. Keep going."
-    at "Okay…"
+    at msad_o "Okay…"
+    show darken with dissolve
     "I swallow, and try to hold the peeler differently - holding it between two fingers, so it can't slip out from between them, the handle hooked under the knuckles."
     "But now it's too loose, my grip too weak, my claws too thick to hold it firmly. The handle touches the end of one and the sensation is so strange I drop the peeler again."
     "Can I not even peel a damn potato anymore?"
-    at "May I?"
+    hide darken with dissolve
+    at msmile_o "May I?"
+    show atticus eneutral_la mpout
     "He's at my side before I can blink, taking the peeler from the counter and wrapping a cloth around the handle."
-    at "Try now."
+    at eneutral_o mhappy_o "Try now."
+    show atticus mhappy_c
     "I cautiously take the peeler from him, careful not to touch his skin with my claws."
     "The cloth cushions the handle, making it thicker, and letting my knuckles bend more comfortably without the strain."
     "More importantly, it restores a sense of normalcy. A gift I once took for granted."
     "Testing it, I peel a potato - and do so much more smoothly than before."
     mc "Thank you, Atticus."
+    show atticus up 
     "Atticus smiles brightly, gently patting my arm where the sleeve covers it."
-    at "Happy to help!"
+    at ehappy_c mhappy_o "Happy to help!"
     mc "No, really, Atticus."
     "It's hard to control the feelings in me. But I swallow down whatever has been brewing, and try my best to smile."
     mc "Thank you."
-    at "Of… of course."
+    at bshocked eneutral_o mshocked "Of…"
+    at mid ehappy_o msmile_o twag "...Of course."
 
     if at_aff >= 9:
         "He chuckles."
-        at "I don't think I've… seen you smile properly yet. It's nice."
+        at bhappy eneutral_la mhappy_c tloop "I don't think I've… seen you smile properly yet. It's nice."
+        $ blush_heavy = True
+        show atticus bshocked up mpout tneutral
         "As soon as he says the words, his face bursts into a hot blush. Funny how much he does that, even at the simplest things."
         "I snort."
+        show atticus bsad eneutral_o mhappy_c tloop
         mc "I'll try to do it more often."
+        $ blush_heavy = False
 
-
+    show atticus bneutral eneutral_o mhappy_c
     "It's not long until wafts of savory stew permeate the hut. My mouth waters."
     "Atticus must've noticed because he chuckles fondly."
+    show atticus ehappy_c up twag
     "Though with the way his ears are perked upwards and tail wagging side to side, he's clearly pleased as I am."
 
     if at_aff >= 7:
-        at "Ah, that's right! I've prepared a surprise for you. Please wait right here. I'll be gone for only a moment!"
+        at up bhappy ehappy_o mhappy_o tloop "Ah, that's right! I've prepared a surprise for you. Please wait right here. I'll be gone for only a moment!"
+        show atticus:
+            easein 1 xalign 2.0
         "And then he rushes out the door."
+        hide atticus 
         "I can't help but tilt my head to the side in curiosity. What could Atticus possibly have up his sleeve?"
         "Then I see his head pop from outside the door, his eyes alight with excitement."
-        # show cg
+        show layer screens:
+            matrixcolor None
+        show cg2
+        with dissolve
         at "Behold! Your very own chair!"
         "He proudly hoists up a wooden chair. It's humble in appearance, but clearly a lot of time and effort was put into its creation."
         at "I realised with only one chair, we can't sit down and have meals together. So last night, I made this for you!"
         mc "You made this last night? You must have gotten no sleep!"
         at "It's okay! I only made the base last night and polished it off after harvesting the vegetables today."
         at "I, uh…"
-        # end cg
+        scene interior night:
+            zoom 0.5 
+        $ blush_heavy = True
+        show atticus bsad at forest_night
+        show layer screens:
+            matrixcolor TintMatrix("#cecee2")
+        with dissolve
         "In a moment, he became meek again."
-        at "I hope you like it."
+        at eneutral_la tloop "I hope you like it."
         "Gods, he's so cute."
         "I would have protected him no matter what. But I grow more sure every day that I am protecting a true and good soul."
+        $ blush_heavy = False
 
-
+    play music main_theme fadein 0.5 fadeout 0.5
+    show atticus bhappy eneutral_o mhappy_c tneutral
     "After setting out the portions, Atticus and I sit down to eat."
     "I eat quickly, eager for food now I'm recovering enough. Eating stew while horizontal doesn't work out well most of the time."
+    show atticus bneutral 
     "Conversely, Atticus takes his time with his food, savouring every bite."
-    "He's so skittish around me normally, but he looks almost peaceful right now. Eyes closed, sniffing every spoonful before eating it, not even getting the next bite ready until he swallows."
+    show atticus eneutral_c
+    "He's so skittish around me normally, but he looks almost peaceful right now."
+    show atticus tloop
+    "Eyes closed, sniffing every spoonful before eating it, not even getting the next bite ready until he swallows."
     "I slow down my own movements once I feel self-conscious enough."
-    at "Are you not enjoying the stew?"
+    at bsad eneutral_o msad_o "Are you not enjoying the stew?"
     mc "What?"
-    at "I just…"
+    at eneutral_la down "I just…"
     "He swallows."
-    at "I saw you slow down, so… I can always make something else if you've gone off the stew."
+    at eneutral_o msmile_o "I saw you slow down, so… I can always make something else if you've gone off the stew."
     mc "Oh! No, I just-"
+    show atticus bshocked mshocked
     mc "I realised how slowly you were eating. Or, rather, how fast I was shovelling food down my throat."
     "Atticus blinks owlishly, then laughs."
-    at "That's alright then! I suppose I'm just more used to the slow life."
+    at bhappy mhappy_o mid tloop "That's alright then! I suppose I'm just more used to the slow life."
     mc "I can't imagine a lot goes on around here… normally."
-    at "No, it's… it's peaceful. I like it."
+    at bneutral msmile_c "No, it's… it's peaceful. I like it."
     mc "When there isn't a bleeding knight in your bed and poachers at your doorstep?"
+    show atticus bhappy up ehappy_c
     "We both chuckle."
-    at "Yes, normally."
+    at bsad msmile_o "Yes, normally."
     mc "How long have you lived like this?"
+    show atticus bshocked atticus eneutral_la mpout
     "Atticus pauses, tapping his spoon against the side of the bowl."
-    at "Uh… most of my life? It's quite hard blending in with humans given- well…"
+    at bconfused msad_o "Uh… most of my life?"
+    at msmile_o "It's quite hard blending in with humans given- well…"
+    show atticus bsad
     "His ears twitch, and he taps the horn atop his head."
     mc "I see."
-    at "So, I just… started wandering. Found my way to this forest, slept under the stars for a few nights, and then found this abandoned hut."
-    at "I worked for months fixing it up, learning how to reset the walls and make the roof so no rain dripped on me… but I got there."
-    at "And now, here I am!"
+    at bneutral msad_o "So, I just… started wandering. Found my way to this forest, slept under the stars for a few nights, and then found this abandoned hut."
+    at eneutral_la "I worked for months fixing it up, learning how to reset the walls and make the roof so no rain dripped on me… but I got there."
+    at bhappy eneutral_o mhappy_o tneutral "And now, here I am!"
     mc "Wait, you fixed all this up by yourself?"
-    at "I did indeed!"
-    at "It's not the best work, I know. But I've lived here for years now and it's held up, so… at least it's home."
+    at bshocked ehappy_o up twag "I did indeed!"
+    at bneutral mid eneutral_o tloop "It's not the best work, I know. But I've lived here for years now and it's held up, so… at least it's home."
 
     menu:
         "You've done a beautiful job.":
+            $ blush_light = True
+            show atticus 
             "Atticus shifts in his seat, failing to hide his smile."
             at "Thank you! I'm quite proud of it myself."
         "I'm sorry you've been alone.":
