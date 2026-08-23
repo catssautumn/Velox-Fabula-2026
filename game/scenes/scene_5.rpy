@@ -233,6 +233,7 @@ label scene_5:
             matrixcolor None
         show cg2
         with dissolve
+        play music light fadein 0.5 fadeout 0.5
         at "Behold! Your very own chair!"
         "He proudly hoists up a wooden chair. It's humble in appearance, but clearly a lot of time and effort was put into its creation."
         at "I realised with only one chair, we can't sit down and have meals together. So last night, I made this for you!"

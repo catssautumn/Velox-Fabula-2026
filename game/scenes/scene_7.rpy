@@ -1,21 +1,26 @@
 label scene_7:
-    scene interior day with fade:
-        zoom 0.5 align (0.5, 0.5)
-    
-    "Over the next few days, I try several of Atticus's potions."
-    "One changed my vision to make every colour the inverse. Another made my hair grow three inches in an hour." 
-    "The third turned all the scales as cold as ice for the entire afternoon."
+
+    n "Over the next few days, I try several of Atticus's potions."
+    n "One changed my vision to make every colour the inverse. Another made my hair grow three inches in an hour." 
+    n "The third turned all the scales as cold as ice for the entire afternoon."
+    window hide
+    $ quick_menu = False
+    hide darken 
     show atticus ehappy mhappy_o twag
     with dissolve
+    $ nvl_mode = False
+    window auto show
     at "We're getting closer though!"
     hide atticus with dissolve
     "Sure."
+    show darken with dissolve
     "When I wake up this time though, there are dots of pain all over my body: namely at my temples, my shoulder blades, and down by my tailbone."
     "I roll over onto my stomach to relieve the pressure, reaching around to my back to feel for them."
     "..."
     "There's definitely something there."
     "It feels like something is growing from the bones - little nubs poke, not quite piercing the skin, but the area around it is sore."
     "When I reach up to my head, however, there is definitely something there. It twinges against my skull when I touch it, but feels almost like my claws."
+    hide darken with dissolve
     mc "Atticus?"
     "He always wakes up earlier than me. I hear him clatter something by the hearth."
     show atticus esad msad_o bsad
