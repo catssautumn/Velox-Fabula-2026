@@ -10,6 +10,7 @@ label scene_7:
     with dissolve
     $ nvl_mode = False
     window auto show
+    $ quick_menu = True
     at "We're getting closer though!"
     hide atticus with dissolve
     "Sure."
@@ -73,9 +74,6 @@ label scene_7:
     if at_aff >= 10:
         at ehappy_c mhappy_o bhappy "And hey! With the horns and tail, at least we'll be matching."
         mc "Sure…"
-
-
-
 
 
     at esad msad_c bsad "Look… even if we're not able to stop it"
@@ -153,8 +151,6 @@ label scene_7:
             "He looks at me with such conviction and honesty, and I cannot help but believe him with all of my heart."
             "He's so determined. I feel myself nod, and know that I too would do all I could not just to help myself, but to help him too."
 
-
-
     elif mentality == 2:
         if mc_crush:
             "I swallow, suddenly overcome with emotion. It's hard not to feel so empowered, so indebted to someone swearing their assistance and loyalty to you."
@@ -162,7 +158,6 @@ label scene_7:
         else:
             "I swallow, suddenly overcome with emotion. I still hold onto doubts and fears of my new and changing body, but seeing him swearing his assistance so valiantly…"
             "I do not know if he will succeed in his research. But I will not doubt his efforts."
-
 
 
     elif mentality == 3:
@@ -173,9 +168,6 @@ label scene_7:
             "I can't help but doubt his words. Not his conviction in them, but the truth of them."
             "I was already more of a dragon than a human…"
             "But I would never crush him like that."
-
-
-
 
 
     mc "Thank you, Atticus."
@@ -200,48 +192,56 @@ label scene_7:
             at bhappy "I'm not coming back until I find that flower. I promise."
             "His hands are so calloused, I can feel them scratch against my tunic. He works so hard."
 
-
-
-
-
     "Atticus moves away from me, picking up his basket from the side and opening the front door."
     at "There's a pot of water by the hearth. You can wash with it - the water might help alleviate your pains."
     at bhappy ehappy_c mhappy_c "Just… take it easy today."
     mc "Thank you, Atticus."
     "He bows his head and leaves the cottage."
     hide atticus with dissolve
-    "Well, there's nothing much for me to do. I take the cloth from the hearth, soak it in the warm water, and run it over my shoulders."
-    "It's definitely not fixing the whole 'wing' problem, but it does soothe my shoulders."
-    "After my shoulders, I move to my forehead, trying to ignore how the very tips of the horns catch against the fabric."
-    "As I reach down to resoak the cloth, I notice how dirty the hearth is. It's covered in soot and charcoal, no doubt from years of cooking."
-    "Without thinking, I push away some of the debris with my foot - and catch sight of a half-burned scrap of parchment."
-    "It's got Atticus's handwriting."
-    "..."
-    "Well, he's not around to know. I wipe my damp hand on my trousers, then pick up the scrap."
-    "{i}Two different books about unicorns now say the same thing: the horns are invaluable to medicine, no matter how malformed they are.{/i}"
-    "{i}One story says a person's broken leg healed in a day using a salve made from powdered unicorn horn.{/i}"
-    "{i}Another says a person came from the brink of death by holding the horn against their chest.{/i}"
-    "{i}It's hard to tell whether it's the horn's innate magic, or whether the magic comes from giving up the horn itself. One sacrifice for another."
-    "{i}It's not ideal, but if…{/i}"
-    "The scrap burns away there."
-    "..."
-    "If what?"
-    "It's unconscionable, sure. But one sacrifice for another…"
-    "It was only a horn. Atticus didn't need to be hurt."
-    "..."
+    window hide
+    $ quick_menu = False
+    show darken with dissolve
+    $ nvl_mode = True
+    nvl clear
+    window auto show
+    $ quick_menu = True
+    n "Well, there's nothing much for me to do. I take the cloth from the hearth, soak it in the warm water, and run it over my shoulders."
+    n "It's definitely not fixing the whole 'wing' problem, but it does soothe my shoulders."
+    n "After my shoulders, I move to my forehead, trying to ignore how the very tips of the horns catch against the fabric."
+    nvl clear
+    n "As I reach down to resoak the cloth, I notice how dirty the hearth is. It's covered in soot and charcoal, no doubt from years of cooking."
+    n "Without thinking, I push away some of the debris with my foot - and catch sight of a half-burned scrap of parchment."
+    n "It's got Atticus's handwriting."
+    n "..."
+    n "Well, he's not around to know. I wipe my damp hand on my trousers, then pick up the scrap."
+    nvl clear
+    stop music fadeout 1.0
+    n "{i}Two different books about unicorns now say the same thing: the horns are invaluable to medicine, no matter how malformed they are.{/i}"
+    n "{i}One story says a person's broken leg healed in a day using a salve made from powdered unicorn horn.{/i}"
+    n "{i}Another says a person came from the brink of death by holding the horn against their chest.{/i}"
+    nvl clear
+    n "{i}It's hard to tell whether it's the horn's innate magic, or whether the magic comes from giving up the horn itself. One sacrifice for another."
+    n "{i}It's not ideal, but if…{/i}"
+    nvl clear
+    n "The scrap burns away there."
+    n "..."
+    n "If what?"
+    n "It's unconscionable, sure. But one sacrifice for another…"
+    n "It was only a horn. Atticus didn't need to be hurt."
+    nvl clear
 
     if mentality == 1:
-        "No. That was no way to think."
-        "It wasn't just a horn. It was Atticus's horn, and no matter its power, it was despicable to consider taking it from him."
-        "I would be no more a monster than I am now, knighthood or no."
-        "I turn back to the pot and continue to wash myself. A clean body helps to clean the mind."
+        n "No. That was no way to think."
+        n "It wasn't just a horn. It was Atticus's horn, and no matter its power, it was despicable to consider taking it from him."
+        n "I would be no more a monster than I am now, knighthood or no."
+        n "I turn back to the pot and continue to wash myself. A clean body helps to clean the mind."
         # fade out
         jump scene_7_flower
     elif mentality == 2:
-        "It's hard not to think of it. The honorable part of me recoils at the idea, repulsed that I would even consider doing something so cruel as taking what was not mine…"
-        "But another part reached for it. A solution, right there. No more transforming, no more dragon."
-        "Still. Guilt swirls in my stomach at the thought."
-        "..."
+        n "It's hard not to think of it. The honorable part of me recoils at the idea, repulsed that I would even consider doing something so cruel as taking what was not mine…"
+        n "But another part reached for it. A solution, right there. No more transforming, no more dragon."
+        n "Still. Guilt swirls in my stomach at the thought."
+        n "..."
 
         menu:
             "No. It isn't right.":
@@ -252,13 +252,14 @@ label scene_7:
 
 
     elif mentality == 3:
-        "I wouldn't need to kill Atticus for it. I would just need his horn, and then I could be free from this transformation."
-        "The easy answer. No more potions, no more hoping for the best. Just certainty and freedom."
-        "..."
-        "But… Atticus didn't deserve this."
-        "..."
-        "He would be free from me too. My curse only weighs down those around me, including him."
-        "This could be for the greater good."
+        n "I wouldn't need to kill Atticus for it. I would just need his horn, and then I could be free from this transformation."
+        n "The easy answer. No more potions, no more hoping for the best. Just certainty and freedom."
+        n "..."
+        nvl clear
+        n "But… Atticus didn't deserve this."
+        n "..."
+        n "He would be free from me too. My curse only weighs down those around me, including him."
+        n "This could be for the greater good."
 
         menu:
             "No. It isn't right.":
@@ -267,10 +268,11 @@ label scene_7:
                 jump dark_end
 
 label scene_7_no_dark_ending:
-    "And I should listen to the guilt. All of this fear, all of this uncertainty…"
-    "None of it warranted any hardship against Atticus. He has been my one salvation in this ordeal."
-    "This isn't a matter of honor anymore. This is normal, human decency, something I will never dismiss."
-    "I kick the scrap away, turning back to the pot to continue washing myself. A clean body helps to clean the mind."
+    nvl clear
+    n "And I should listen to the guilt. All of this fear, all of this uncertainty…"
+    n "None of it warranted any hardship against Atticus. He has been my one salvation in this ordeal."
+    n "This isn't a matter of honor anymore. This is normal, human decency, something I will never dismiss."
+    n "I kick the scrap away, turning back to the pot to continue washing myself. A clean body helps to clean the mind."
     # fade out
     jump scene_7_flower
 

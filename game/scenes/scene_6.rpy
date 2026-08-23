@@ -141,6 +141,7 @@ label scene_6:
             show atticus mshocked eneutral_o 
             with dissolve
             $ nvl_mode = False
+            $ quick_menu = True
             window auto show
             mc "How did you cultivate this garden? It's got such a variety of plants, I'd hardly know where to begin."
             show atticus mhappy_c
@@ -168,6 +169,12 @@ label scene_6:
             n "He's so skittish and jumpy normally, I hate to think what would happen around a cauldron…"
             n "Nevertheless, we are both content to work away. I harvest flowers and herbs he asks for as he prepares the ingredients."
             n "He never stops smiling, even when focussed. I must be making an alright impression, even if the first one was a little unfortunate."
+            window hide
+            $ quick_menu = False
+            hide darken with dissolve
+            $ nvl_mode = False
+            $ quick_menu = True
+            window auto show
             nvl clear
 
 
@@ -251,7 +258,7 @@ label scene_6:
                 "He smiles sadly back at me, bowing his head."
                 at esad_la mhappy_c "It is."
 
-
+    play music light fadein 0.5 fadeout 0.5
     "Atticus drops in a final ingredient - and the cauldron bubbles, turning a thick purple colour. Even the fire underneath roars more viciously."
     at bhappy ehappy mhappy_o tneutral "Okay… I think it's done!"
     mc "Just like that?"
@@ -348,7 +355,7 @@ label scene_6:
 
             "Even if I wasn't yet cured, at least I was having fun with it."
 
-
+    play music main_theme fadein 0.5 fadeout 0.5
     "Still, Atticus looks back at the cauldron, still with the remains of the potion simmering at the bottom."
     at eangry mhappy_c tneutral "It's just a matter of tweaking ratios… I'm not giving up though!"
 
@@ -439,5 +446,6 @@ label scene_6:
 
 
     n "For now, Atticus works diligently away. And I believe in our efforts more than anything else."
+    nvl clear
 
     jump scene_7
