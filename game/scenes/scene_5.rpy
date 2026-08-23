@@ -297,86 +297,108 @@ label scene_5:
     menu:
         "You've done a beautiful job.":
             $ blush_light = True
-            show atticus 
+            show atticus eneutral_c up mhappy_c twag
             "Atticus shifts in his seat, failing to hide his smile."
-            at "Thank you! I'm quite proud of it myself."
+            at bhappy ehappy mhappy_o "Thank you! I'm quite proud of it myself."
         "I'm sorry you've been alone.":
             # Atticus AFF up
             $ add_aff(1)
+            show atticus bshocked eshocked mshocked up tloop
             "His eyes widen."
             mc "Sorry, I don't mean to overstep."
             mc "But… all this time? Am I the first guest, so to speak?"
-            at "Um, well…"
-            at "Yes, actually. Well, the first speaking guest."
-            at "I had an injured sparrow stay with me while I fixed its wing, but it wasn't much for conversation."
+            at bsad eneutral_la mid "Um, well…"
+            at eneutral_c down "Yes, actually. Well, the first speaking guest."
+            at eneutral_la mhappy_o "I had an injured sparrow stay with me while I fixed its wing, but it wasn't much for conversation."
+            show atticus msad_c msad_c
             "He looks down, hands in his lap."
             mc "I'm so sorry."
-            at "It's, um…"
+            at mhappy_o "It's, um…"
+            show atticus mhappy_c
             "He laughs softly, like he's scared to."
-            at "Thank you."
+            at esad mid msmile_o "Thank you."
+            $ blush_light = False
 
 
     mc "Are there other unicorns out there? I know that they're quite reclusive, but even I had doubted if they were real until I met you."
-    at "Oh, yes! Other unicorns exist."
+    at bshocked eneutral_o mshocked "Oh, yes! Other unicorns exist."
+    show atticus eneutral_la mpout tloop
     "He trails off, very obviously looking away from me."
     mc "Where are they? If you don't mind me asking."
+    show atticus msad_c down 
     "Atticus sighs, his shoulders falling."
-    at "Out there. I don't know where exactly."
-    at "I, um… stay by myself. Given that I don't exactly fit in with humans or unicorns, it's safer to be alone so the poachers don't find me."
+    at msad_o "Out there. I don't know where exactly."
+    at bsad eneutral_c "I, um… stay by myself. Given that I don't exactly fit in with humans or unicorns, it's safer to be alone so the poachers don't find me."
     mc "Atticus…"
 
     if at_aff >= 8:
-        at "It's okay, really. And besides - I'm not alone anymore, am I?"
+        $ blush_light = True
+        at eneutral_o msmile_o mid "It's okay, really. And besides - I'm not alone anymore, am I?"
         "His face heats up again."
-        at "I know you haven't been here for too long - or for the best reasons."
-        at "But… I can't tell you how nice it's been to have someone else around! And to cook for, and to talk to…"
+        at bsad eneutral_la "I know you haven't been here for too long - or for the best reasons."
+        at eneutral_o "But… I can't tell you how nice it's been to have someone else around! And to cook for, and to talk to…"
         mc "I can't imagine the bodyguard duties hurt either."
+        show atticus ehappy_c up tneutral
         "He breaks into a surprised laugh."
         at "They don't, ha!"
+        show atticus bhappy eneutral_o twag
         at "But… I do really like the companionship. So… thank you for sticking around."
         "His tail knocks against the table leg, and the bowls jump a little."
-        at "Sorry."
+        at bshocked eshocked mpout tloop "Sorry."
         mc "It's okay. Thank you for healing me."
+        $ blush_light = False
 
-
+    show atticus bneutral eneutral_o msmile_c
     "Atticus smiles."
-    at "But enough about me! You're a knight, aren't you?"
+    at msmile_o up mshocked tneutral "But enough about me! You're a knight, aren't you?"
     mc "Well…"
     mc "Technically."
     "..."
-    at "And… how do you 'technically' be a knight?"
+    at bangry "And… how do you 'technically' be a knight?"
     mc "I was once a knight. I saved the king's city from a red dragon, one that ate livestock by the dozen and tore through buildings like parchment…"
     mc "And after that, he placed me on a 'permanent sabbatical' and bid me goodbye."
-    at "What's a permanent sabbatical?"
+    at tloop "What's a permanent sabbatical?"
     "I grumble."
     mc "Early, unwanted retirement. I've been wandering around ever since, keeping the border safe. I don't like sitting still."
+    show atticus bsad mhappy_c
     "Atticus laughs."
-    at "Maybe the slow life will do you some good!"
+    at bshocked mhappy_o "Maybe the slow life will do you some good!"
     mc "I'm much more used to fighting off ne'er-do-wells than gardening, Atticus. Plainly speaking, yesterday's fight was the most alive I've felt in a while."
+    show atticus up mhappy_c
     "Atticus tilts his head, an eager smile on his lips."
-    at "But… you must have so many stories then!"
+    at ehappy mhappy_o tneutral "But… you must have so many stories then!"
     mc "I… suppose I do."
     "What followed was the most excited interrogation of my life."
-    at "How does one become a knight, then? Is it an application or are you discovered in the crowd?"
+    at bshocked eshocked mshocked twag "How does one become a knight, then? Is it an application or are you discovered in the crowd?"
     at "Did you meet the king? Did he knight you with a sword and a vow? How many other knights were there alongside you?"
     at "Is it true that the castle's banquet table is longer than the span of this entire forest?"
     mc "Alright, alright! Let me start at the beginning…"
-    # fade out
-    # fade in
+    scene blackout with dissolve
+    pause .1
+    scene interior night:
+        zoom 0.5
+    show atticus bshocked ehappy mhappy_c twag at forest_night
+    with dissolve
     mc "... and that is how I single-handedly fought off a direwolf with a chicken bone and my wits."
+    show atticus ehappy_c
     "Atticus applauds, wriggling in his seat like an excited child."
-    at "Oh, that's incredible! You truly are a most honorable knight."
+    at bhappy ehappy mhappy_o "Oh, that's incredible! You truly are a most honorable knight."
+    show atticus bsad eneutral_o msad_c tloop
     mc "Ah, that was years ago. Now I'm just a… faded legend wandering around the border."
-    at "I…"
+    at msad_o "I…"
     "He swallows - and then straightens in his seat, looking at me with more confidence than I've ever seen him wear."
-    at "I don't think that's true at all. I think you're a brave warrior who doesn't need the title of 'knight' to be one at heart."
-    at "You took that vow and still live by it. That's worth more than any castle to me."
+    at bangry "I don't think that's true at all. I think you're a brave warrior who doesn't need the title of 'knight' to be one at heart."
+    at msmile_o "You took that vow and still live by it. That's worth more than any castle to me."
     "As I'm still stumbling over my speechlessness, he places one hand on his heart, the other brazenly taking my hand, skin to scale."
-    at "So, I'm going to make one now! I vow to work out how to break your curse. I vow to not stop trying until we have answers."
+    at bangry up tneutral "So, I'm going to make one now! I vow to work out how to break your curse. I vow to not stop trying until we have answers."
     mc "Atticus-"
-    at "In fact, I'm going to start now! I still need to study that dagger we found."
+    at mshocked "In fact, I'm going to start now! I still need to study that dagger we found."
+    show atticus:
+        easein 1 xalign 2.0
     "Before I can blink, he rushes away out the door, out to whatever workspace he has out the back."
+    hide atticus
     "..."
+    show darken with dissolve
     "Well, full points for devotion. A true knight couldn't manage much better than that."
     "Still… he hadn't finished his dinner. There's half a portion of stew left in his bowl, growing colder by the second."
 

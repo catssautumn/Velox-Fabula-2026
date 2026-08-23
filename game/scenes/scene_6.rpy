@@ -1,8 +1,8 @@
 label scene_6:
     "I barely see Atticus during the next day - he spends as many hours of the day and night studying the dagger as possible."
     "But in the night, I am shaken awake."
-    show interior night
-    show atticus eshocked 
+    hide darken
+    show atticus eshocked at forest_night
     with dissolve
     at "[povname]!"
     mc "What is it?"
