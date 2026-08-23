@@ -278,95 +278,135 @@ label scene_7_no_dark_ending:
 
 
 label scene_7_flower:
-    # fade in
-    scene interior day with fade:
+    scene interior day:
         zoom 0.5 align (0.5, 0.5)
-    "The next day, I wake and stare at the ceiling. The cottage is empty and the basket is gone, meaning Atticus must have left already."
-    "One day, I'll get used to the slow life. Today is not the day."
+    show darken 
+    with fade
+    nvl clear
+    n "The next day, I wake and stare at the ceiling. The cottage is empty and the basket is gone, meaning Atticus must have left already."
+    n "One day, I'll get used to the slow life. Today is not the day."
 
     if attempted_poach == True:
-        "I shiver when I think of the night before, of how close I was to succumbing to something darker than I had ever imagined I could."
-        "Maybe the slow life was what I needed. Something to calm down my worries, something to drag me into sensibility."
+        n "I shiver when I think of the night before, of how close I was to succumbing to something darker than I had ever imagined I could."
+        n "Maybe the slow life was what I needed. Something to calm down my worries, something to drag me into sensibility."
 
-
-    "..."
-    "He had mentioned he was looking for a rare flower - the Queen's promise. Surely two pairs of eyes were better than one?"
-    "After putting out the hearth and grabbing my sword, I left the cottage."
-    scene forest day with fade:
+    nvl clear
+    n "He had mentioned he was looking for a rare flower - the Queen's promise. Surely two pairs of eyes were better than one?"
+    n "After putting out the hearth and grabbing my sword, I left the cottage."
+    nvl clear
+    scene forest day:
         zoom 0.5 align (0.5, 0.5)
-    "However, after a few minutes of bravely walking through the forest, it becomes very clear that I am a little lost."
-    "Not in the navigational sense - a knight is always aware of their surroundings, after all - but it occurs to me very quickly that I have no idea what the flower I am looking for looks like."
-    "Or where it would grow."
-    "Or any pertinent information about it."
+    show darken 
+    with dissolve
+    play ambience forest fadein 0.5
+    n "However, after a few minutes of bravely walking through the forest, it becomes very clear that I am a little lost."
+    n "Not in the navigational sense - a knight is always aware of their surroundings, after all - but it occurs to me very quickly that I have no idea what the flower I am looking for looks like."
+    n "Or where it would grow."
+    n "Or any pertinent information about it."
+    nvl clear
 
     menu:
         "Look for Atticus.":
             # Atticus AFF up
             $ add_aff(1)
-            "Perhaps it was a little hasty to rush out alone."
-            "Atticus knew more about the plant than me - two people searching in the most likely area was far more helpful that one person uselessly walking around an unlikely area."
-            "I keep my eyes to the treeline, searching for the familiar cloud of white hair."
+            n "Perhaps it was a little hasty to rush out alone."
+            n "Atticus knew more about the plant than me - two people searching in the most likely area was far more helpful that one person uselessly walking around an unlikely area."
+            n "I keep my eyes to the treeline, searching for the familiar cloud of white hair."
         "Keep searching alone.":
-            "He had told me to rest, after all. It would become very clear that I had ignored his advice if I rocked up to his foraging."
-            "And besides, if the flowers were rare, it was best to spread out resources."
-            "I keep my eyes to the trees and bushes, looking for anything that spoke to me as magically inclined."
+            n "He had told me to rest, after all. It would become very clear that I had ignored his advice if I rocked up to his foraging."
+            n "And besides, if the flowers were rare, it was best to spread out resources."
+            n "I keep my eyes to the trees and bushes, looking for anything that spoke to me as magically inclined."
 
-
+    window hide
+    $ quick_menu = False
+    hide darken with dissolve
+    $ nvl_mode = False
+    $ quick_menu = True
+    window auto show
+    nvl clear
     "I walk forwards, squinting-"
-    # sfx snap?
-    mc "AH!"
+    show red haze:
+        zoom 0.5 blend "multiply"
+    show bloodstain
+    play sound trap 
+    mc "AH!" with vpunch
     "A searing pain wraps around my leg, like an animal had sunk its jaws deep into me."
     "I look down - and hidden by the leaves and flowers is a trap, now tourniqueting my leg."
     "I try to slash at the thing, but this one is made of metal and I only end up cutting the wires further into my leg."
     mc "Damnit…"
+    hide red haze
+    hide bloodstain
+    with dissolve
     "Every trap has a weak point though. If I breathe and take my time, I can find this one's-"
     "Hunter 1" "Well! Looks like we've got quite the catch!"
     "No…"
+    show forest day:
+        easeout .5 zoom 0.53 yoffset 20
+    play music battle fadein 0.5
+    stop ambience fadeout 1.0
     "From the treeline, the four hunters I had once bravely fought off emerge, each wearing viciously victorious grins."
     "Hunter 2" "Wow, those are quite some scales… Maggie's dagger really was a cursed item then!"
     "They laugh amongst themselves, slowly removing their weapons."
     "An axe, wicked and sharp; a sword, black and curved like a claw; and a remarkably familiar dagger, one that glimmers like blood in the sunlight."
     "Hunter 3" "Look at [them]... a knight turned dragon. And now, turned prey."
     "Hunter 4" "Think of the prices! Dragon scales sell for much more than a measly horn."
+    play sound sword_draw
     "I hold onto my sword."
     mc "You'll regret this. Let me go, now!"
     "I slash with my sword as a warning - but the movement jostles my leg, digging the trap further into my flesh. As I yelp, the hunters' eyes gleam."
     "Hunter 1" "You know what? I don't think we {i}will{/i} regret this."
     "He raises his axe, poised like an executioner. My hand sweats around my sword and I open my mouth to scream-"
+    play sound dragon_fire
+    play ambience fire fadein 1.0
     "And a burst of flame exits my throat."
-    show fire_bad
+    show fire_bad with dissolve
     "As the taste of coal and acid fills my mouth, choking and smothering, I can hear the screams get louder."
     "Hunter 1" "What?! How is this-{i}argh!{/i}"
     "Hunter 3" "It's everywhere! The fire's spreading!"
     "Hunter 2" "Leave it! Run away, run away!"
     "Hunter 1" "No, no - wait for me!"
-    "I can't close my mouth. Heat licks all around me and I hear the hunter thud to the ground, still whimpering in pain."
-    "The flames are so strong. The foliage around me has turned to ash, the pretty flowers now black and wilted."
-    "Fire burns around me. I am still trapped, the metal getting hotter and hotter. Even as I force my jaw closed, the forest is burning."
-    "The other three hunters have disappeared. I am left alone with the scorched body of the fourth."
-    "I fall down, ducking as a branch cracks and falls above me, narrowly missing my head. I cry out in pain, but it is swallowed among the trees."
+
+    window hide
+    $ quick_menu = False
+    $ nvl_mode = True
+    nvl clear
+    window auto show
+    $ quick_menu = True
+    n "I can't close my mouth. Heat licks all around me and I hear the hunter thud to the ground, still whimpering in pain."
+    n "The flames are so strong. The foliage around me has turned to ash, the pretty flowers now black and wilted."
+    n "Fire burns around me. I am still trapped, the metal getting hotter and hotter. Even as I force my jaw closed, the forest is burning."
+    nvl clear
+    n "The other three hunters have disappeared. I am left alone with the scorched body of the fourth."
+    n "I fall down, ducking as a branch cracks and falls above me, narrowly missing my head. I cry out in pain, but it is swallowed among the trees."
+    nvl clear
 
     if mentality == 1:
-        "Even as my own chaos reigns around me, I cannot help but feel a sense of peace."
-        "I knew I wouldn't die peacefully. A knight's life rarely does. But this hardly feels fitting for how hard I had worked throughout my life."
-        "No battle, no glorious sword slays me. Just a fire of my own making, chasing inexperienced idiots who were too scared to face me honestly."
-        "Maybe I should have been smarter. I should have avoided that dagger in the first place. But at least I die honourable."
-        "I close my eyes, feeling the heat inch closer…"
+        n "Even as my own chaos reigns around me, I cannot help but feel a sense of peace."
+        n "I knew I wouldn't die peacefully. A knight's life rarely does. But this hardly feels fitting for how hard I had worked throughout my life."
+        n "No battle, no glorious sword slays me. Just a fire of my own making, chasing inexperienced idiots who were too scared to face me honestly."
+        nvl clear
+        n "Maybe I should have been smarter. I should have avoided that dagger in the first place. But at least I die honourable."
+        n "I close my eyes, feeling the heat inch closer…"
     elif mentality == 2:
-        "This is how I die, isn't it? Not in a blaze of glory, tales of my heroic actions lining the path of my legend, but in a fire I caused by mistake and fear."
-        "There is little honour in this. But, as the charred hunter's body is swallowed by fire, at least I know I took one of them out with me."
-        "Justice was served, even if it is tainted."
-        "I close my eyes, swallowing back the bile in my throat…"
+        n "This is how I die, isn't it? Not in a blaze of glory, tales of my heroic actions lining the path of my legend, but in a fire I caused by mistake and fear."
+        n "There is little honour in this. But, as the charred hunter's body is swallowed by fire, at least I know I took one of them out with me."
+        n "Justice was served, even if it is tainted."
+        n "I close my eyes, swallowing back the bile in my throat…"
     elif mentality == 3:
-        "Tears drip down my face that immediately evaporate in the smoke. This cannot be how I die - not as a knight, not as a human, but as squandered livestock."
-        "I was meant to serve and protect until the end! I was meant to die a hero, not in this hellscape."
-        "Damn this curse. Damn the poachers who scraped through the cracks and dare to leave me to die. Damn the kingdom for leaving me in the rubble."
-        "I squeeze my eyes closed. I refuse to witness my own end, to see my body ruined more than it has been."
+        n "Tears drip down my face that immediately evaporate in the smoke. This cannot be how I die - not as a knight, not as a human, but as squandered livestock."
+        n "I was meant to serve and protect until the end! I was meant to die a hero, not in this hellscape."
+        n "Damn this curse. Damn the poachers who scraped through the cracks and dare to leave me to die. Damn the kingdom for leaving me in the rubble."
+        n "I squeeze my eyes closed. I refuse to witness my own end, to see my body ruined more than it has been."
 
+    window hide
+    $ quick_menu = False
+    $ nvl_mode = False
+    window auto show
+    $ quick_menu = True
 
-    at "[povname]!"
+    at "[povname]!" with vpunch
     "My eyes fly open."
-    show atticus bangry eshocked msad_c
+    show atticus bangry eshocked msad_c with dissolve
     # if this is a cg just don't worry about it
     with dissolve
     mc "Atticus? What are you doing? Get out of here!"

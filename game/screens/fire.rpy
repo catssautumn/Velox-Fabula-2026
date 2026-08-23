@@ -1,17 +1,17 @@
 image big_fire:
-    "fire.png"
+    "screens/fire.png"
     blend "add"
         
     zoom 0.25
     
         
 image med_fire:
-    "fire.png"
+    "screens/fire.png"
     blend "add"
     zoom 0.15
 
 image small_fire:
-    "fire.png"
+    "screens/fire.png"
     blend "add"
     zoom 0.1
 image bfire_anim:

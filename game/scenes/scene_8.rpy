@@ -1,12 +1,16 @@
 label scene_8:
-    scene forest day with fade:
+    scene interior night with fade:
         zoom 0.5 align (0.5, 0.5)
+    show layer screens:
+            matrixcolor TintMatrix("#cecee2")
+    play music sad fadein 1.0 fadeout 1.0
+    stop ambience fadeout 1.0   
     "The light is no more friendly though."
     "I awake in agony, a half-scream coming out of my mouth before my eyes are even open."
     "My back feels like it's ripping open. My shoulder blades are tense, rippling, struggling against the thin fabric of my shirt."
     "I curl up, scared to touch them and scared to move too much."
     $ glasses = False
-    show atticus bsad mhappy_c 
+    show atticus bsad mhappy_c at forest_night
     with dissolve
     at "I'm here."
     "I finally open my eyes, seeing Atticus hunching over me through a haze of pain-induced tears."
@@ -32,15 +36,15 @@ label scene_8:
         "Guilt wrecks me. He should never have been caught up in this, never had to face the poachers, never had to be so scared."
         "But more than that - he should never have been so tied up in this monstrous life. I should be dead in the woods, and he should be free from me."
 
-
-    mc "Ngh!"
+    show atticus bshocked eshocked mshocked up
+    mc "Ngh!" with vpunch
     "Another wave of pain shoots through my back, my spine tingling as though the fire still raged inside it. I bite my tongue, trying to keep the cries back-"
-    at bshocked eshocked mshocked "[povname], stop!"
+    at "[povname], stop!"
     "He gently pries my jaw open as blood drips from my mouth - new fangs pierced the flesh, large and bloody in my mouth."
     "It's hard to think through the pain. But I reach up and grasp his arm."
     mc "The Queen's promise… did you find it?"
     "He takes my hand and places it back in front of me."
-    at bsad ehappy mhappy_c "We can talk about it once you're through this spell-"
+    at bsad ehappy mhappy_c mid tloop "We can talk about it once you're through this spell-"
     mc "No! No, Atticus - did you find the flower?"
     "I can feel my body changing. My bones feel close to snapping. My back may soon split open. There is a roiling heat that is soon to explode inside of me."
     mc "I don't know if I have much longer."
@@ -54,6 +58,7 @@ label scene_8:
     "That's it then. I'm going to become a dragon."
     "Wings will sprout from my back. I will breathe fire and my claws will never know softness again."
     "Perhaps it is only a matter of time before the curse goes further, beyond the physical. Will my mind fall to that of a beast's too?"
+    play music main_theme fadein 0.5 fadeout 0.5
     "I don't have long left. I can barely think through the pain."
     "..."
     "Atticus hand brushes over my forehead. It is blissfully cool."

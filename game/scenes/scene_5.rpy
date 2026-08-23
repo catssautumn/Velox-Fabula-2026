@@ -171,6 +171,7 @@ label scene_5:
     show atticus eneutral_la
     show darken
     with dissolve
+    play sound chopping
     "He gets to work deftly chopping the onions, making a pile of the scraps, slicing through them with an ease that only comes from practice."
     "I take the peeler and look down at the potatoes, starting on one-"
     "The peeler slides out from my hand, my fingers unable to curl and grip as easily as before. The scales are too thick."

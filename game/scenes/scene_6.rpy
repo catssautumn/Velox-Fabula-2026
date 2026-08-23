@@ -214,7 +214,8 @@ label scene_6:
     at ehappy mid "Thank you!"
     mc "Ha, no problem."
     hide atticus with dissolve
-    "With the fire boiling, Atticus ushers me away to sit in the chair as he works on the potion. He's calm and meticulous, always referring back to the litany of notes by his side."
+    play sound boiling 
+    "With the water boiling, Atticus ushers me away to sit in the chair as he works on the potion. He's calm and meticulous, always referring back to the litany of notes by his side."
 
     menu:
         "\"Doesn't it get lonely here?\"":
