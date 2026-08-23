@@ -332,6 +332,7 @@ label scene_7_flower:
     mc "AH!" with vpunch
     "A searing pain wraps around my leg, like an animal had sunk its jaws deep into me."
     "I look down - and hidden by the leaves and flowers is a trap, now tourniqueting my leg."
+    play sound sword_slice
     "I try to slash at the thing, but this one is made of metal and I only end up cutting the wires further into my leg."
     mc "Damnit…"
     hide red haze
@@ -353,12 +354,13 @@ label scene_7_flower:
     play sound sword_draw
     "I hold onto my sword."
     mc "You'll regret this. Let me go, now!"
+    play sound sword_slice
     "I slash with my sword as a warning - but the movement jostles my leg, digging the trap further into my flesh. As I yelp, the hunters' eyes gleam."
     "Hunter 1" "You know what? I don't think we {i}will{/i} regret this."
     "He raises his axe, poised like an executioner. My hand sweats around my sword and I open my mouth to scream-"
     play sound dragon_fire
     play ambience fire fadein 1.0
-    "And a burst of flame exits my throat."
+    "And a burst of flame exits my throat."  with vpunch
     show fire_bad with dissolve
     "As the taste of coal and acid fills my mouth, choking and smothering, I can hear the screams get louder."
     "Hunter 1" "What?! How is this-{i}argh!{/i}"

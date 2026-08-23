@@ -1,11 +1,14 @@
 label dark_end:
     nvl clear
+    play ambience creepy fadein 0.5 fadeout 0.5
     n "It's the best option for me."
     n "Even if he won't understand in the moment… it's for the best."
     # fade out
     # fade 
     scene interior night:
         zoom 0.5 align (0.5, 0.5)
+    show layer screens:
+            matrixcolor TintMatrix("#cecee2")
     show darken 
     with fade
     
@@ -85,25 +88,29 @@ label dark_end:
             n "I can't take the moment."
             n "I breathe out, letting the knife hang by my side."
             n "There is no world in which I can do this and remain human. No monster, no fear, no force could ever be powerful enough for me to commit such an atrocity."
-            nvl clear
+            play ambience fireplace fadein 0.5 fadeout 0.5
             n "I back away and place the knife back on the counter. Atticus will never know how far I let myself abandon everything honorable."
-            "I hear him twitch behind me."
-            $ glasses = False
             window hide
             $ quick_menu = False
             hide darken with dissolve
-            $ nvl_mode = True
+            $ nvl_mode = False
             nvl clear
             window auto show
             $ quick_menu = True
-            show atticus econfused bneutral mpout wiht dissolve
+            "I hear him twitch behind me."
+            $ glasses = False
+            show atticus econfused bneutral mpout with dissolve
             at "[povname]...?"
             "I turn around and smile."
             mc "Go back to sleep. I just needed to walk around."
             at ehappy_c mhappy_c "Mmm…"
+            hide atticus with dissolve
             "He's back to dreaming in moments."
             "I climb back into bed. I don't sleep well."
+            show layer screens:
+                matrixcolor None
             # fade out
+            $ nvl_mode = True
             jump scene_7_flower
 
 
@@ -111,7 +118,13 @@ label tragic_end_1:
     hide darken with dissolve
     at "[povname]..."
     "..."
+    window hide
+    $ quick_menu = False
+    show darken with dissolve
+    $ nvl_mode = True
     nvl clear
+    window auto show
+    $ quick_menu = True
     n "There is nothing else to say. I've said my piece, and Atticus has said his."
     n "He continues to patch me up, wrapping me in bandages and soothing my head with cool water from a rag."
     n "When he is content, he remains silent, before setting a bowl of stew by my bedside and tending to the hearth, his back to me."
@@ -123,12 +136,14 @@ label tragic_end_1:
         n "I pack my bags and head out the door. I leave Atticus behind, I leave that damned poacher camp behind."
         n "I try to leave my curse behind, but it is never too far from me."
         nvl clear
+        scene blackout with dissolve
         n "No matter where I run, it follows, the shadows of great wings and a whipping tail just behind me."
     elif mentality == 3:
         n "I'm not sure how many bowls he leaves out for me. Of how many days pass by before I am sick to my stomach at its very stench."
         n "As soon as I can stumble to my feet, I leave. I don't understand how he could ever be around me for as long as he was."
         n "So I leave the hut behind with nothing but the monstrosity on my skin and sword in my clawed hand."
         nvl clear
+        scene blackout with dissolve
         n "It's time to slay a dragon."
 
     $ persistent.main_menu_background = "tragic_end_1"
