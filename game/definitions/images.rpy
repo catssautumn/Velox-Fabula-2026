@@ -3,6 +3,7 @@ image forest day = "images/bgs/forest day.webp"
 image forest night = "images/bgs/forest night.webp"
 image interior day = "images/bgs/interior day.webp"
 image interior night = "images/bgs/interior night.webp"
+image blackout = "images/bgs/blackout.png"
 
 ## BG Effects
 image red haze = "images/bgs/red haze.webp"
