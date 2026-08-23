@@ -224,25 +224,26 @@ label best_end:
     "Instinctively, I unfurl my wing and shelter Atticus underneath."
 
     if mc_crush == True:
+        $ blush_light = True
         mc "Unfortunately, you're no flower, although you are as pretty as one. Take care not to catch a cold."
-        at "Th-thank you..."
+        at eshocked mshocked bshocked "Th-thank you..."
     else:
         mc "Unfortunately, you're no flower. Take care not to catch a cold."
-        at "Thank you!"
+        at mhappy_c ehappy_c bhappy "Thank you!"
 
 
-    at "This reminds me of how we first met. It was raining then too."
+    at esad_la mhappy_c bneutral "This reminds me of how we first met. It was raining then too."
     mc "Mildly put, yes, it was."
     mc "It was a fierce storm that caught me by surprise. I had to seek shelter and wound up finding you."
-    at "I would've died that day if it weren't for you."
+    at ehappy_c mhappy_c "I would've died that day if it weren't for you."
     mc "And I would've also succumbed to despair from the curse had it not been for you."
-    at "Oh! You're very welcome, though anyone would've done the same."
+    at ehappy mhappy_o "Oh! You're very welcome, though anyone would've done the same."
     mc "Oh you'd be surprised by how people would leave one after an inconvenience."
     mc "You have the noble heart of a knight, Atticus, and I am grateful for it. Truly."
-    at "So, ah... That makes each other's knights in shining armor and damsels in distress then?"
+    at bangry mhappy_c "So, ah... That makes each other's knights in shining armor and damsels in distress then?"
     "I thump my tail against Atticus' legs in jest."
     mc "I'm still a knight! I don't need the title to have all the honor of one."
-    at "Haha, whatever you say."
+    at ehappy_c mhappy_o bhappy "Haha, whatever you say."
     # hide cg
     at esad_la msad_c bneutral "..."
     at mhappy_c tloop "So, what do you plan on doing now? You're well enough to stake out on your own, if you so wish."
