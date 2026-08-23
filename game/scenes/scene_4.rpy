@@ -193,7 +193,8 @@ label scene_4:
                 easein .5 xalign 1.0
             "As one hunter lunged, I moved back. As another swung, I ducked. As the third reached to grab me, I swung my sword up and sliced at their forearm, sending them away."
             "Swordfighting was a dance. Where they were ungraceful, I was a master of performance."
-            "Atticus remained close to my back, never far enough away for anyone to make a sudden lunge for him. It took a minimal change, just making sure my arm or chest blocked him from an easy grab, to keep him safe."
+            "Atticus remained close to my back, never far enough away for anyone to make a sudden lunge for him."
+            "It took a minimal change, just making sure my arm or chest blocked him from an easy grab, to keep him safe."
             "I had trained this way for years. These hunters were barely catching up to me."
 
     play sound sword_draw
@@ -371,7 +372,7 @@ label scene_4:
     show atticus bneutral ehappy_c
     "I hand him the dagger. He sighs and bows his head."
     at bangry up ehappy mhappy_o "Thank you, [povname]! I won't let you down."
-    show atticus msmile_c
+    show atticus mhappy_c
     "I laugh, although it soon turns into a long sigh as exhaustion floods through me."
     mc "I'm sure you won't… although I could do with a long rest. I haven't fought that much in quite a long time…"
     at bshocked up ehappy_c mhappy_o "Of course! Here, let me help you back.{w}{nw}{done} You weren't hurt again, were you?"

@@ -1,75 +1,102 @@
 label dark_end:
-    "It's the best option for me."
-    "Even if he won't understand in the moment… it's for the best."
+    nvl clear
+    n "It's the best option for me."
+    n "Even if he won't understand in the moment… it's for the best."
     # fade out
     # fade 
-    scene interior night with fade:
+    scene interior night:
         zoom 0.5 align (0.5, 0.5)
+    show darken 
+    with fade
     
-    "Atticus comes back in the evening, no more progress made than before. It's alright though - my hopes were never high to begin with."
-    "He cooks me dinner. He prepares me warm water to bathe myself. He falls asleep in his nest of blankets and cushions in the corner."
-    "I stay awake. My mind is racing, unable to slow down enough for me to fall asleep."
-    "The moonlight shines through, illuminating the cottage in a silvery, ghostly light. The shadows stretch across the floor."
-    "I am silent as I pad along the floor. There is no wind, no creak, nothing to hint that I am not asleep right now."
-    "I stand above him. He doesn't even twitch."
-    "I hold a knife in my hand. One he had used to prepare the stew with. It was easy enough to sneak it from the counter."
-    "I look down at it - and catch my reflection. I look hungry. Like a dragon waiting to add something shiny to their horde. My eyes narrow."
-    "..."
+    nvl clear 
+    n "Atticus comes back in the evening, no more progress made than before. It's alright though - my hopes were never high to begin with."
+    n "He cooks me dinner. He prepares me warm water to bathe myself. He falls asleep in his nest of blankets and cushions in the corner."
+    n "I stay awake. My mind is racing, unable to slow down enough for me to fall asleep."
+    nvl clear
+    n "The moonlight shines through, illuminating the cottage in a silvery, ghostly light. The shadows stretch across the floor."
+    n "I am silent as I pad along the floor. There is no wind, no creak, nothing to hint that I am not asleep right now."
+    n "I stand above him. He doesn't even twitch."
+    nvl clear
+    n "I hold a knife in my hand. One he had used to prepare the stew with. It was easy enough to sneak it from the counter."
+    n "I look down at it - and catch my reflection. I look hungry. Like a dragon waiting to add something shiny to their horde. My eyes narrow."
+    n "..."
 
     if mentality == 2:
-        "I can't stand the sight of me."
-        "This isn't me… is it? A monster who steals what is not theirs to take?"
-        "It is everything I have stood against for years. For my entire career, for everything before and beyond it."
-        "I know I will never recover from this."
+        n "I can't stand the sight of me."
+        nvl clear
+        n "This isn't me… is it? A monster who steals what is not theirs to take?"
+        n "It is everything I have stood against for years. For my entire career, for everything before and beyond it."
+        n "I know I will never recover from this."
     elif mentality == 3:
-        "My eyes… they look so evil. Slitted, dangerous, a snake ready to strike."
-        "The knife shakes in my hands. It's pathetic - it's all so pathetic."
-        "But the answer is so close…"
+        n "My eyes… they look so evil. Slitted, dangerous, a snake ready to strike."
+        n "The knife shakes in my hands. It's pathetic - it's all so pathetic."
+        n "But the answer is so close…"
 
-
-    "Atticus twitches beneath me, nuzzling into his blankets. He's so peaceful, fast asleep and unaware of the world around him."
-    "Of the monster with a knife less than a foot away."
-    "..."
-    "Now's the moment."
+    nvl clear
+    n "Atticus twitches beneath me, nuzzling into his blankets. He's so peaceful, fast asleep and unaware of the world around him."
+    n "Of the monster with a knife less than a foot away."
+    n "..."
+    n "Now's the moment."
+    nvl clear
 
     menu:
         "Take his horn.":
-            "I'm sorry, Atticus."
-            "I lean down, taking his jaw in my hand to hold his head still. I raise my knife."
+            n "I'm sorry, Atticus."
+            nvl clear
+            n "I lean down, taking his jaw in my hand to hold his head still. I raise my knife."
+            window hide
+            $ quick_menu = False
+            hide darken with dissolve
+            $ nvl_mode = False
+            nvl clear
+            window auto show
+            $ quick_menu = True
             "Atticus stirs…"
             $ glasses = False
-            show atticus econfused bneutral mpout
+            show atticus econfused bneutral mpout tloop with dissolve
 
             at "[povname]...?"
             # blackout
-            $ teary = True
-            at bshocked eshocked mshocked "[povname]!"
-            scene blackout
+            $ cry = True
+            at bsad eshocked mshocked up tneutral "[povname]!" with vpunch
+            scene blackout with dissolve
             "..."
+            window hide
+            $ quick_menu = False
             scene forest night with fade:
                 zoom 0.5 align (0.5, 0.5)
-
-            # bg forest
+            $ nvl_mode = True
             nvl clear
+            window auto show
+            $ quick_menu = True
             n "I walk away from the cottage. There's nothing left there anymore."
             n "My sword is heavy in my hand. My shoulders feel weighed down by something I dare not name."
             n "At my belt, I have tied the horn into the leather. When I walk, the end pokes into my thigh."
             n "The scales have already started to fade. By sunrise, I shall be human once again."
             n "Yes… human. I'm human, and always will be."
             nvl clear
-            "No matter the cost."
+            n "No matter the cost."
             $ persistent.main_menu_background = "dark_end"
             return
         "Sheathe the knife.":
             $ attempted_poach = True
-            "I…"
-            "I can't take the moment."
-            "I breathe out, letting the knife hang by my side."
-            "There is no world in which I can do this and remain human. No monster, no fear, no force could ever be powerful enough for me to commit such an atrocity."
-            "I back away and place the knife back on the counter. Atticus will never know how far I let myself abandon everything honorable."
+            n "I…"
+            n "I can't take the moment."
+            n "I breathe out, letting the knife hang by my side."
+            n "There is no world in which I can do this and remain human. No monster, no fear, no force could ever be powerful enough for me to commit such an atrocity."
+            nvl clear
+            n "I back away and place the knife back on the counter. Atticus will never know how far I let myself abandon everything honorable."
             "I hear him twitch behind me."
             $ glasses = False
-            show atticus econfused bneutral mpout
+            window hide
+            $ quick_menu = False
+            hide darken with dissolve
+            $ nvl_mode = True
+            nvl clear
+            window auto show
+            $ quick_menu = True
+            show atticus econfused bneutral mpout wiht dissolve
             at "[povname]...?"
             "I turn around and smile."
             mc "Go back to sleep. I just needed to walk around."
@@ -81,6 +108,7 @@ label dark_end:
 
 
 label tragic_end_1:
+    hide darken with dissolve
     at "[povname]..."
     "..."
     nvl clear
@@ -107,27 +135,45 @@ label tragic_end_1:
     return
 
 label tragic_end_2:
+    hide darken with dissolve
     "Atticus looks at me, his mouth opening and closing. He's searching for words, but he knows that it's meaningless."
     mc "Can I have some time to myself, please?"
     at esad_la msad_c bsad "I... Yes, of course. I'll be in the garden if you need me."
     # bg transition
-    scene blackout
-    with fade
-    "That night, the dragon taunts my dreams. It shines with red scales and breathes acrid smoke into my face, daring me with slitted eyes."
-    "My sword isn't in my hand, nor by my side. No armor sits on my shoulders. I am petrified with fear."
-    "My only option is to flee, but there is nowhere for me to run. Everywhere is up in flames, destroying everything in its wake."
-    "So, I cry out for aid. I plead to the heavens for mercy. What did I ever do to deserve this fate?"
-    "..."
-    "Miracoulously, it listens. A refreshing rain pours down, putting out the fires around me. The dragon takes flight, ascending to the skies until it's nothing but a speck."
-    "..."
-    # bg hut
-    scene interior day with fade:
+    window hide
+    $ quick_menu = False
+    scene blackout with fade
+    $ nvl_mode = True
+    nvl clear
+    window auto show
+    $ quick_menu = True
+    n "That night, the dragon taunts my dreams. It shines with red scales and breathes acrid smoke into my face, daring me with slitted eyes."
+    n "My sword isn't in my hand, nor by my side. No armor sits on my shoulders. I am petrified with fear."
+    n "My only option is to flee, but there is nowhere for me to run. Everywhere is up in flames, destroying everything in its wake."
+    nvl clear
+    n "So, I cry out for aid. I plead to the heavens for mercy. What did I ever do to deserve this fate?"
+    n "..."
+    n "Miracoulously, it listens. A refreshing rain pours down, putting out the fires around me. The dragon takes flight, ascending to the skies until it's nothing but a speck."
+    scene interior day:
         zoom 0.5 align (0.5, 0.5)
-    "For the first time in ages, I wake with a smile. My heart feels so light, so free."
-    "That's when I notice a distinct lack of scales on my body. The pains have ceased as well. Every sign of the curse has disappeared without a trait, as if it never existed in the first place."
-    "My arms are scarred from my years of battle, but it was {i}human{/i}."
+    show darken
+    show layer screens:
+        matrixcolor None
+    with fade
+    nvl clear
+    n "For the first time in ages, I wake with a smile. My heart feels so light, so free."
+    n "That's when I notice a distinct lack of scales on my body. The pains have ceased as well."
+    n "Every sign of the curse has disappeared without a trait, as if it never existed in the first place."
+    n "My arms are scarred from my years of battle, but it was {i}human{/i}."
+    $ quick_menu = False
+    $ nvl_mode = False
+    hide darken with dissolve
+    nvl clear
+    window auto show
+    $ quick_menu = True
     mc "It's- I can't-"
-    mc "Atticus, I can't believe it! The curse is gone, I'm free-"
+    mc "Atticus, I can't believe it!" with vpunch
+    mc "The curse is gone, I'm free-"
     # show cg
     # WHAT CG?
     mc "...Atticus?"
@@ -135,8 +181,13 @@ label tragic_end_2:
     "I ask him questions. I beg him to tell me what happened, what made him do this."
     "He doesn't answer me. I don't think he can. He smiles sweetly at me, as he always does. But it carries a weight and pain I can never understand."
     # blackout bg
-    scene blackout
+    window hide
+    $ quick_menu = False
+    scene blackout with fade
+    $ nvl_mode = True
     nvl clear
+    window auto show
+    $ quick_menu = True
     n "And I don't think I could ever begin to understand. Of why he made the choices he did, or what he saw in me that was worthy to make such a sacrifice."
     n "But he did. And my life returned to the way it once was."
     n "Maybe I came out of retirement and returned to my knightly duties."
@@ -152,9 +203,17 @@ label tragic_end_2:
     return
 
 label happy_end:
+    hide darken with dissolve
     mc "I… can't promise I'll be too bearable for a while. But I promise to try."
     "He remains calm, fussing over my wounds and my back like a worried mother. But more than that - he cannot wipe the smile from his face."
+    play music warm fadein 0.5 fadeout 0.5
+    window hide
+    $ quick_menu = False
+    show darken with dissolve
+    $ nvl_mode = True
     nvl clear
+    window auto show
+    $ quick_menu = True
     n "True to his word, he helps me through my transformation. He teaches me how to survive in the wild."
     n "Of course, I already knew how to hunt, make a fire, set up a tent..."
     n "But he taught me which herbs were useful for a burn, and which one would make me dead within a minute."
@@ -168,7 +227,16 @@ label happy_end:
     n "But there are still positives. With sufficient knowledge from Atticus, I can move out on my own."
     n "Thanks to my draconic eyesight, I can navigate even the darkest of nights. It's then that I use it as my chance to strike hidden foes and protect the kingdom I still love."
     n "People even begin to whisper about me, a mysterious and noble hero who disappeared into the shadows after being released from their post."
-    # bg outside cottage
+    window hide
+    $ quick_menu = False
+    $ nvl_mode = False
+    show layer screens:
+        matrixcolor None
+    scene outside with dissolve:
+        zoom 0.5
+    nvl clear
+    window auto show
+    $ quick_menu = True
     "But here, I can take off my helm. I take the time to emerge from the unknown to pay a certain unicorn a visit. Mostly for his company but..."
     $ glasses = True
     show atticus ehappy_c mhappy_o with dissolve
@@ -178,31 +246,46 @@ label happy_end:
     return
 
 label best_end:
-    "I'm not fully convinced I can do this. But with Atticus by my side, I'll sure as hell try."
-    "He smiles so brightly as I answer him. He continues to work on my injuries, soothing my back with cool water and salves, day in and day out."
-    "He doesn't stop. I don't think Atticus is even capable of stopping his caring. And I wouldn't want him to."
+    window hide
+    $ quick_menu = False
+    $ nvl_mode = True
+    nvl clear
+    window auto show
+    $ quick_menu = True
+    n "I'm not fully convinced I can do this. But with Atticus by my side, I'll sure as hell try."
+    n "He smiles so brightly as I answer him. He continues to work on my injuries, soothing my back with cool water and salves, day in and day out."
+    n "He doesn't stop. I don't think Atticus is even capable of stopping his caring. And I wouldn't want him to."
     nvl clear
     n "The next few weeks are grueling. The curse latches to my body, sprouting large, red wings and tail. Horns weigh on my head and my eyes are slitted."
     n "But just as Atticus surmised, the pains ceased. Now it was just a matter of acclimating to my new appendages."
     n "I've accidentally broken my fair share of pitchers and vials bumping into everything. I swear they have a mind of their own, but my roommate doesn't seem to mind, thankfully."
     n "Now, the forest is slowly growing back since the fire. Signs of new life bloom and Atticus is determined to restock his supply of herbs."
-    # bg forest
+    play music happy_end fadein 0.5 fadeout 0.5
     
+    window hide
+    $ quick_menu = False
+    $ nvl_mode = False
     scene forest day with fade:
         zoom 0.5 align (0.5, 0.5)
+    show layer screens:
+        matrixcolor None
+    nvl clear
+    window auto show
+    $ quick_menu = True
     "In the end, we both got carried away and wound up near the edge of the woods."
     "Not too far from us, I can see the main road that loops around to the distant town I was journeying to."
     "I would've been wary of other travelers too, but this time of year, everyone else is taking a different route into the castle walls to celebrate the king's birthday."
     "I recall last year's banquet. The streets were abuzz with laughter and the aroma of delicious food permeated the air."
     $ glasses = True
-    show atticus esad_la msad_c bsad with dissolve
+    show atticus esad_la msad_c bsad tloop with dissolve
     at "Do... Do you miss your old life?"
     mc "I do... But only from time to time."
+    show atticus bshocked eshocked mshocked up 
     mc "But I wouldn't change my path here for anything."
 
     if mc_crush == True:
         mc "After all, it led me to the most kind-hearted, gentlest, and bravest unicorn in the world."
-        $ blush_heavy
+        $ blush_heavy = True
         show atticus eshocked bshocked mshocked
         "I look at Atticus besides me, not bothering to guise the love and affection I feel for him."
         show atticus esad_la mpout bsad twag
@@ -216,7 +299,8 @@ label best_end:
         mc "Yes, yes, savour my presence for as long as you need."
 
 
-    # drizzle animation + ambience
+    show rain
+    play ambience rain fadein 0.5 fadeout 0.5 volume 1.5
     mc "Oh, it's a sunshower!"
     $ blush_heavy = False
     at mhappy_c ehappy bhappy tneutral "Now that forest can flourish even more."
@@ -294,8 +378,13 @@ label best_end:
 
     mc "I have a good feeling this is going to be quite the memorable journey."
     # $ bg half black out
-    scene blackout with dissolve
+    show darken with dissolve
+    window hide
+    $ quick_menu = False
+    $ nvl_mode = True
     nvl clear
+    window auto show
+    $ quick_menu = True
     n "And what a memorable journey it was."
     n "Just as promised, I took Atticus across the lands I was familiar with and more. It wasn't easy to avoid human crowds, but we did stumble across people in similar situations to us."
     n "I admit that I've never noticed them during my time as a knight, but now that I am..."

@@ -425,6 +425,7 @@ label scene_7_flower:
     at mhappy_o "Got it!"
     "The trap springs open around my ankle. He immediately stands over me, grabbing my arm and hauling me up onto my weak legs."
     at bsad msad_c "That's it, just lean on me. I'm going to get you out of here…"
+    show darken with dissolve
     "I hadn't thought him to be so strong, but he holds me so firmly against his side, moving me through the brush with ease."
     "I can feel the heat receding. My mind reels, still flooded with panic and near-death worries…"
     "But I trust Atticus. If there's one thing in this world I can be sure of, it's him."

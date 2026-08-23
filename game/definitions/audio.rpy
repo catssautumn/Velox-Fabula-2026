@@ -21,6 +21,7 @@ define audio.forest = "audio/ambience/forest.ogg"
 define audio.fire = "audio/ambience/fire.ogg"
 define audio.crowd_panic = "audio/ambience/crowd_panic.ogg"
 define audio.creepy = "audio/ambience/creepy.ogg"
+define audio.rain = "audio/ambience/rain.ogg"
 
 ## ~ Music ~ ##
 define audio.main_theme = "audio/music/main theme.ogg"

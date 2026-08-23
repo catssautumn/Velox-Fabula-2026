@@ -22,9 +22,11 @@ label scene_8:
     "Atticus, facing the fire just to make sure I escaped…"
     "I blink, trying to focus on him. His arms are wrapped in their own bandages, a faintly herbal smell surrounding us both that reminds me of the salves he used for my ribs."
     "Not quite as bad as me, but he's still far more hurt than I ever want him to be."
+    show atticus bsad eneutral_o msad_c
     mc "You got hurt…"
     "I can now see the purplish bags under his eyes. Despite his exhaustion, he smiles at me."
     at bhappy mhappy_o "I got you out. That's all that matters right now."
+    show atticus mhappy_c
 
     if mentality == 1:
         "Through all the pain and all the fear, what comes through is an immense and undying gratitude."
@@ -39,41 +41,56 @@ label scene_8:
     show atticus bshocked eshocked mshocked up
     mc "Ngh!" with vpunch
     "Another wave of pain shoots through my back, my spine tingling as though the fire still raged inside it. I bite my tongue, trying to keep the cries back-"
-    at "[povname], stop!"
+    at bsad @ msad_o "[povname], stop!"
     "He gently pries my jaw open as blood drips from my mouth - new fangs pierced the flesh, large and bloody in my mouth."
     "It's hard to think through the pain. But I reach up and grasp his arm."
     mc "The Queen's promise… did you find it?"
+    show atticus bsad ehappy mhappy_c mid tloop 
     "He takes my hand and places it back in front of me."
-    at bsad ehappy mhappy_c mid tloop "We can talk about it once you're through this spell-"
+    at tneutral @ mhappy_o "We can talk about it once you're through this spell-"
+    show atticus msad_c
     mc "No! No, Atticus - did you find the flower?"
     "I can feel my body changing. My bones feel close to snapping. My back may soon split open. There is a roiling heat that is soon to explode inside of me."
+    show atticus down msad_c tloop
     mc "I don't know if I have much longer."
+    show atticus eneutral_la
+    $ teary = True
     "Atticus pauses… and then his face crumbles. He shakes his head."
     at esad_la msad_c "The fire… it burned the only patch I could see. I only found the remnants as I was pulling you away from the inferno."
     "..."
     mc "Isn't there… anything we can do?"
+    $ teary = False
+    $ cry = True
     "Atticus chokes back a sob. He shakes his head."
     at esad "The fire… it was too much. They won't grow back before the transformation. I'm… I'm sorry."
+    show darken with dissolve
     "..."
     "That's it then. I'm going to become a dragon."
     "Wings will sprout from my back. I will breathe fire and my claws will never know softness again."
     "Perhaps it is only a matter of time before the curse goes further, beyond the physical. Will my mind fall to that of a beast's too?"
-    play music main_theme fadein 0.5 fadeout 0.5
     "I don't have long left. I can barely think through the pain."
     "..."
+    hide darken
+    show atticus esad mhappy_c
+    with dissolve
+    play music main_theme fadein 0.5 fadeout 0.5
     "Atticus hand brushes over my forehead. It is blissfully cool."
-    at "I… I can't promise that this will be easy."
-    at "But… the pain will fade. Time will pass. You can figure out how to adapt to this new life."
+    at @ mhappy_o "I… I can't promise that this will be easy."
+    at @ mhappy_o "But… the pain will fade. Time will pass. You can figure out how to adapt to this new life."
     mc "Atticus…"
     "He smoothes a sweat-soaked strand of hair from my head."
-    at "We may not be able to reverse it. But we don't have to let it control you."
-    at mhappy_c "I… don't think it will be easy, learning how to live again. But… I'm here."
+    $ teary = True
+    $ cry = False
+    at eneutral_c mshocked "We may not be able to reverse it. But we don't have to let it control you."
+    at mid eneutral_o tneutral mhappy_o "I… don't think it will be easy, learning how to live again. But… I'm here."
+    show atticus mhappy_c
     "His smile is so small, so worried. But, at the same time, it is so strong that tears well in my eyes."
-    at "I can help you navigate your way through it." 
-    at esad_la "I know it's… an isolating experience. But you don't have to be alone. We can find ways of making this life comfortable for you again."
+    at bshocked ehappy_c @ mhappy_o "I can help you navigate your way through it." 
+    at bneutral esad_la @ msad_o "I know it's… an isolating experience. But you don't have to be alone."
+    at eneutral_o @ mhappy_o "We can find ways of making this life comfortable for you again."
     mc "The humans treat you so horribly… I don't know if I can…"
     "I cringe through the pain. Atticus swallows, but takes my hand and squeezes it tight."
-    at esad "I know. And you can - it will be hard, but you will find your way through this."
+    at bsad esad @ msad_o "I know. And you can - it will be hard, but you will find your way through this."
     "My back burns. I grit my teeth."
     "Maybe this is only temporary. I am scared beyond my wits, transforming into a terrible creature…"
 
@@ -81,7 +98,6 @@ label scene_8:
         "But I'm not alone. Not now."
     else:
         "But I don't have to be alone."
-
 
     mc "I… I don't know…"
     at bhappy mhappy_c ehappy_c "You don't have to know now. We can figure things out. But… I believe in you."
@@ -91,8 +107,9 @@ label scene_8:
         at "If anyone can find it in them to live their life in spite of a curse, it's you."
         at ehappy "Stay with me. Let me help you."
 
-
     "He looks at me with so much belief, so much honestly. I cannot think of a more honorable man in my entire life."
+    show darken with dissolve
+    $ teary = False
     "Another wave of pain overtakes me. I duck my head, curling into myself."
     "Here was where I decided - whether I could stand to live with this, whether I could even fathom living anew."
     "Whether I would remain a knight, or fail to meet the beast within…"
