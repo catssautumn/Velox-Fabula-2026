@@ -359,6 +359,7 @@ label scene_7_flower:
 
     at "[povname]!"
     "My eyes fly open."
+    $ glasses = True
     show atticus bangry eshocked msad_c
     # if this is a cg just don't worry about it
     with dissolve
