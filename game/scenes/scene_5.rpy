@@ -18,7 +18,7 @@ label scene_5:
     menu:
         "Maybe those hunters were right…":
             $ mentality = 2
-            n "Part of me baulks at acknowledging those miscreants as right… but it's hard to deny."
+            n "Part of me balks at acknowledging those miscreants as right… but it's hard to deny."
             n "The parts of me I can see with my own eyes are no longer human. They are scaled, red and angry, ripping holes in innocent folks' bedsheets."
             n "I can't hide my arms anymore. The rot has spread too far."
             n "But… I am still human. I think with my own head and speak with my own voice."
@@ -350,7 +350,7 @@ label scene_5:
         mc "It's okay. Thank you for healing me."
         $ blush_light = False
 
-    show atticus bneutral eneutral_o msmile_c
+    show atticus bneutral eneutral_o mhappy_c
     "Atticus smiles."
     at msmile_o up mshocked tneutral "But enough about me! You're a knight, aren't you?"
     mc "Well…"

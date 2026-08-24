@@ -36,10 +36,10 @@ screen main_menu():
             textbutton _("Settings") action [ShowMenu("preferences"), SetVariable("menu_use", "settings")]
 
         
-        frame:
-            background None
-            xalign 0.5
-            textbutton _("Gallery") action ShowMenu("gallery") # REPLACE WITH GALLERY LATER
+        #frame:
+            #background None
+            #xalign 0.5
+            #textbutton _("Gallery") action ShowMenu("gallery") # REPLACE WITH GALLERY LATER
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
