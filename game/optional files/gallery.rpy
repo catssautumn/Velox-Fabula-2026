@@ -14,7 +14,7 @@ init python:
     ## For convenience's sake: list off all the gallery image
     ## names we're going to use in this gallery
     gallery_buttons = [
-        'xia_cg_1', 'ashwin_cg_1', 'zoran_cg_1'
+        'cg1', 'cg1_2', 'cg2', 'cg3', 'cg4', 'cg5'
     ]
 
     ## Set up the gallery
@@ -35,6 +35,21 @@ init python:
     g.button("zoran_cg_1")
     g.unlock_image("cg zoran1")
 
+    g.button("cg1")
+    g.unlock_image("images/cgs/cg1_scared.webp")
+    g.button("cg1_2")
+    g.unlock_image("images/cgs/cg1_angry.webp")
+
+    g.button("cg2")
+    g.unlock_image("images/cgs/cg2_big.webp")
+    g.button("cg3")
+    g.unlock_image("images/cgs/cg3_big.webp")
+
+    g.button("cg4")
+    g.unlock_image("images/cgs/cg4.webp")
+    g.button("cg5")
+    g.unlock_image("images/cgs/cg5.webp")
+
 ## Declarations for the images used in the gallery. May or may not
 ## be needed if you're using Ren'Py's automatic image names.
 image cg xia1 = Transform("#bd580a", xysize=(config.screen_width, config.screen_height))
@@ -44,6 +59,24 @@ image cg zoran1 = Transform("#8157b9", xysize=(config.screen_width, config.scree
 ## CG 1
 image cg1 scared = "images/cgs/cg1_scared.webp"
 image cg1 angry = "images/cgs/cg1_angry.webp"
+
+## CG 2 (bigger version for gallery viewing)
+image cg2 = "images/cgs/cg2.webp"
+image cg2_big = "images/cgs/cg2_big.webp"
+
+## CG 3 (bigger version for gallery viewing)
+image cg3 = "images/cgs/cg3.webp"
+image cg3_big = "images/cgs/cg3_big.webp"
+
+## CG 4
+image cg4:
+    "images/cgs/cg4.webp"
+    zoom 0.5
+
+## CG 5
+image cg5:
+    "images/cgs/cg5.webp"
+    zoom 0.5
 
 ## This is just the button name + _thumb to make it easier to iterate
 image xia_cg_1_thumb = Transform("#bd580a", xysize=gallery_thumb_size)
@@ -56,16 +89,19 @@ screen gallery():
     add "gui/game_menu/background.png"
 
 
-    use game_menu()
-    add "gui/game_menu/label_save.png" # REPLACE THIS LATER
-
+    use game_menu("")
+    add "gui/game_menu/label_gallery.png"
 
     fixed:
         style_prefix 'gal'
         ## Organize the gallery images into a grid
-        grid 2 2:
-            for btn in gallery_buttons:
-                add g.make_button(btn, "{}_thumb".format(btn))
+        grid 2 3:
+            add g.make_button("cg1", "images/cgs/cg1_scared.webp")
+            add g.make_button("cg1", "images/cgs/cg1_angry.webp")
+            add g.make_button("cg2", "images/cgs/cg2.webp")
+            add g.make_button("cg3", "images/cgs/cg3.webp")
+            add g.make_button("cg4", "images/cgs/cg4.webp")
+            add g.make_button("cg5", "images/cgs/cg5.webp")
             ## If you're not using the loop, this will look instead like:
             # add g.make_button("button_name", "button_thumbnail.png")
 
