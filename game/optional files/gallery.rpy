@@ -53,6 +53,16 @@ image cg2_big = "images/cgs/cg2_big.webp"
 image cg3 = "images/cgs/cg3.webp"
 image cg3_big = "images/cgs/cg3_big.webp"
 
+## CG 4
+image cg4:
+    "images/cgs/cg4.webp"
+    zoom 0.5
+
+## CG 5
+image cg5:
+    "images/cgs/cg5.webp"
+    zoom 0.5
+
 ## This is just the button name + _thumb to make it easier to iterate
 image xia_cg_1_thumb = Transform("#bd580a", xysize=gallery_thumb_size)
 image ashwin_cg_1_thumb = Transform("#127151", xysize=gallery_thumb_size)

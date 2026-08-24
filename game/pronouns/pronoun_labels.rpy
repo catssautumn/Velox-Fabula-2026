@@ -47,7 +47,7 @@ label test_one_pronoun_set():
             $ pronoun = "he/him"
 
     "Here is some sample dialogue:"
-    call sample_pronoun_sentences()
+    call sample_pronoun_sentences() from _call_sample_pronoun_sentences
     "That's all for this demo."
     jump test_select_pronouns
 
@@ -100,7 +100,7 @@ label test_custom_pronouns():
         "Masculine e.g. man, son, brother, boy, husband, boyfriend":
             $ terms = "masculine"
     "Understood! Here are some example sentences with custom pronouns and your term preferences."
-    call sample_pronoun_sentences()
+    call sample_pronoun_sentences() from _call_sample_pronoun_sentences_1
     jump test_select_pronouns
 
 
@@ -231,7 +231,7 @@ label multiple_pronouns_demo():
     "Your current pronouns are [they]/[them]."
     "If you have randomization enabled per line, you might notice your pronouns change over the course of these next demo lines."
     "If instead you have randomization enabled per scene, your pronouns are randomized at the start of the set of example sentences."
-    call sample_pronoun_sentences()
+    call sample_pronoun_sentences() from _call_sample_pronoun_sentences_2
     menu pronoun_end_choice:
         "Would you like to see the sample pronoun lines again?"
         "Yes":
@@ -239,7 +239,7 @@ label multiple_pronouns_demo():
             ## their pronouns again here so you can test
             ## the per-scene randomization.
             $ randomize_pronouns()
-            call sample_pronoun_sentences()
+            call sample_pronoun_sentences() from _call_sample_pronoun_sentences_3
             jump pronoun_end_choice
         "No":
             pass

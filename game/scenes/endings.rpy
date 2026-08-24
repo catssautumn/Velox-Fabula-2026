@@ -189,16 +189,23 @@ label tragic_end_2:
     mc "It's- I can't-"
     mc "Atticus, I can't believe it!" with vpunch
     mc "The curse is gone, I'm free-"
-    # show cg
-    # WHAT CG?
+    window hide
+    hide screen flower_frame
+    scene cg5 with dissolve:
+        zoom 2.0 yoffset -200 xalign 0.4
+        ease 1 yoffset -400
+    pause 1
+    window auto show
     mc "...Atticus?"
     "Where a crooked yet beautiful horn sat, lies a scar. As I rise up, I can feel its weight on a cord around my neck, the horn rested against my heart."
+    scene cg5 with dissolve
     "I ask him questions. I beg him to tell me what happened, what made him do this."
     "He doesn't answer me. I don't think he can. He smiles sweetly at me, as he always does. But it carries a weight and pain I can never understand."
     # blackout bg
     window hide
     $ quick_menu = False
     scene blackout with fade
+    show screen flower_frame
     $ nvl_mode = True
     nvl clear
     window auto show
@@ -319,7 +326,11 @@ label best_end:
     mc "Oh, it's a sunshower!"
     $ blush_heavy = False
     at mhappy_c ehappy bhappy tneutral "Now that forest can flourish even more."
-    # drizzle animation + ambience, show cg
+    window hide
+    hide screen flower_frame
+    scene cg4 with dissolve:
+        zoom 1.5 xalign 0.0 yoffset -200
+    window auto show
     "Instinctively, I unfurl my wing and shelter Atticus underneath."
 
     if mc_crush == True:
@@ -330,7 +341,7 @@ label best_end:
         mc "Unfortunately, you're no flower. Take care not to catch a cold."
         at mhappy_c ehappy_c bhappy "Thank you!"
 
-
+    scene cg4 with dissolve
     at esad_la mhappy_c bneutral "This reminds me of how we first met. It was raining then too."
     mc "Mildly put, yes, it was."
     mc "It was a fierce storm that caught me by surprise. I had to seek shelter and wound up finding you."
@@ -343,9 +354,14 @@ label best_end:
     "I thump my tail against Atticus' legs in jest."
     mc "I'm still a knight! I don't need the title to have all the honor of one."
     at ehappy_c mhappy_o bhappy "Haha, whatever you say."
-    # hide cg
+    scene forest day:
+        zoom 0.5 align (0.5, 0.5)
+    show screen flower_frame
+    show atticus esad_la msad_c bneutral 
+    show rain
+    with fade
     at esad_la msad_c bneutral "..."
-    at mhappy_c tloop "So, what do you plan on doing now? You're well enough to stake out on your own, if you so wish."
+    at mhappy_o tloop "So, what do you plan on doing now? You're well enough to stake out on your own, if you so wish."
     "He continues to look out towards the scenery ahead of us as he asks his question."
     mc "Well, obviously we're going to see the world! Climb a mountain, watch the ocean waves crash on the shore."
     mc "If we're sneaky enough, maybe we can sample the local cuisine!"
